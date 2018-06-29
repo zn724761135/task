@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人主页</title>
+    <style pyte="txet/css">
+html {
+    font-size: 312.5%;
+}
+
+body {
+    font-size: initial;
+    padding-bottom:1.5rem;
+    margin: 0;
+}
+
+h1,a,ul,li,p {
+    margin: 0;
+    text-decoration: none;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: .88rem;
+    background-color: #5fc0cd;
+}
+
+.getback {
+    position: absolute;
+    left: .35rem;
+    width: .21rem;
+    height: .21rem;
+    border-top: .03rem solid #ffffff;
+    border-right: .03rem solid #ffffff;
+    transform: rotate(225deg);
+}
+
+h1 {
+    font-size: .36rem;
+    color: #ffffff;
+}
+
+.background {
+    position: relative;
+    height: 3.3rem;
+    background: url(task1-css5.png) no-repeat center/cover;
+}
+
+.portrait {
+    position: absolute;
+    top: .78rem;
+    left: .3rem;
+    width: 1.7rem;
+    height: 1.7rem;
+}
+.top-main{
+    position: absolute;
+    top:1.16rem;
+    left:2.4rem;
+    width: 2.3rem;
+    text-align: center;
+}
+#name {
+    font-size: .36rem;
+    letter-spacing: .05rem;
+    color: #ffffff;
+}
+
+#age {
+    margin: 0 0 0 .3rem;
+    font-size: .28rem;
+    letter-spacing: .02rem;
+    color: #ffffff;
+}
+.location {
+    width: .18rem;
+    height: .23rem;
+    margin: 0 .05rem -.05rem .05rem;
+}
+#dizhi {
+    font-size: .24rem;
+    letter-spacing: .01rem;
+    color: #ffffff;
+}
+.center-box{ 
+    display: flex;
+    align-items: center;
+    height:1rem;
+    border: .01rem solid #e1e5e7;
+    background-color: #ffffff;
+    
+}
+ul,li{
+    padding: 0;
+    font-size:.32rem;
+    list-style:none;  
+}
+strong::before{
+     display: inline-block;
+     content:"";
+     width: .01rem;
+     height: .26rem;
+     border: .01rem solid #5fc0cd;
+     margin: 0 .3rem 0 .3rem;
+}
+#wjx{
+    padding-left: .4rem;
+    margin:0 .1rem 0 .61rem;
+    background: url(task5-css5.png) no-repeat 0 -.46rem;
+}
+#wjx-right{
+    padding-left: .4rem;
+    margin:0 .1rem 0 -.2rem;
+    background: url(task5-css5.png) no-repeat 0 -.46rem;
+    
+}
+
+.main-font{
+    margin: 0 0 0 .61rem;
+    white-space:nowrap;
+    color: #999999;
+}
+span::after{
+    display: inline-block;
+    content:"";
+    width: .008rem;
+    height: .26rem;
+    border: .008rem solid #E1E5E7;
+    margin:  0 .3rem 0 .3rem;
+}
+.onespan::after{
+    display: inline-block;
+    content:"";
+    width: .008rem;
+    height: .26rem;
+    border: .008rem solid #E1E5E7;
+    margin:  0 0 0 .3rem;
+}
+.nonespan::after{
+    content:none;
+}
+
+
+.price{
+    color: #E26163;
+}
+.center-bottom-box{
+    display: flex;
+    align-items: center;
+    height:50%;
+    border: .01rem solid #e1e5e7;
+    background-color: #ffffff;
+    overflow:hidden;
+}
+
+.zwjs{
+    padding: .3rem .3rem .3rem 0;
+}
+.footer-box{
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 1.5rem;
+    background-color: #ffffff;
+}
+.liuyan{
+    width: 50%;
+    height: .88rem;
+    margin: 0 .25rem  .04rem .37rem;
+    outline: none;
+    border-radius:.15rem;
+    border: .01rem solid #5fc0cd;
+    color:#5FC0CD;
+    background-color: #ffffff;
+}
+.contact{
+    width: 50%;
+    height: .88rem;
+    border: none;
+    outline: none;  
+    border-radius:.15rem;
+    margin: 0  .37rem .04rem  0;
+    color:#ffffff;
+    background-color:#5FC0CD;
+}
+    
+    </style>
+</head>
+<body>
+    <header>
+        <a class="getback" href="www.xxxxx.com"></a>
+        <h1>个人主页</h1>
+    </header>
+    <main>
+        <div class="background">
+             <img class="portrait" src="task3-css5.png">
+                 <div class="top-main">
+                    <span class="nonespan" id="name">高素雅</span>
+                    <span class="nonespan" id="age">55岁</span>
+                    <a href="www.xxxxx.com">
+                          <img class="location" src="task2-css5.png">
+                     </a>
+                     <span class="nonespan" id="dizhi">京城.四方.报纸林</span>
+                </div>
+         </div>   
+         <ul>
+             <li class="center-box">
+                <strong>专业技能</strong>
+             </li>
+             <li class="center-box">
+                <span  class="noespan" id="wjx">住家</span>
+                <span  class="nonespan" id="wjx-right">不含餐</span>
+             </li>
+             <li class="center-box">
+                <span class="main-font">从业年限</span>
+                <p>0~3年</p>
+             </li>
+             <li class="center-box">
+                <span class="main-font">工作时间</span>
+                <p>全天</p>
+             </li>
+             <li class="center-box">
+                <span  class="main-font">服务价格</span>
+                <p class="price">25/小时</p>
+             </li>
+             <li class="center-bottom-box">
+                <span class="main-font">自我介绍</span>
+                <p class="zwjs">可以洗衣、做饭、照顾老人、在护工方面有5年的经验，经验丰富。可以洗衣、做饭、照顾老人、在护工方面有5年的经验，经验丰富。可以洗衣、做饭、照顾老人、在护工方面有5年的经验，经验丰富。</p>
+             </li>
+         </ul>  
+        </main>
+
+        <footer class="footer-box">
+            <button class="liuyan" type="button">留言</button>
+            <button class="contact" type="button">电话联系</button>
+        </footer>
+
+           
+       
+
+</body>
+</html>

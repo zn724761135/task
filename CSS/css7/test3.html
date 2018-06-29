@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>游戏结果</title>
+    <style pyte="txet/css">
+    html{
+        font-size: 312.5%;
+    }
+    body{
+        padding-bottom: 1.2rem;
+        margin: 0;
+        font-size: initial;
+    }
+    p,ul,li{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    /* header眉页 */
+    header{
+        position: sticky;
+        top: 0;
+        /* border半透明 */
+        border-bottom:.01rem solid rgba(200,200,200,.95);
+        background: #29BDE0;
+        line-height: .9rem;
+        text-align: center;
+        font-size:.34rem;
+        /* 字符间距 */
+        letter-spacing: .04rem;
+        color: #FFFFFF;
+    }
+    .left-header::before{
+        float: left;
+        content: "";
+        width: .51rem;
+        height: .6rem;
+        margin: .1rem 0 0 .2rem;
+        background: url(task-css7.png) no-repeat -2.2rem -1.78rem;
+
+    }
+    .right-header::after{
+        float: right;
+        content: "";
+        width: .51rem;
+        height: .6rem;
+        margin: .1rem .2rem 0 0;
+        background: url(task-css7.png) no-repeat -.96rem -1.82rem;
+    }
+
+    /* main主体 */
+    .main-box{
+        height: 6rem;
+        padding-top: .29rem;
+        background: #29BDE0;
+    }
+    .logo{
+        width: 3.51rem;
+        height: 2.1rem;
+        margin: auto;
+        background: url(task-css7.png) no-repeat -4.16rem 0;
+    }
+    .logo-font{
+        margin-top: -.8rem;
+        text-align: center;
+        font-size: .48rem;
+        /* 字符间距 */
+        letter-spacing: .05rem;
+        color: #FFFFFF;
+    }
+    .top-font{
+        width: 80%;
+        margin:.3rem auto .61rem auto;
+        font-size: .33rem;
+        color: #FFC865;
+    }
+    .center-headline{
+        width: 80%;
+        margin:auto;
+        font-size: .26rem;
+        color:#FFFFFF;
+    }
+    .center-box{
+        display: flex;
+        width: 80%;
+        margin: auto;
+    }
+    .center-conter{
+        margin-right: .5rem;
+        font-size: .26rem;
+        color:#FFFFFF;
+
+    }
+    .center-font{
+        width: 80%;
+        margin: auto;
+        font-size: .26rem;
+        color:#FFFFFF;
+    }
+    .bottom-box{
+        height: 1.6rem;
+        /* border半透明 */
+        border-bottom: .01rem solid rgba(53,53,53,.5);
+        background: #FFFFFF;
+    }
+    .bottom-headline{
+        display: flex;
+        justify-content:space-between;
+        width: 80%;
+        margin:auto; 
+    }
+    .left{
+        font-size: .3rem;
+        color: #515151;
+    }
+    .right{
+        font-size: .2rem;
+        color: #C7C7C7;
+    }
+    .bottom-content{
+        width: 80%;
+        margin:.28rem auto; 
+        font-size: .26rem;
+        color: #A6A6A6;
+    }
+    .bottom{
+        display: flex;
+        justify-content:space-between;
+        width: 90%;
+        margin:.1rem auto 0 auto; 
+        color: #29bde0;
+    }
+    .bottom-left{
+        font-size: .39rem;
+    }
+    .bottom-right{
+        font-size: .27rem;
+    }
+    
+
+    /* footer页尾 */
+    footer{
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 1.2rem;
+        background:rgba(41,189,224,.6);
+    }
+    .left-button{
+        width: 50%;
+        height: .86rem;
+        margin: 0 .5rem 0 .24rem;
+        border-radius: .15rem;
+        border: none;
+        background: #F66F6F;
+        outline:none;
+        font-size: .4rem;
+        color: #FFFFFF;
+    }
+    .right-button{
+        width: 50%;
+        height: .86rem;
+        margin-right: .24rem;
+        border-radius: .15rem;
+        border: none;
+        background: #FBB435;
+        outline:none;
+        font-size: .4rem;
+        color: #FFFFFF;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <span class="left-header right-header">游戏结果</span>
+    </header>
+    <main>
+        <div class="main-box">
+            <p class="logo">
+                <p class="logo-font">卧底胜利</p>
+            </p>
+            <p class="top-font">太棒了！你知道么？在捉鬼游戏中只有20%的的卧底取得游戏最终的胜利哦！</p>
+            <p class="center-headline">本次游戏共计用时0小时25分钟</p>
+            <div class="center-box">
+                <span class="center-conter">杀&emsp;手0人</span>
+                <span class="center-conter">警&emsp;察1人</span>
+                <span class="center-conter">平&emsp;民6人</span>
+            </div>
+            <div class="center-box">
+                <span class="center-conter">狙击手0人</span>
+                <span class="center-conter">医&emsp;生1人</span>
+            </div>
+            <p class="center-font">卧底词汇：爱新觉罗</p>
+            <p class="center-font">水民词汇：努尔哈赤</p>
+        </div>
+        <ul>
+            <li class="bottom-box">
+                <div class="bottom-headline">
+                    <span class="left">第1天</span>
+                    <span class="right">0小时07分</span>
+                </div>
+                <div class="bottom-content">
+                    <p>晚上：5号被杀手杀死，5号是水民</p>
+                    <p>白天：8号被全民投票投死，8号是杀手</p>
+                </div>
+            </li>
+            <li class="bottom-box">
+                <div class="bottom-headline">
+                    <span class="left">第2天</span>
+                    <span class="right">0小时07分</span>                   
+                </div>                   
+                <div class="bottom-content">                       
+                    <p>晚上：1号被杀手杀死，1号是水民</p>                       
+                    <p>白天：2号被全民投票投死，2号是杀手</p>                  
+                </div>               
+            </li>
+            <li>
+                <div class="bottom">
+                    <span class="bottom-left">第二天</span>
+                    <span class="bottom-right">0小时07分</span>
+                </div>
+            </li>
+        </ul>
+    </main>
+    <footer>
+        <button type="button" class="left-button"  onclick="location.href='1.html'">再来一局</button>
+        <button type="button" class="right-button"  onclick="location.href='www.ssss.com'">上传并分享</button>
+    </footer>
+</body>
+</html>
