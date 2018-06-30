@@ -8,6 +8,9 @@ body{
 a{
     text-decoration: none !important;
 }
+p{
+    margin:0;
+}
 
 /* header眉页 */
 .biue{
@@ -320,6 +323,7 @@ label{
     line-height: 35px;
     text-align: center;
     color: #333333;
+    z-index: 1;
 }
 .dropdown:hover .dropdown-content{
     display: block;
@@ -351,25 +355,249 @@ span.size::before{
 
 
 .size-box{
-    height: 142px;
     margin: 0;
     border: 1px solid #e7e7e7;
     color: #FBFCFF;
+}
+.size-wrap{
+    padding: 0;
+}
+.size{
+    margin: 0;
 }
 form.size{
     padding: 0;
     font-size: 16px;
     color: #666666;
 }
-div.specification{
+.overall {
+    display: flex;
+    justify-content: space-between;
+}
+div.option{
     margin-top: 28px;
+    padding:0;
+}
+div.specification{
+    display: flex;
+    margin-top: 28px;
+    padding:0;
 }
 .input-box{
-    width: 70px;
+    width:70px;
     height:30px;
+    margin: 0 3px;
     outline: none;
     font-size:10px;
 }
 .space{
-    margin-left: 61px;
+    padding: 0;
 }
+
+@media(max-width:767px){
+    .size-dropdown{
+        margin: 20px 0;
+        width: 100%;
+    }
+}
+@media(max-width:767px){
+    .size-dropdown:hover{
+        margin-bottom: 120px;
+    }
+}
+@media(min-width:768px){
+    .size-box{
+        height: 142px;
+        margin: 0;
+        border: 1px solid #e7e7e7;
+        color: #FBFCFF;
+    }
+}
+@media(max-width:575px){
+    .specification{
+       display: flex;
+       justify-content: center;
+    }
+}
+@media(max-width:575px){
+    .input-box{
+        width: 60%;
+        height:30px;
+        margin: 0 20px;
+        outline: none;
+        font-size:10px;
+    }
+}
+
+
+
+span.texture::before{
+    display: inline-block;
+    content: "";
+    width: 23px;
+    height: 20px;
+    margin-bottom: -2.5px;
+    background: url(../picture/task3-css10.png) no-repeat 0 -114px;
+}
+.main-bottom{
+    line-height: 90px;
+    font-size: 16px;
+    color: #666666;
+}
+@media(max-width:500px){
+    .main-bottom{
+        line-height: 50px;
+    }
+}
+
+
+@media(max-width:500px){
+    .min{
+        width: 50%;
+    }
+}
+@media(min-width:501px) and (max-width:991px){
+    .min{
+        width: 30%;
+    }
+}
+@media(min-width:992px){
+    .main-bottom{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+@media(max-width:767px){
+    .bottom-dropdown:hover{
+        margin-bottom: 210px;
+    }
+}
+@media(max-width:767px){
+    .bottom-dropdown{
+        margin-bottom: 20px;
+        width: 100%;
+    }
+}
+
+.bottom-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 270px;
+    border: 1px solid #e7e7e7;
+    border-top:none;
+}
+button{
+    width:179px;
+    height: 46px;
+    border:none;
+    border-radius: 5px;
+    outline: none !important;
+    background: #e15053;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+/* footer尾页 */
+.footer-top{
+    margin-top: 51px;
+    background: #F9F9F9;
+}
+.top-box{
+    padding-top: 40px;
+    font-size: 16px;
+    color: #999999 !important;
+}
+.center-font{
+    margin:0 40px;
+}
+.top-font{
+    font-size:10px;
+    color: #999999 !important;
+}
+.conter-box{
+    margin-top:20px;
+}
+.guide{
+    margin-left:40px;
+}
+.top-font:hover{
+    color: #1D7AD9 !important;
+}
+.right{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 40px;
+}
+.tel{
+    margin: 8px 20px 12px 0;
+    display: block;
+    font-size:10px;
+    color: #999999 !important;
+}
+.tel:hover{
+    color: #1D7AD9 !important;
+}
+.erweima{
+    width:100px;
+    height:100px;
+    margin-bottom: 20px;
+}
+@media(min-width:767px) and (max-width:991px){
+    .daping{
+    flex: 0 0 50%;
+    max-width: 50%;
+    }
+}
+
+@media(max-width:991px){
+    .daping-center{
+       margin-top:20px;
+    }
+}
+
+@media(max-width:991px){
+    .offset-6{
+        margin-left:0;
+    }
+}
+@media(max-width:991px){
+    .daping-top{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+@media(max-width:767px){
+    .right{
+        display: flex;
+        justify-content: flex-start;
+        padding: 10px 0  0 30px;
+    }
+}
+@media(max-width:767px){
+    .daping{
+        flex: 0 0 100%;
+        max-width: 100%;
+        }
+}
+.botttom-blue{
+    background: #1D7AD9;
+}
+.bottom-left{
+    display: flex;
+    justify-content: flex-end;
+    line-height: 33px;
+    font-size:14px;
+    color: #FFFFFF;
+}
+.bottom-right{
+    line-height: 33px;
+    font-size:14px;
+    color: #FFFFFF;
+}
+
+
+
+
+
