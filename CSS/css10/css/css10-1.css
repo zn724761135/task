@@ -650,24 +650,24 @@ span.texture::before{
 .botttom-blue{
     background: #1D7AD9;
 }
-.bottom-left{
-    display: flex;
-    justify-content: flex-end;
-    line-height: 33px;
+.copyright-box{
+margin: 0;
+}
+.copyright{
+    margin: 0 10px;
     font-size:14px;
     color: #FFFFFF;
 }
-.bottom-right{
-    line-height: 33px;
-    font-size:14px;
-    color: #FFFFFF;
-}
-@media(max-width:991px){
-    .bottom-left,.bottom-right{
+@media(min-width:992px){
+    .copyright-box{
         display: flex;
         justify-content: center;
-        flex: 0 0 100%;
-        max-width: 100%;
+        line-height: 33px;
+    }
+}
+@media(min-width:768px) and (max-width:991px){
+    .copyright{
+        width:25%
     }
 }
 
