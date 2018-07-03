@@ -1,10 +1,24 @@
+@charset "UTF-8";
 html {
   font-size: 312.5%;
 }
 
 body {
-  font-size: initial;
+  padding: .88rem 0 1.5rem 0;
   margin: 0;
+  font-size: initial;
+}
+
+p {
+  margin: 0;
+}
+
+/*header眉页*/
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: .88rem;
 }
 
 /*# sourceMappingURL=hugong.css.map */
