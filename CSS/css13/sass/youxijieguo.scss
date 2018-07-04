@@ -1,0 +1,151 @@
+//变量
+$margin:0;
+$blue:#29BDE0;
+$white:#FFFFFF;
+$text:auto;
+$font:.26rem;
+$width:80%;
+
+
+//混合器
+@mixin flex{
+    display: flex;
+    justify-content: space-between;
+}
+@mixin guding{
+    position: fixed;
+    width: 100%;
+}
+@mixin header{
+    width: .51rem;
+    height: .6rem
+}
+@mixin text{
+    width: $width;
+    margin: $text;
+    font-size:$font;
+    color: $white;
+}
+@mixin font{
+    width:$width;       
+    font-size: $font;
+    color: #A6A6A6;
+}
+
+
+
+html{
+    font-size: 312.5%;
+}
+body{
+    padding: .72rem 0 1.2rem 0;
+    margin: $margin;
+    font-size: initial;
+}
+p{
+    margin: $margin;
+}
+
+/*header 眉页*/
+header{
+    @include flex;
+    align-items: center;
+    @include guding;
+    top: 0;
+    /* border半透明 */
+    border-bottom: .01rem solid rgba(200,200,200,.95);
+    background: $blue;
+    font-size:.34rem;
+    /* 字符间距 */
+    letter-spacing: .04rem;
+    color: $white;
+
+    a.left-header{
+        @include header;
+        margin: .1rem 0 0 .2rem;
+        background: url(../picture/task-css12.png) no-repeat -2.2rem -1.9rem;
+    }
+    a.right-header{
+        @include header;
+        margin:.1rem .2 rem 0 0 ;
+        background: url(..//picture/task-css12.png) no-repeat -.96rem -1.95rem;
+    }
+}
+
+/*main 主体*/
+div.box{
+    padding-top: .29rem;
+    background: $blue;
+
+    .logo{
+        width: 3.51rem;
+        height: 2.1rem;
+        margin: $text;
+        background: url(../picture/task-css12.png) no-repeat -4.16rem 0;
+
+        .logo-font{
+            position: absolute;
+            margin:1.3rem 0 0 .7rem;
+            font-size: .48rem;
+            /* 字符间距 */
+            letter-spacing: .05rem;
+            color: $white;
+        }
+    }
+    p.introduce{
+        width: $width;
+        margin: .3rem $text .61rem $text;
+        font-size: .33rem;
+        color: #FFC865;
+    }
+    p.time{
+        @include text;
+    }
+    div.center-box{
+        display: flex;
+        @include text;
+
+        
+        span.font{
+            margin-right: .5rem;
+        }
+    }
+    p.font{
+        @include text;
+    }
+    p.space{
+        padding-bottom: .2rem;
+    }
+}
+
+ul{
+    li.bottom-box{
+        height: 1.6rem;
+        /* border半透明 */
+        border-bottom: .01rem solid rgba(53,53,53,.5);
+        background: $white;
+
+        div.content{
+           @include flex;
+           width: $width;
+           margin: $text;
+
+           span.left{
+               font-size: .3rem;
+               color: #515151;
+           }
+           span.right{
+               font-size: .2rem;
+               color: #C7C7C7;
+           }
+        }
+        p.night{
+            @include font;
+            margin: .28rem $text 0 $text;
+        }
+        p.daytime{
+            @include font;
+            margin: auto;
+        }
+    }
+}
