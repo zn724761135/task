@@ -27,6 +27,10 @@ $guding:fixed;
     display: inline-block;
     content: "";
 }
+@mixin wjx{
+    padding-left: .4rem;
+    background: url(../picture/img.png)no-repeat 0 -.5rem;
+}
 
 
 
@@ -137,12 +141,11 @@ ul{
             }
         }
         .wjx{
-            padding-left: .4rem;
+            @include wjx;
             margin:0 .1rem 0 .61rem;
-            background: url(../picture/img.png)no-repeat 0 -.5rem;
         }
         .wjx-right{
-            @extend .wjx;
+            @include wjx;
             margin: 0 .1rem 0 -.2rem;
         }
         span.center{
