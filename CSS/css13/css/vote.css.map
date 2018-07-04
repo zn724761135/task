@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,IAAI;EACA,SAAS,EAAE,MAAM",
+"sources": ["../sass/vote.scss"],
+"names": [],
+"file": "vote.css"
+}
