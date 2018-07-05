@@ -10,15 +10,11 @@ $sjx:solid transparent;
 
 
 // 混合器
-@mixin flex{
+
+@mixin flex($x:center,$y:center){
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-@mixin juzhong{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: $x;
+    align-items: $y;
 }
 @mixin guding{
     position: fixed;
@@ -30,16 +26,16 @@ $sjx:solid transparent;
     border:none;
     outline: none;
 }
+@mixin box($w:4.5vw,$h:4.5vw){
+    width: $w;
+    height:$h;
+}
 @mixin header{
-    width:.02rem;
-    height:.5rem;
+    @include box(.02rem,.5rem );
     border: $border;
     background: $white;
 }
-@mixin picture{
-    width: 4.5vw;
-    height:4.5vw;
-}
+
 
 
 
@@ -59,7 +55,7 @@ p{
 
 /*header 眉页*/
 header{
-    @include flex;
+    @include flex(space-between,center);
     @include guding;
     top:0;
     height: .88rem;
@@ -68,16 +64,14 @@ header{
     color: $white;
 
     div.left-box{
-        @include juzhong;
-        width: .4rem;
-        height: .43rem;
+        @include flex;
+        @include box(.4rem,.43rem );
         padding:.03rem;
         margin-left:.23rem;
         border: $border;
 
         button.content{
-            width: .34rem;
-            height: .32rem;
+            @include box(.34rem,.32rem );
             @include buttno;
             padding: .11rem 0;
             border-top: $thick-border;
@@ -86,9 +80,8 @@ header{
         }
     }
     div.right-box{
-        @include flex;
+        @include flex(space-between,center);
         width: .5rem;
-        margin-right:.23rem;
 
         a.content{
             display: inline-block;
@@ -110,7 +103,7 @@ header{
 // 主体
 div.top-box{
     position: relative;
-    @include flex;
+    @include flex (space-between,center);
     height: .82rem;
     background: #b9e9f5;
 
@@ -131,8 +124,7 @@ div.top-box{
         color: #464646;
     }
     button.right-circle{
-        width: .52rem;
-        height: .52rem;
+        @include box(.52rem,.52rem );
         margin-right: .17rem;
         @include buttno;
         border-radius :100%;
@@ -161,20 +153,19 @@ div.center-box{
 
     /*下拉框*/
     div.dropdown{
-        width: 23.5vw;
-        height: 23.5vw;
+        @include box(23.5vw,23.5vw );
         margin: 0 4vw 8.3vw 4vw;
         border: .05rem $border-style;
         background: #F5C97B;
 
         span.role{
-            @include juzhong;
+            @include flex;
             height: 75%;
             font-size: .1rem;
             color:#565656;
         }
         span.number{
-            @include juzhong;
+            @include flex;
             height: 25%;
             background: rgba(26,153,183,.5);
             font-size: .23rem;
@@ -189,25 +180,24 @@ div.center-box{
             display: none;
             
             li.killer{
-                @include picture;
+                @include box;
                 background: url(../picture/task2-css12.png) no-repeat 0 0/100%;
             }
             li.judge{
-                @include picture;
+                @include box;
                 background: url(../picture/task2-css12.png) no-repeat 0 30%/100%;
             }
             li.sniper{
-                @include picture;
+                @include box;
                 background: url(../picture/task2-css12.png) no-repeat 0 67%/100%;
             }
             li.doctor{
-                @include picture;
+                @include box;
                 background: url(../picture/task2-css12.png) no-repeat 0 100%/100%;
             }
         }
         &.dropdown:hover .dropdown-content{
-            display: flex;
-            justify-content: space-between;
+            @include flex(space-between,flex-flow);
         }
     }
 }
@@ -221,8 +211,7 @@ footer{
     text-align: center;
 
     .button-box{
-        width: 75%;
-        height: .87rem;
+        @include box(75%,.87rem );
         @include buttno;
         background: #FBB435;
         font-size: .4rem;

@@ -8,17 +8,18 @@ $width:80%;
 
 
 //混合器
-@mixin flex{
+@mixin flex($x:center,$y:center){
     display: flex;
-    justify-content: space-between;
+    justify-content:$x;
+    align-items: $y;
 }
 @mixin guding{
     position: fixed;
     width: 100%;
 }
-@mixin header{
-    width: .51rem;
-    height: .6rem
+@mixin box($w:.51rem,$h:.6rem){
+    width: $w;
+    height: $h;
 }
 @mixin text{
     width: $width;
@@ -58,8 +59,7 @@ p{
 
 /*header 眉页*/
 header{
-    @include flex;
-    align-items: center;
+    @include flex(space-between, center);
     @include guding;
     top: 0;
     /* border半透明 */
@@ -71,12 +71,12 @@ header{
     color: $white;
 
     a.left-header{
-        @include header;
+        @include box;
         margin: .1rem 0 0 .2rem;
         background: url(../picture/task-css12.png) no-repeat -2.2rem -1.9rem;
     }
     a.right-header{
-        @include header;
+        @include box;
         margin:.1rem .2 rem 0 0 ;
         background: url(..//picture/task-css12.png) no-repeat -.96rem -1.95rem;
     }
@@ -88,8 +88,7 @@ div.box{
     background: $blue;
 
     .logo{
-        width: 3.51rem;
-        height: 2.1rem;
+        @include box(3.51rem,2.1rem );
         margin: $text;
         background: url(../picture/task-css12.png) no-repeat -4.16rem 0;
 
@@ -139,7 +138,7 @@ ul{
         background: $white;
 
         div.content{
-           @include flex;
+            @include flex(space-between, center);
            width: $width;
            padding-top: .1rem;
            margin: $text;
@@ -163,7 +162,7 @@ ul{
         }
     }
     div.bottom{
-        @include flex;
+        @include flex(space-between, center);
         width: 90%;
         margin: .1rem $text 0 $text;
         color: $blue;
@@ -181,8 +180,7 @@ ul{
 footer{
     @include guding;
     bottom: 0;
-    @include flex;
-    align-items: center;
+    @include flex(space-between, center);
     height: 1.2rem;
     background:rgba(41,189,224,.6);
 

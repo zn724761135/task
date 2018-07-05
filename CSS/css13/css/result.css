@@ -30,13 +30,13 @@ header {
   color: #FFFFFF;
 }
 header a.left-header {
-  width: .51rem;
+  width: 0.51rem;
   height: 0.6rem;
   margin: .1rem 0 0 .2rem;
   background: url(../picture/task-css12.png) no-repeat -2.2rem -1.9rem;
 }
 header a.right-header {
-  width: .51rem;
+  width: 0.51rem;
   height: 0.6rem;
   margin: 0.1rem 0.2 rem 0 0;
   background: url(..//picture/task-css12.png) no-repeat -0.96rem -1.95rem;
@@ -107,6 +107,7 @@ ul li.bottom-box {
 ul li.bottom-box div.content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 80%;
   padding-top: .1rem;
   margin: auto;
@@ -134,6 +135,7 @@ ul li.bottom-box p.daytime {
 ul div.bottom {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 90%;
   margin: 0.1rem auto 0 auto;
   color: #29BDE0;
@@ -179,4 +181,4 @@ footer button.right {
   background: #FBB435;
 }
 
-/*# sourceMappingURL=youxijieguo.css.map */
+/*# sourceMappingURL=result.css.map */

@@ -33,15 +33,15 @@ header div.left-box {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: .4rem;
-  height: .43rem;
+  width: 0.4rem;
+  height: 0.43rem;
   padding: .03rem;
   margin-left: .23rem;
   border: 0.01rem solid #FFFFFF;
 }
 header div.left-box button.content {
-  width: .34rem;
-  height: .32rem;
+  width: 0.34rem;
+  height: 0.32rem;
   border: none;
   outline: none;
   padding: .11rem 0;
@@ -54,12 +54,11 @@ header div.right-box {
   justify-content: space-between;
   align-items: center;
   width: .5rem;
-  margin-right: .23rem;
 }
 header div.right-box a.content {
   display: inline-block;
-  width: .02rem;
-  height: .5rem;
+  width: 0.02rem;
+  height: 0.5rem;
   border: 0.01rem solid #FFFFFF;
   background: #FFFFFF;
   transform: rotate(45deg);
@@ -69,8 +68,8 @@ header div.right-box a.content.content::after {
   top: -.02rem;
   left: -.01rem;
   content: "";
-  width: .02rem;
-  height: .5rem;
+  width: 0.02rem;
+  height: 0.5rem;
   border: 0.01rem solid #FFFFFF;
   background: #FFFFFF;
   transform: rotate(90deg);
@@ -100,8 +99,8 @@ div.top-box p.left-font {
   color: #464646;
 }
 div.top-box button.right-circle {
-  width: .52rem;
-  height: .52rem;
+  width: 0.52rem;
+  height: 0.52rem;
   margin-right: .17rem;
   border: none;
   outline: none;
@@ -185,6 +184,7 @@ div.center-box div.dropdown ul.dropdown-content li.doctor {
 div.center-box div.dropdown.dropdown:hover .dropdown-content {
   display: flex;
   justify-content: space-between;
+  align-items: flex-flow;
 }
 
 /*footer 尾页*/
@@ -200,7 +200,7 @@ footer {
 }
 footer .button-box {
   width: 75%;
-  height: .87rem;
+  height: 0.87rem;
   border: none;
   outline: none;
   background: #FBB435;

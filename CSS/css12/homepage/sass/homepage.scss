@@ -124,7 +124,7 @@ ul{
     list-style: none;
 
     li.center-box{
-        @include flex($x,flex-grow);
+        @include flex(center,flex-grow);
         height: 1rem;
         border:$gray-border;
         background: $white;
