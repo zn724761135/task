@@ -14,14 +14,12 @@ $guding:fixed;
 
 // 混合器
 
-@mixin flex1{
+
+@mixin flex ($x:center,$y:center){
     display: flex;
-    align-items: center;
-}
-@mixin flex2{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: $x;
+    align-items: $y;
+    
 }
 @mixin weiyuansu{
     display: inline-block;
@@ -54,7 +52,7 @@ p{
 header{
     position: $guding;
     top:0;
-    @include flex2;
+    @include flex;
     width: 100%;
     height: .88rem;
     background: $blue;
@@ -126,7 +124,7 @@ ul{
     list-style: none;
 
     li.center-box{
-        @include flex1;
+        @include flex($x,flex-grow);
         height: 1rem;
         border:$gray-border;
         background: $white;

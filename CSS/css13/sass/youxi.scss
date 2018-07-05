@@ -1,0 +1,64 @@
+// 变量
+$margin:0;
+$white:#FFFFFF;
+$blue:#69D1E9;
+$header:.05rem solid #FFFFFF; 
+$main:.01rem  solid #C9C9C9;
+
+// 混合器
+@mixin juzhong{
+        text-align:center;
+    }
+
+
+html{
+    font-size:312.5%
+}
+body{
+    margin: $margin;
+    font-size: initial;
+}
+p{
+    margin:margin;
+}
+
+/*header 眉页*/
+header{
+    height: .9rem;
+    background: #29BDE0;
+
+    button.left{
+        width: .34rem;
+        height: .32rem;
+        padding: .08rem 0;
+        margin: .38rem 0 0 .22rem;
+        border:none;
+        outline:none;
+        border-top:$header;
+        border-bottom:$header;
+        background: $white content-box;
+    }
+}
+
+/*main主体*/
+p.font{
+    margin: .27rem .36rem;
+    border: $main;
+    background: $white;
+    line-height: 1.16rem;
+    @include juzhong;
+    font-size: .35rem;
+    color: #9A9A9A;
+}
+ul.box{
+    position: relative;
+    height: 8rem;
+    margin: 0 .35rem;
+    padding: 0;
+    border: $main;
+    background: $white;
+    @include juzhong;
+    list-style: none;
+
+
+}

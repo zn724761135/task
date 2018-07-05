@@ -1,3 +1,233 @@
+// 变量
+$margin:0;
+$blue:#29BDE0;
+$white:#FFFFFF;
+$border:.01rem solid $white;
+$thick-border:.03rem solid $white;
+$border-style:solid $white;
+$sjx:solid transparent;
+
+
+
+// 混合器
+@mixin flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin juzhong{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin guding{
+    position: fixed;
+    width: 100%;
+    background: $blue;
+    z-index: 1;
+}
+@mixin buttno{
+    border:none;
+    outline: none;
+}
+@mixin header{
+    width:.02rem;
+    height:.5rem;
+    border: $border;
+    background: $white;
+}
+@mixin picture{
+    width: 4.5vw;
+    height:4.5vw;
+}
+
+
+
+
 html{
     font-size: 312.5%;
+}
+body{
+    padding: .9rem 0 1.6rem 0;
+    margin: $margin;
+    background: $blue;
+    font-size:initial;
+}
+p{
+    margin: $margin;
+}
+
+/*header 眉页*/
+header{
+    @include flex;
+    @include guding;
+    top:0;
+    height: .88rem;
+    font-size: .34rem;
+    letter-spacing: .15rem;
+    color: $white;
+
+    div.left-box{
+        @include juzhong;
+        width: .4rem;
+        height: .43rem;
+        padding:.03rem;
+        margin-left:.23rem;
+        border: $border;
+
+        button.content{
+            width: .34rem;
+            height: .32rem;
+            @include buttno;
+            padding: .11rem 0;
+            border-top: $thick-border;
+            border-bottom : $thick-border;
+            background: $white content-box;
+        }
+    }
+    div.right-box{
+        @include flex;
+        width: .5rem;
+        margin-right:.23rem;
+
+        a.content{
+            display: inline-block;
+            @include header;
+            transform: rotate(45deg);
+
+            &.content::after{
+                position: absolute;
+                top:-.02rem;
+                left:-.01rem;
+                content: "";
+                @include header;
+                transform: rotate(90deg);
+            }
+        }
+    }
+}
+
+// 主体
+div.top-box{
+    position: relative;
+    @include flex;
+    height: .82rem;
+    background: #b9e9f5;
+
+    /*三角形*/
+    &.top-box::before{
+        float: left;
+        content: "";
+        margin: .97rem 0 0 .71rem;
+        border-top: .14rem solid #b9e9f5;
+        border-left: .07rem $sjx;
+        border-right: .07rem $sjx;
+    }
+
+    p.left-font{
+        position: absolute;
+        left: .46rem;
+        font-size: .26rem;
+        color: #464646;
+    }
+    button.right-circle{
+        width: .52rem;
+        height: .52rem;
+        margin-right: .17rem;
+        @include buttno;
+        border-radius :100%;
+        background: #FBB435;
+
+        /*三角形*/
+        &.right-circle::after{
+            display: inline-block;
+            content: "";
+            margin: .05rem 0 0 .05rem;
+            border-top: .15rem $sjx;
+            border-left:.3rem $border-style;
+            border-bottom: .15rem $sjx;
+        }
+    }
+}
+p.font{
+    margin: .24rem 0 .43rem .72rem;
+    font-size:.24rem;
+    color:$white;
+}
+div.center-box{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+
+    /*下拉框*/
+    div.dropdown{
+        width: 23.5vw;
+        height: 23.5vw;
+        margin: 0 4vw 8.3vw 4vw;
+        border: .05rem $border-style;
+        background: #F5C97B;
+
+        span.role{
+            @include juzhong;
+            height: 75%;
+            font-size: .1rem;
+            color:#565656;
+        }
+        span.number{
+            @include juzhong;
+            height: 25%;
+            background: rgba(26,153,183,.5);
+            font-size: .23rem;
+            color:$white;
+        }
+        /*下拉内容*/
+        ul.dropdown-content{
+            margin: $margin;
+            margin-top: 2vw;
+            padding: 0;
+            list-style: none;
+            display: none;
+            
+            li.killer{
+                @include picture;
+                background: url(../picture/task2-css12.png) no-repeat 0 0/100%;
+            }
+            li.judge{
+                @include picture;
+                background: url(../picture/task2-css12.png) no-repeat 0 30%/100%;
+            }
+            li.sniper{
+                @include picture;
+                background: url(../picture/task2-css12.png) no-repeat 0 67%/100%;
+            }
+            li.doctor{
+                @include picture;
+                background: url(../picture/task2-css12.png) no-repeat 0 100%/100%;
+            }
+        }
+        &.dropdown:hover .dropdown-content{
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+/*footer 尾页*/
+footer{
+    @include guding;
+    bottom: 0;
+    height: 1.8rem;
+    line-height: 1.9rem;
+    text-align: center;
+
+    .button-box{
+        width: 75%;
+        height: .87rem;
+        @include buttno;
+        background: #FBB435;
+        font-size: .4rem;
+        /* 字符间距 */
+        letter-spacing: .15rem;
+        color: $white;
+    }
 }

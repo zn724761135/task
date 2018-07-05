@@ -1,0 +1,54 @@
+@charset "UTF-8";
+html {
+  font-size: 312.5%;
+}
+
+body {
+  margin: 0;
+  font-size: initial;
+}
+
+p {
+  margin: margin;
+}
+
+/*header 眉页*/
+header {
+  height: .9rem;
+  background: #29BDE0;
+}
+header button.left {
+  width: .34rem;
+  height: .32rem;
+  padding: .08rem 0;
+  margin: .38rem 0 0 .22rem;
+  border: none;
+  outline: none;
+  border-top: 0.05rem solid #FFFFFF;
+  border-bottom: 0.05rem solid #FFFFFF;
+  background: #FFFFFF content-box;
+}
+
+/*main主体*/
+p.font {
+  margin: .27rem .36rem;
+  border: 0.01rem solid #C9C9C9;
+  background: #FFFFFF;
+  line-height: 1.16rem;
+  text-align: center;
+  font-size: .35rem;
+  color: #9A9A9A;
+}
+
+ul.box {
+  position: relative;
+  height: 8rem;
+  margin: 0 .35rem;
+  padding: 0;
+  border: 0.01rem solid #C9C9C9;
+  background: #FFFFFF;
+  text-align: center;
+  list-style: none;
+}
+
+/*# sourceMappingURL=youxi.css.map */

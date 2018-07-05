@@ -28,15 +28,18 @@ $blue-border:.03rem solid #5FC0CD;
     display: inline-block;
     content: "";
 }
-@mixin flex1{
+@mixin flex($x:center,$y:center){
     display:flex;
-    align-items: center;
+    justify-content: $x;
+    align-items: $y;
 }
 @mixin footer{
-    display: block;
-    margin-top:.45rem;
+    padding-top: .45rem;
     font-size: .1rem;
 }
+
+
+
 
 
 html{
@@ -78,7 +81,6 @@ header{
         color: $shenblue;
     }
     .top-right{
-        float: right;
         position: $juedui;
         right: 0;
         top: 50%;
@@ -97,7 +99,7 @@ ul{
 
 /*下拉框*/
 div.box{
-    @include flex1;
+    @include flex;
     position: $guding;
     top:.88rem;
     width: 100%;
@@ -222,12 +224,9 @@ footer{
     }
 
     .footer-left{
+        @include footer;
         background: url(..//picture/task-css12.png) no-repeat -1.45rem -2.4rem;
-    
-        .font-left{
-            @include footer;
-            color: $blue;
-        }
+        color: $blue;
     }
     .footer-center{
         width: .95rem;
@@ -235,7 +234,8 @@ footer{
         border-radius: 100%;
         background: $blue;
 
-        .content-center{
+        &.footer-center::after{
+            content: "";
             display: block;
             height: .4rem;
             margin-left: .18rem;
@@ -243,11 +243,8 @@ footer{
         }
     }
     .footer-right{
+        @include footer;
         background: url(../picture/task2-css12.png) no-repeat 0.52rem -2.76rem;
-
-        .font-right{
-            @include footer;
-            color: $gray;
-        }
+        color: $gray;
     }
 }
