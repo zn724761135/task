@@ -1,5 +1,5 @@
 // 变量
-$margin:0;
+$eliminate:0;
 $blue:#29BDE0;
 $white:#FFFFFF;
 $border:.01rem solid $white;
@@ -50,7 +50,7 @@ body{
     font-size:initial;
 }
 p{
-    margin: $margin;
+    margin: $eliminate;
 }
 
 /*header 眉页*/
@@ -172,9 +172,9 @@ div.center-box{
         }
         /*下拉内容*/
         ul.dropdown-content{
-            margin: $margin;
+            margin: $eliminate;
             margin-top: 2vw;
-            padding: 0;
+            padding: $eliminate;
             list-style: none;
             display: none;
             
