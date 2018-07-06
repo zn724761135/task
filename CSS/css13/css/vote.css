@@ -39,11 +39,9 @@ header div.left-box {
   margin-left: .23rem;
   border: 0.01rem solid #FFFFFF;
 }
-header div.left-box button.content {
+header div.left-box a.content {
   width: 0.34rem;
-  height: 0.32rem;
-  border: none;
-  outline: none;
+  height: 0.05rem;
   padding: .11rem 0;
   border-top: 0.03rem solid #FFFFFF;
   border-bottom: 0.03rem solid #FFFFFF;
@@ -201,13 +199,12 @@ footer {
 footer .button-box {
   width: 75%;
   height: 0.87rem;
-  border: none;
-  outline: none;
   background: #FBB435;
   font-size: .4rem;
   /* 字符间距 */
   letter-spacing: .15rem;
   color: #FFFFFF;
+  box-shadow: 0 0 0 1.5px #F5C97B;
 }
 
 /*# sourceMappingURL=vote.css.map */

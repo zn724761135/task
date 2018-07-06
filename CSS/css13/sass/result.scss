@@ -36,10 +36,9 @@ $width:80%;
     width: 50%;
     height: .86rem;
     border-radius: .15rem;
-    border: none;
-    outline:none;
     font-size: .4rem;
     color: #FFFFFF;
+    
 }
 
 
@@ -188,10 +187,12 @@ footer{
         @include button;
         margin: 0 .5rem 0 .24rem;
         background: #F66F6F;
+        box-shadow: 0 0 0 1.5px #F66F6F;
     }
     button.right{
         @include button;
         margin-right: .24rem;
         background: #FBB435;
+        box-shadow: 0 0 0 1.5px #FBB435;
     }
 }

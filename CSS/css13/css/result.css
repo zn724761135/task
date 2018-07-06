@@ -162,23 +162,21 @@ footer button.left {
   width: 50%;
   height: .86rem;
   border-radius: .15rem;
-  border: none;
-  outline: none;
   font-size: .4rem;
   color: #FFFFFF;
   margin: 0 .5rem 0 .24rem;
   background: #F66F6F;
+  box-shadow: 0 0 0 1.5px #F66F6F;
 }
 footer button.right {
   width: 50%;
   height: .86rem;
   border-radius: .15rem;
-  border: none;
-  outline: none;
   font-size: .4rem;
   color: #FFFFFF;
   margin-right: .24rem;
   background: #FBB435;
+  box-shadow: 0 0 0 1.5px #FBB435;
 }
 
 /*# sourceMappingURL=result.css.map */

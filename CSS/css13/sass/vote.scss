@@ -70,9 +70,8 @@ header{
         margin-left:.23rem;
         border: $border;
 
-        button.content{
-            @include box(.34rem,.32rem );
-            @include buttno;
+        a.content{
+            @include box(.34rem,.05rem );
             padding: .11rem 0;
             border-top: $thick-border;
             border-bottom : $thick-border;
@@ -212,11 +211,11 @@ footer{
 
     .button-box{
         @include box(75%,.87rem );
-        @include buttno;
         background: #FBB435;
         font-size: .4rem;
         /* 字符间距 */
         letter-spacing: .15rem;
         color: $white;
+        box-shadow: 0 0 0 1.5px #F5C97B;
     }
 }
