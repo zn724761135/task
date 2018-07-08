@@ -1,0 +1,48 @@
+%row{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px 0 -15px;
+}
+
+
+.container{
+    width:100%;
+    padding: 0 15px 0 15px;
+    margin: auto;
+}
+@media (min-width:576px){
+    .container{
+        width: 540px;
+    }
+}
+@media(min-width:768px){
+    width: 720px;
+}
+@media(min-width:992px){
+    .container{
+        width: 996px;
+    }
+}
+@media(min-width:1200px){
+    width: 1140px;
+}
+
+.row{
+    @extend %row;
+}
+.row::-webkit-{
+    @extend %row;
+}
+.row:-ms-{
+   @extend %row;
+}
+.row::-moz-{
+    @extend %row;
+}
+
+@for $i from 1 through 12{
+    .col-#{$i} {
+        flex: 0 0 #{$i*100%/12};
+        width: #{$i*100%/12};
+    }
+}

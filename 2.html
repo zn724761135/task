@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;minimum-scale=1.0; 
+    maximum-scale=1.0; user-scalable=no;">
+    <title>首页</title>
+    <style pyte="txet/css">
+#frame{position:absolute;width:300px;height:200px;overflow:hidden;border-radius:5px}
+    #dis{position:absolute;left:-50px;top:-10px;opacity:.5}
+      #dis li{display:inline-block;width:200px;height:20px;margin:0 50px;float:left;text-align:center;color:#fff;border-radius:10px;background:#000}
+      #photos img{float:left;width:300px;height:200px}
+      #photos {  position: absolute;z-index:9;  width: calc(300px * 4);/*---修改图片数量的话需要修改下面的动画参数*/  }
+    .play{ animation: ma 20s ease-out infinite alternate;}
+      @keyframes ma {
+          0%,25% {        margin-left: 0px;       }
+       30%,50% {       margin-left: -300px;    }
+        55%,75% {       margin-left: -600px;    }
+       80%,100% {       margin-left: -900px;    }
+
+    }
+
+    </style>
+    
+</head>
+<body>
+
+    <mian>
+        <div id="demo" class="carousel slide" data-ride="carousel">
+ 
+            <!-- 指示符 -->
+            <ul class="carousel-indicators">
+              <li data-target="#demo" data-slide-to="0" class="active"></li>
+              <li data-target="#demo" data-slide-to="1"></li>
+              <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+           
+            <!-- 轮播图片 -->
+            <div id="frame" >
+                <div id="photos" class="play">
+                    <img src="picture/task1-css14.png" >
+                    <img src="picture/task1-2-css14.png" >
+                    <img src="picture/task1-3-css14.png" >
+                    <img src="picture/task8-css14.png" >
+                    <ul id="dis">
+                        <li>111111111111111</li>
+                        <li>22222222222222</li>
+                        <li>33333333333333</li>
+                        <li>44444444444444</li>
+                    </ul>
+                </div>
+            </div>
+           
+            <!-- 左右切换按钮 -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+           </div>
+           </mian>
+
+
+
+   
+</body>
+</html>
+
