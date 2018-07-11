@@ -1,165 +1,35 @@
-@charset "UTF-8";
-html {
-  font-size: 312.5%;
-}
+/*
+Error: Invalid GBK character "\xE5"
+        on line 1 of D:\TASK\task\CSS\css12\homepage\sass\homepage.scss
 
-body {
-  padding: .88rem 0 1.5rem 0;
-  margin: 0;
-  font-size: initial;
-}
+1: // 变量
+2: $margin:0;
+3: $blue:#5fc0cd;
+4: $white:#ffffff;
+5: $border:.03rem solid $white;
+6: $blue-border:.01rem solid $blue;
 
-p {
-  margin: 0;
-}
-
-/*header眉页*/
-header {
-  position: fixed;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: .88rem;
-  background: #5fc0cd;
-  z-index: 1;
-}
-header .getback {
-  position: absolute;
-  left: .35rem;
-  width: .21rem;
-  height: .21rem;
-  border-top: 0.03rem solid #ffffff;
-  border-right: 0.03rem solid #ffffff;
-  transform: rotate(225deg);
-}
-header h1 {
-  font-size: .36rem;
-  color: #ffffff;
-}
-
-/*main 主体*/
-div.background {
-  position: relative;
-  height: 3.3rem;
-  background: url(../picture/task1-css12.png) no-repeat center/cover;
-}
-div.background .portrait {
-  position: absolute;
-  top: .78rem;
-  left: .3rem;
-  width: 1.7rem;
-  height: 1.7rem;
-}
-div.background div.top-main {
-  position: absolute;
-  top: 1.16rem;
-  left: 2.4rem;
-  width: 2.3rem;
-  text-align: center;
-}
-div.background div.top-main .name {
-  font-size: .36rem;
-  letter-spacing: .05rem;
-  color: #ffffff;
-}
-div.background div.top-main .age {
-  margin-left: .3rem;
-  font-size: .28rem;
-  letter-spacing: .02rem;
-  color: #ffffff;
-}
-div.background div.top-main .location {
-  display: inline-block;
-  width: .18rem;
-  height: .23rem;
-  background: url(../picture/img.png) no-repeat 0 0;
-}
-div.background div.top-main .dizhi {
-  font-size: .24rem;
-  letter-spacing: .01rem;
-  color: #ffffff;
-}
-
-ul {
-  padding: 0;
-  margin: 0;
-  font-size: .32rem;
-  list-style: none;
-}
-ul li.center-box, ul li.center-bottom-box {
-  display: flex;
-  align-items: center;
-  height: 1rem;
-  border: 0.01rem solid #e1e5e7;
-  background: #ffffff;
-}
-ul li.center-box strong::before, ul li.center-bottom-box strong::before {
-  display: inline-block;
-  content: "";
-  width: .01rem;
-  height: .26rem;
-  border: 0.01rem solid #5fc0cd;
-  margin: 0 .3rem;
-}
-ul li.center-box .wjx, ul li.center-bottom-box .wjx {
-  padding-left: .4rem;
-  background: url(../picture/img.png) no-repeat 0 -0.5rem;
-  margin: 0 .1rem 0 .61rem;
-}
-ul li.center-box .wjx-right, ul li.center-bottom-box .wjx-right {
-  padding-left: .4rem;
-  background: url(../picture/img.png) no-repeat 0 -0.5rem;
-  margin: 0 .1rem 0 -.2rem;
-}
-ul li.center-box span.center::after, ul li.center-bottom-box span.center::after {
-  display: inline-block;
-  content: "";
-  width: .0008rem;
-  height: .26rem;
-  margin: 0 .3rem;
-  border: .008rem solid #E1E5E7;
-}
-ul li.center-box .main-font, ul li.center-bottom-box .main-font {
-  margin-left: .61rem;
-  white-space: nowrap;
-  color: #999999;
-}
-ul li.center-box .price, ul li.center-bottom-box .price {
-  color: #E26163;
-}
-ul li.center-bottom-box {
-  height: 50%;
-  overflow: hidden;
-}
-ul li.center-bottom-box .zwjs {
-  padding: .3rem .3rem .3rem 0;
-}
-
-/*footer 尾页*/
-footer {
-  display: flex;
-  align-items: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 1.5rem;
-  background: #ffffff;
-}
-footer .liuyan, footer .contact {
-  width: 50%;
-  height: .88rem;
-  margin: 0 .25rem .04rem .37rem;
-  border-radius: .15rem;
-  border: 0.01rem solid #5fc0cd;
-  background: #ffffff;
-  outline: none;
-  color: #5fc0cd;
-}
-footer .contact {
-  background: #5fc0cd;
-  color: #ffffff;
-}
-
-/*# sourceMappingURL=homepage.css.map */
+Backtrace:
+D:\TASK\task\CSS\css12\homepage\sass\homepage.scss:1
+C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/util.rb:1043:in `rescue in block in find_encoding_error'
+C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/util.rb:1040:in `block in find_encoding_error'
+C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/util.rb:1039:in `each'
+C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/util.rb:1039:in `each_with_index'
+C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/util.rb:1039:in `find_encoding_error'
+C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/util.rb:767:in `check_sass_encoding'
+C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/engine.rb:444:in `check_encoding!'
+C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/engine.rb:400:in `_to_tree'
+C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/engine.rb:307:in `render_with_sourcemap'
+C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/exec/sass_scss.rb:391:in `run'
+C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/exec/sass_scss.rb:63:in `process_result'
+C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/exec/base.rb:52:in `parse'
+C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/exec/base.rb:19:in `parse!'
+C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/bin/sass:13:in `<top (required)>'
+C:/Ruby25-x64/bin/sass:23:in `load'
+C:/Ruby25-x64/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid GBK character \"\xE5\"\A         on line 1 of D:\TASK\task\CSS\css12\homepage\sass\homepage.scss\A \A 1: // 变量\A 2: $margin:0;\A 3: $blue:#5fc0cd;\A 4: $white:#ffffff;\A 5: $border:.03rem solid $white;\A 6: $blue-border:.01rem solid $blue;"; }
