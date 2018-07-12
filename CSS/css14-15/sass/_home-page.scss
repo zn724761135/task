@@ -4,16 +4,22 @@
 main {
     div.top-content {
         text-align: center;
+
+        // 高效
         span.huojian {
             @include homepage-top;
             @include box(.45rem, .62rem);
             background: url(../picture/task-css14.png) no-repeat -1.99rem 0;
         }
+
+        // 规范
         span.book {
             @include homepage-top;
             @include box(.6rem, .48rem);
             background: url(../picture/task-css14.png) no-repeat -1.88rem -2.42rem;
         }
+
+        // 人脉
         span.person {
             @include homepage-top;
             @include box(.52rem, .55rem);
@@ -24,6 +30,8 @@ main {
             font-size: .18rem;
             color: $black;
         }
+
+        // 在学人数
         p.synopsis {
             font-size: .16rem;
             color: $text;
@@ -84,27 +92,33 @@ main {
         font-size: .18rem;
         color: $black;
     }
+
+    // 如何学习
+    @media  (max-width:399px) {
+        .row-box{
+            margin-left: 5vw;
+        }
+    }
+    @media (min-width:400px) and (max-width:575px) {
+        .row-box{
+            margin-left: 15vw;
+        }
+    }
     div.box{
         @include flex(space-between,center);
         padding-left: 0;
+        margin-bottom: .2rem;
 
         div.circle{
             @include box(.7rem, .7rem);
-            margin-bottom: .2rem;
             border-radius: 100%;
             border:$homepage-border;
             background: $white;
 
             span.circle-content{
                 @include flex(center,center);
-                margin-bottom: .2rem;
                 line-height: .7rem;
                 color:$green;
-            }
-        }
-        @media(max-width:575px){
-            .col-md-3{
-                padding-right: 15px;
             }
         }
         p.font{
@@ -112,11 +126,6 @@ main {
             margin: 0 .35rem;
             font-size: .14rem;
             color:$text;
-        }
-        @media(max-width:575px){
-            .font{
-                margin-left: 10vw;
-            }
         }
         @media(min-width:992px){
             .font-right{
@@ -138,6 +147,8 @@ main {
             }
         }
     }
+
+    // 优秀学员展示
     .student-box{
         @include box(90%,6rem);
         padding: .5rem .32rem .4rem .32rem;
@@ -192,6 +203,7 @@ main {
         }
     }
 
+    // 合作企业
     div.collaborate{
         @include flex(space-between,center);
         background: $white;
@@ -234,8 +246,10 @@ main {
         }
     }
 
+    // 友情链接
    div.bottom{
        margin-top: .93rem;
+       padding-bottom: .3rem;
        background: $white;
 
        strong.font{
@@ -246,7 +260,7 @@ main {
 
         ul.bottom-box{
             
-            margin-top:.28rem;
+            margin:.28rem 0 0 0;
             font-size: .01rem;
             color: $text;
 
@@ -293,6 +307,7 @@ main {
         @media(max-width:450px){
             .bottom-box{
                 @include flex(space-evenly,flex-grow);
+                margin-left: .6rem !important;
             }
         }
     }

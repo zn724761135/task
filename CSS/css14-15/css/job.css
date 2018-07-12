@@ -157,59 +157,59 @@ nav div.row ul {
 }
 
 /*main主体*/
-main .home-box {
+main.job .home-box {
   padding: .31rem 0;
   border-bottom: 0.01rem solid #e1e1e1;
 }
-main .home-box .black-font {
+main.job .home-box .black-font {
   font-size: .16rem;
   color: #333333;
 }
-main .home-box .green-font {
+main.job .home-box .green-font {
   font-size: .16rem;
   color: #29b078;
 }
-main .direction-box {
+main.job .direction-box {
   padding: .23rem 0;
   border-bottom: 0.01rem solid #e1e1e1;
 }
-main .direction-box .direction {
+main.job .direction-box .direction {
   line-height: .14rem;
   font-size: .14rem;
   color: #999999;
 }
-main .direction-box .option-box {
+main.job .direction-box .option-box {
   margin: 0;
   padding: 0;
 }
-main .direction-box .option-box .option {
+main.job .direction-box .option-box .option {
   line-height: .14rem;
   font-size: .14rem;
   color: #333333;
 }
-main .direction-box .option-box .option:hover {
+main.job .direction-box .option-box .option:hover {
   background: #29b078;
   color: #FFFFFF;
 }
 @media (max-width: 575px) {
-  main .center {
+  main.job .center {
     line-height: .6rem;
     text-align: center;
   }
 }
-main .headline-box {
+main.job .headline-box {
   padding: .31rem 0;
   border-bottom: 0.01rem solid #e1e1e1;
   font-size: .16rem;
   color: #333333;
 }
-main .intro-box {
+main.job .intro-box {
   position: relative;
   margin-top: .47rem;
   perspective: 1000;
   transform-style: preserve-3d;
 }
-main .intro-box .shade {
+main.job .intro-box .shade {
   visibility: hidden;
   position: absolute;
   top: 0;
@@ -223,60 +223,60 @@ main .intro-box .shade {
   transition: 0.6s;
   transform-style: preserve-3d;
 }
-main .intro-box:hover .shade {
+main.job .intro-box:hover .shade {
   visibility: visible;
   transform: rotateY(360deg);
 }
-main .intro-box th.width1 {
+main.job .intro-box th.width1 {
   width: 40%;
 }
-main .intro-box th.width2 {
+main.job .intro-box th.width2 {
   width: 10%;
 }
-main .intro-box th.width3 {
+main.job .intro-box th.width3 {
   width: 50%;
 }
-main .intro-box tr.box {
+main.job .intro-box tr.box {
   border: 0.01rem solid #e1e1e1;
 }
-main .intro-box tr.box .picture {
+main.job .intro-box tr.box .picture {
   margin: .2rem .08rem .16rem .11rem;
 }
 @media (max-width: 375px) {
-  main .intro-box tr.box .picture {
+  main.job .intro-box tr.box .picture {
     width: 1.85rem;
     height: 1.85rem;
     margin: .2rem .08rem .16rem .3rem;
   }
 }
 @media (min-width: 376px) and (max-width: 470px) {
-  main .intro-box tr.box .picture {
+  main.job .intro-box tr.box .picture {
     width: 2.1rem;
     height: 2.1rem;
     margin: .2rem .08rem .16rem .5rem;
   }
 }
 @media (min-width: 490px) and (max-width: 767px) {
-  main .intro-box tr.box .picture {
+  main.job .intro-box tr.box .picture {
     margin: .2rem .08rem .16rem .6rem;
   }
 }
-main .intro-box tr.box strong.font {
+main.job .intro-box tr.box strong.font {
   font-size: .16rem;
   color: #333333;
 }
-main .intro-box tr.box p.font {
+main.job .intro-box tr.box p.font {
   margin: .16rem .09rem 0 0;
   font-size: .14rem;
   color: #333333;
 }
-main .intro-box .standard-font {
+main.job .intro-box .standard-font {
   padding: .28rem  .1rem;
   font-size: .12rem;
   color: #999999;
   border: 0.01rem solid #e1e1e1;
 }
-main .intro-box .standard-font .wjx::after {
+main.job .intro-box .standard-font .wjx::after {
   display: inline-block;
   content: "";
   width: 0.16rem;
@@ -284,7 +284,7 @@ main .intro-box .standard-font .wjx::after {
   margin-left: .24rem;
   background: url(../picture/task-css14.png) no-repeat 0 -2.66rem;
 }
-main .intro-box .standard-font .wjx2::before {
+main.job .intro-box .standard-font .wjx2::before {
   display: inline-block;
   position: absolute;
   content: "";
@@ -293,33 +293,33 @@ main .intro-box .standard-font .wjx2::before {
   margin: .12rem 0 0 1.48rem;
   background: url(../picture/task-css14.png) no-repeat 0 -2.66rem;
 }
-main .intro-box .standard-font .red {
+main.job .intro-box .standard-font .red {
   font-size: .12rem;
   color: #F01400;
 }
-main .intro-box .standard-font .black {
+main.job .intro-box .standard-font .black {
   font-size: .12rem;
   color: #333333;
 }
-main .intro-box .standard-font .center {
+main.job .intro-box .standard-font .center {
   display: block;
   text-align: center;
 }
-main .intro-box .standard-font .left {
+main.job .intro-box .standard-font .left {
   margin-left: .24rem;
 }
-main .intro-box .standard-font .right-txet {
+main.job .intro-box .standard-font .right-txet {
   float: right;
 }
 @media (min-width: 767px) and (max-width: 991px) {
-  main .col-sm-6 {
+  main.job .col-sm-6 {
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
     max-width: 50%;
   }
 }
 @media (max-width: 767px) {
-  main .col-12 {
+  main.job .col-12 {
     flex: 0 0 100%;
     max-width: 100%;
   }

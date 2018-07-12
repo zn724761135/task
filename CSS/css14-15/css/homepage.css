@@ -61,6 +61,12 @@ header div.right a.weibo {
 }
 
 /*导航栏*/
+ul {
+  margin: 0 0 0 -15px;
+  padding-left: 0;
+  list-style: none;
+}
+
 nav {
   background: #29b078;
 }
@@ -140,11 +146,6 @@ nav div.row a.font {
     background: #FFFFFF;
     border: 0.01rem solid #e1e1e1;
   }
-}
-nav div.row ul {
-  margin: 0 0 0 -15px;
-  padding-left: 0;
-  list-style: none;
 }
 @media (min-width: 768px) {
   nav div.row ul {
@@ -337,16 +338,26 @@ main strong {
   font-size: .18rem;
   color: #333333;
 }
+@media (max-width: 399px) {
+  main .row-box {
+    margin-left: 5vw;
+  }
+}
+@media (min-width: 400px) and (max-width: 575px) {
+  main .row-box {
+    margin-left: 15vw;
+  }
+}
 main div.box {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-left: 0;
+  margin-bottom: .2rem;
 }
 main div.box div.circle {
   width: 0.7rem;
   height: 0.7rem;
-  margin-bottom: .2rem;
   border-radius: 100%;
   border: 0.01rem solid #e4e4e4;
   background: #FFFFFF;
@@ -355,25 +366,14 @@ main div.box div.circle span.circle-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: .2rem;
   line-height: .7rem;
   color: #29b078;
-}
-@media (max-width: 575px) {
-  main div.box .col-md-3 {
-    padding-right: 15px;
-  }
 }
 main div.box p.font {
   flex: 1;
   margin: 0 .35rem;
   font-size: .14rem;
   color: #999999;
-}
-@media (max-width: 575px) {
-  main div.box .font {
-    margin-left: 10vw;
-  }
 }
 @media (min-width: 992px) {
   main div.box .font-right {
@@ -506,6 +506,7 @@ main div.collaborate div.picture-box .qiniu {
 }
 main div.bottom {
   margin-top: .93rem;
+  padding-bottom: .3rem;
   background: #FFFFFF;
 }
 main div.bottom strong.font {
@@ -514,7 +515,7 @@ main div.bottom strong.font {
   color: #333333;
 }
 main div.bottom ul.bottom-box {
-  margin-top: .28rem;
+  margin: .28rem 0 0 0;
   font-size: .01rem;
   color: #999999;
 }
@@ -562,6 +563,7 @@ main div.bottom ul.bottom-box li.zoom a.bottom-font:hover {
     display: flex;
     justify-content: space-evenly;
     align-items: flex-grow;
+    margin-left: .6rem !important;
   }
 }
 

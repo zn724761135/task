@@ -3,6 +3,12 @@
 @import"layout";
 
 // 导航栏
+ul{
+    margin: 0 0 0 -15px;
+    padding-left: 0;
+    list-style: none;
+}
+
 nav {
     background: $green;
     div.row {
@@ -79,11 +85,6 @@ nav {
                     border: $main-border;
                 }
             }
-        }
-        ul{
-            margin: 0 0 0 -15px;
-            padding-left: 0;
-            list-style: none;
         }
         @media (min-width: 768px) {
             ul {
