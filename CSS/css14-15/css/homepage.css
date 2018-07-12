@@ -87,8 +87,16 @@ nav div.row .xiuzhenyuan {
 nav div.row input {
   display: none;
 }
-nav div.row input:checked ~ ul {
-  height: 0;
+@media (max-width: 767px) {
+  nav div.row input:checked ~ ul {
+    height: 4.12rem;
+    display: block !important;
+  }
+}
+@media (max-width: 767px) {
+  nav div.row ul {
+    display: none;
+  }
 }
 nav div.row .nav-toggle-box {
   height: 1.1rem;
@@ -162,6 +170,7 @@ main div.loop-wrap {
   position: relative;
   width: 100%;
   overflow: hidden;
+  margin-top: -.01rem;
 }
 main div.loop-wrap div.loop-images-container {
   width: 300vw;

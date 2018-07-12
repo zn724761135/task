@@ -29,7 +29,15 @@ nav {
             display: none;
         }
         input:checked~ul {
-            height: 0;
+            @media (max-width:767px) {
+                height: 4.12rem;
+                display: block !important;
+            }
+        }
+        @media (max-width:767px) {
+            ul{
+                display: none;
+            }
         }
         .nav-toggle-box{
             height: 1.1rem;

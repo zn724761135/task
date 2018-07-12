@@ -61,6 +61,12 @@ header div.right a.weibo {
 }
 
 /*导航栏*/
+ul {
+  margin: 0 0 0 -15px;
+  padding-left: 0;
+  list-style: none;
+}
+
 nav {
   background: #29b078;
 }
@@ -81,8 +87,16 @@ nav div.row .xiuzhenyuan {
 nav div.row input {
   display: none;
 }
-nav div.row input:checked ~ ul {
-  height: 0;
+@media (max-width: 767px) {
+  nav div.row input:checked ~ ul {
+    height: 4.12rem;
+    display: block !important;
+  }
+}
+@media (max-width: 767px) {
+  nav div.row ul {
+    display: none;
+  }
 }
 nav div.row .nav-toggle-box {
   height: 1.1rem;
@@ -140,11 +154,6 @@ nav div.row a.font {
     background: #FFFFFF;
     border: 0.01rem solid #e1e1e1;
   }
-}
-nav div.row ul {
-  margin: 0 0 0 -15px;
-  padding-left: 0;
-  list-style: none;
 }
 @media (min-width: 768px) {
   nav div.row ul {
