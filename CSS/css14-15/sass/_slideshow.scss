@@ -5,13 +5,9 @@ main {
     div.loop-wrap {
         position: relative;
         width:100%;
-        height: 33vw;
         overflow: hidden;
 
         div.loop-images-container {
-            position: absolute;
-            top: -.01rem;
-            left: 0;
             width: 300vw;
             /* 横向排列 3张图片 宽度应为主容器3倍 */
             white-space: nowrap;
