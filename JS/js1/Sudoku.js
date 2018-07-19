@@ -11,15 +11,15 @@ function random_digit() {
 
     // while循环判断生成的3个随机数不重复
     while (one == two || one == three || two == three) {
-        var one = Math.floor(Math.random() * 9);
-        var two = Math.floor(Math.random() * 9);
-        var three = Math.floor(Math.random() * 9);
+        one = Math.floor(Math.random() * 9);
+        two = Math.floor(Math.random() * 9);
+        three = Math.floor(Math.random() * 9);
     }
 
     // 设置三个随机格子的颜色
-    initiate[one].style.background = "rgb" + color();
-    initiate[two].style.background = "rgb" + color();
-    initiate[three].style.background = "rgb" + color();
+    initiate[one].style.backgroundColor = "rgb" + color();
+    initiate[two].style.backgroundColor = "rgb" + color();
+    initiate[three].style.backgroundColor = "rgb" + color();
 }
 
 // 生成三个格子的随机颜色
@@ -37,17 +37,17 @@ function begin() {
     clearInterval(time);
     time = setInterval(function () {
         for (var i = 0; i < 9; i++) {
-            initiate[i].style.backgroundColor = '';
+            initiate[i].style.backgroundColor = "orange";
         }
         random_digit();
-    } , 500); //颜色变换时间500毫秒
+    } , 1000); //颜色变换时间1000毫秒
 }
 
 // 点击关闭按钮结束变换颜色
 function off() {
     clearInterval(time);
     for (var i = 0; i < 9; i++) {
-        initiate[i].style.backgroundColor = '';
+        initiate[i].style.backgroundColor = "orange";
     }
 
 }
