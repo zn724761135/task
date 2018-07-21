@@ -14,7 +14,7 @@ function random_digit() {
         one = Math.floor(Math.random() * 9);
         two = Math.floor(Math.random() * 9);
         three = Math.floor(Math.random() * 9);
-    }
+    } 
 
     // 设置三个随机格子的颜色
     initiate[one].style.backgroundColor = "rgb" + color();

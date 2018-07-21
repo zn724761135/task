@@ -8,7 +8,7 @@ body {
   font-size: initial;
 }
 
-p {
+p, h4 {
   margin: 0;
 }
 
@@ -131,6 +131,7 @@ div.nav div.main-content main ul.box a.box {
   letter-spacing: .04rem;
   text-decoration: none;
   color: #FFFFFF;
+  cursor: pointer;
 }
 div.nav div.main-content main ul.box a.box.sjx::after {
   content: "";

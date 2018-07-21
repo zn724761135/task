@@ -112,6 +112,8 @@
                        letter-spacing: .04rem;
                        text-decoration:none;
                        color: $white;
+                        //鼠标指标为一只手
+                       cursor:pointer;
             
                        &.sjx::after{
                            content:"";

@@ -9,30 +9,32 @@
 </head>
 <body>
     <header>
-        <a class="back" href=""></a>
+        <a onclick="start()" class="back"></a>
     </header>
     <main>
         <h4 class="title">玩家配比</h4>
         <div class="player">
             <span class="Killer">杀手
-                <input  class="player-input" type="text">
+                <input  class="player-input" type="text" id="Killer">
                 人
             </span>
             <span class="civilian">平民
-                <input class="player-input" type="text">
+                <input class="player-input" type="text" id="civilian">
                 人
             </span>
         </div>
         <div class="box"></div>
         <div class="quantity">
             <strong>请输入玩家数量
-            <input class="quantity-input" type="text" checked="12">
+            <input class="quantity-input" type="text" id="content" value="8">
             <span class="font">玩家属性为4-18</span>
             </strong>
         </div>
     </main>
     <footer>
-        <button>去发牌</button>
+        <button onclick="button()">去发牌</button>
     </footer>
+
+    <script type="text/javascript" src="js/player.js"></script>
 </body>
 </html>
