@@ -11,7 +11,10 @@
         <input type="text" id="trueprice" value="" />
         <input type="text" id="trueprice1" value="" >
      
-    <script type="text/javascript">
+	<script type="text/javascript">
+		
+		//一个input输入值后另外两个input自动获取值
+
     document.getElementById("price2").oninput = function() {
         a(this.value);
      
@@ -38,6 +41,9 @@
 	<body>
 		<input type="text" onkeyup="a(this)" />
 		<script>
+
+			//input只能输入数字
+
 			function a(t){		
 				var num = t.value;
 				// console.log(num);
@@ -53,7 +59,7 @@
 
 
 
-
+<!-- 
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -63,6 +69,7 @@
         <input type="text" />
         
 		<script>
+			// 正则表达式只能输入数字
              var b=document.getElementsByTagName('input')[0];
              b.addEventListener('input',function(){
                 var x=/\D/g;
@@ -70,5 +77,60 @@
              })
 
 		</script>
-	</body>
+	</body> -->
+
+
+
+
+	<!-- <html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+        <input type="text" />
+		
+		<script>
+			// 洗牌算法
+
+
+			//自运行写法，把函数语句用（）括起来，后面再跟（）
+           (function shuffleArray() {
+        var array=arr;
+        if(array){
+            for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+
+        }
+        console.log(array)
+        return array;
+        }  
+    })()  
+
+
+
+	//最后面写自运行代码  shuffleArray(arr);
+    function shuffleArray(arr){
+        var array=arr;
+        if(array){
+            for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        console.log(array)
+        return array;
+        }  
+    }  
+    shuffleArray(arr);
+
+		</script>
+	</body> -->
+
+
+
 

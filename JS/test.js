@@ -19,37 +19,31 @@ var civilian = document.getElementById("civilian");
 
 // 利用oninput输入事件触发玩家input属性
 quantity.oninput = function () {
-    var x=/\D/g;//定义正则，非数字规则
-    this.value=this.value.replace(x,"");// 符合正则规则替换为空值
     gain(this.value);// 获取当前对象输入的值
 }
-
-
-var arr;
-
 // 把获取的值赋给Killer和civilian两个input
 function gain(value) {
     Killer.value = Math.round(value - (value / 2 + value / 6 + value / 24.1));
     civilian.value = Math.round(value / 2 + value / 6 + value / 24.1);
 
-    arr=[];
     // 当玩家值小于4或大于18赋给Killer和civilian值为空
     if (value< 4 || value > 18) {
         Killer.value = "";
         civilian.value = "";
-    }else{
-    // 当玩家值小于4或大于18把Killer和civilian以组数形式输出
-        for (let i=0;i<Killer.value;i++){
-            arr.push("杀手");//输出杀手的数量push到数组
-        }
-        for (let i=0;i<civilian.value;i++){
-            arr.push("平民");//输出平民的数量push到数组
-        }
     }
 }
 gain(quantity.value);//自运行
 
 
+
+quantity.addEventListener('input',function(){
+    var x=/\D/g;//定义正则，非数字规则
+    this.value=this.value.replace(x,"");// 符合正则规则替换为空值
+    if (value="") {
+        Killer.value = "";
+        civilian.value = "";
+    }
+})
 
 // // 点击button按钮判断条件
 function button() {
@@ -61,20 +55,7 @@ function button() {
     if (count < 4 || count > 18) {
         confirm("请输入正确的玩家数量。");
     } else {
-        // location.href = "start.html";
-        (function shuffleArray() {
-            var array=arr;
-            if(array){
-                for (var i = array.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                var temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;    
-            }
-            console.log(array)
-            return array;
-            }  
-        })() 
+        location.href = "start.html";
     }
 
 }
@@ -96,20 +77,7 @@ document.onkeydown = function (a) {//a是按键信息对象以函数参数的形
         if (count < 4 || count > 18) {
             confirm("请输入正确的玩家数量。");
         } else {
-            // location.href = "start.html";
-        (function shuffleArray() {
-            var array=arr;
-            if(array){
-                for (var i = array.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                var temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;    
-            }
-            console.log(array)
-            return array;
-            }  
-        })() 
+            location.href = "start.html";
         }
     }
 }
