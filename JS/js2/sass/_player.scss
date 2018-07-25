@@ -16,7 +16,7 @@ header {
         border-top: $font $white;
         border-right: $font $white;
         transform: rotate(225deg);
-        //鼠标指标为一只手
+        /*鼠标指标为一只手*/
         cursor:pointer;
         /*返回箭头*/
     }
@@ -104,7 +104,7 @@ footer{
         /*字符间距*/
         letter-spacing:.15rem;
         color: $white;
-        //鼠标指标为一只手
+        /*鼠标指标为一只手*/
         cursor:pointer;
     }
 }

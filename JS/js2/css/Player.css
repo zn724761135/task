@@ -42,6 +42,7 @@ header .back {
   border-top: 0.05rem solid #FFFFFF;
   border-right: 0.05rem solid #FFFFFF;
   transform: rotate(225deg);
+  /*鼠标指标为一只手*/
   cursor: pointer;
   /*返回箭头*/
 }
@@ -127,6 +128,7 @@ footer button {
   /*字符间距*/
   letter-spacing: .15rem;
   color: #FFFFFF;
+  /*鼠标指标为一只手*/
   cursor: pointer;
 }
 
