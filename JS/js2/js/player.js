@@ -40,10 +40,10 @@ function gain(value) {
         arr=[];//arr定义为空数组，每次执行完函数重置arr为空
 
     // 当玩家值小于4或大于18把Killer和civilian以组数形式输出
-        for (let i=0;i<Killer.value;i++){
+        for (var i=0;i<Killer.value;i++){
             arr.push("杀手");//输出杀手的数量push到数组
         }
-        for (let i=0;i<civilian.value;i++){
+        for (var i=0;i<civilian.value;i++){
             arr.push("平民");//输出平民的数量push到数组
         }
     }
