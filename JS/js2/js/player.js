@@ -25,19 +25,20 @@ quantity.oninput = function () {
 }
 
 
-var arr;
+var arr;//声明一个全局变量arr，让button的函数访问到arr变量
 
 // 把获取的值赋给Killer和civilian两个input
 function gain(value) {
     Killer.value = Math.round(value - (value / 2 + value / 6 + value / 24.1));
     civilian.value = Math.round(value / 2 + value / 6 + value / 24.1);
 
-    arr=[];
     // 当玩家值小于4或大于18赋给Killer和civilian值为空
     if (value< 4 || value > 18) {
         Killer.value = "";
         civilian.value = "";
     }else{
+        arr=[];//arr定义为空数组，每次执行完函数重置arr为空
+
     // 当玩家值小于4或大于18把Killer和civilian以组数形式输出
         for (let i=0;i<Killer.value;i++){
             arr.push("杀手");//输出杀手的数量push到数组
@@ -61,21 +62,23 @@ function button() {
     if (count < 4 || count > 18) {
         confirm("请输入正确的玩家数量。");
     } else {
-        // location.href = "start.html";
-        (function shuffleArray() {
-            var array=arr;
-            if(array){
-                for (var i = array.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                var temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;    
-            }
-            console.log(array)
-            return array;
-            }  
-        })() 
+        var array=arr;//访问全局变量arr
+
+        // 洗牌算法
+        if(array){
+            for (var i = array.length - 1; i > 0; i--) {
+            // 打乱数组的玩家
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;    
+        }
+         console.log(array)
+        return array;
+        }  
+        location.href = "start.html";//进入下一个页面
     }
+    return false;//冒泡事件
 }
 
 
@@ -87,28 +90,6 @@ document.onkeydown = function (a) {//a是按键信息对象以函数参数的形
 
         //13为回车键的编码
     if (code === 13) {   
-          
-        //当按下回车后执行如下代码
-        var count = document.getElementById("content").value;
-        
-        // 按下回车后判断条件符合弹出提示窗口,否则进入下一个页面
-        if (count < 4 || count > 18) {
-            confirm("请输入正确的玩家数量。");
-        } else {
-            // location.href = "start.html";
-            (function shuffleArray() {
-                var array=arr;
-                if(array){
-                    for (var i = array.length - 1; i > 0; i--) {
-                    var j = Math.floor(Math.random() * (i + 1));
-                    var temp = array[i];
-                    array[i] = array[j];
-                    array[j] = temp;    
-                }
-                console.log(array)
-                return array;
-                }  
-            })() 
-        }
+        button();//调用button函数
     }
 }
