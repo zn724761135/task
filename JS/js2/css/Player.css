@@ -74,13 +74,14 @@ main .player .Killer, main .player .civilian {
 main .player .Killer::before, main .player .civilian::before {
   content: "";
   position: absolute;
-  width: 0.6rem;
-  height: 0.6rem;
-  margin: -.15rem 0 0 -.7rem;
-  background: url(../img/shashou.png) no-repeat;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin: -.2rem 0 0 -.8rem;
+  border-radius: 100%;
+  background: url(../img/shashou.png) no-repeat no-repeat center/cover;
 }
 main .player .civilian::before {
-  background: url(../img/pingmin.png) no-repeat;
+  background: url(../img/pingmin.png) no-repeat no-repeat center/cover;
 }
 main .player .player-input {
   width: .3rem;

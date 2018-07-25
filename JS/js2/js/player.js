@@ -76,7 +76,7 @@ function button() {
         localStorage.setItem("key",JSON.stringify(array));
         console.log(array);
         }  
-        location.href = "start.html";//进入下一个页面
+        location.href = "check.html";//进入下一个页面
     }
     return false;//冒泡事件
 }

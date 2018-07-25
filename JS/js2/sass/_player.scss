@@ -46,9 +46,10 @@ main {
             &::before{
                 content: "";
                 position: absolute;
-                @include box(.6rem,.6rem);
-                margin: -.15rem 0 0 -.7rem; 
-                background: url(../img/shashou.png)no-repeat;
+                @include box(.7rem,.7rem);
+                margin: -.2rem 0 0 -.8rem; 
+                border-radius: 100%;
+                background: url(../img/shashou.png)no-repeat no-repeat center/cover;;
                 
             }
         }
@@ -56,7 +57,7 @@ main {
             @extend .Killer ;
             
             &::before{
-                background: url(../img/pingmin.png)no-repeat;
+                background: url(../img/pingmin.png)no-repeat no-repeat center/cover;;
             }
         }
         .player-input{
