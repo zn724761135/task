@@ -76,7 +76,6 @@ function button() {
             }  
         })() 
     }
-
 }
 
 
@@ -97,19 +96,19 @@ document.onkeydown = function (a) {//a是按键信息对象以函数参数的形
             confirm("请输入正确的玩家数量。");
         } else {
             // location.href = "start.html";
-        (function shuffleArray() {
-            var array=arr;
-            if(array){
-                for (var i = array.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                var temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;    
-            }
-            console.log(array)
-            return array;
-            }  
-        })() 
+            (function shuffleArray() {
+                var array=arr;
+                if(array){
+                    for (var i = array.length - 1; i > 0; i--) {
+                    var j = Math.floor(Math.random() * (i + 1));
+                    var temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;    
+                }
+                console.log(array)
+                return array;
+                }  
+            })() 
         }
     }
 }
