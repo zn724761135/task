@@ -63,7 +63,6 @@ function button() {
         confirm("请输入正确的玩家数量。");
     } else {
         var array=arr;//访问全局变量arr
-
         // 洗牌算法
         if(array){
             for (var i = array.length - 1; i > 0; i--) {
@@ -73,8 +72,9 @@ function button() {
             array[i] = array[j];
             array[j] = temp;    
         }
-         console.log(array)
-        return array;
+        // 把打乱的玩家角色储存到浏览器本地
+        localStorage.setItem("key",JSON.stringify(array));
+        console.log(array);
         }  
         location.href = "start.html";//进入下一个页面
     }
