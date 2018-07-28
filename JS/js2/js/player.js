@@ -8,7 +8,6 @@ function start() {
     }
 }
 
-
 //获取输入玩家input节点
 var quantity = document.getElementById("content");
 // 获取杀手input节点
