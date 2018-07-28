@@ -40,10 +40,10 @@ function gain(value) {
         arr=[];//arr定义为空数组，每次执行完函数重置arr为空
 
     // 当玩家值小于4或大于18把Killer和civilian以组数形式输出
-        for (var i=0;i<Killer.value;i++){
+        for (let i=0;i<Killer.value;i++){
             arr.push("杀手");//输出杀手的数量push到数组
         }
-        for (var i=0;i<civilian.value;i++){
+        for (let i=0;i<civilian.value;i++){
             arr.push("平民");//输出平民的数量push到数组
         }
     }
@@ -54,18 +54,20 @@ gain(quantity.value);//自运行
 
 // // 点击button按钮判断条件
 function button() {
-
+    var array;
     // 获取输入玩家input的value的值
     var count = document.getElementById("content").value;
-
+    // 获取输入玩家input的焦点，当人数不符时点击提示按钮获取焦点
+    var focus = document.getElementById("content").focus();
     // 判断条件符合弹出提示窗口,否则进入下一个页面
     if (count < 4 || count > 18) {
         confirm("请输入正确的玩家数量。");
+        quantity.value="";//点击提示按钮输入玩家input值为空
     } else {
-        var array=arr;//访问全局变量arr
+        array=arr;//访问全局变量arr
         // 洗牌算法
         if(array){
-            for (var i = array.length - 1; i > 0; i--) {
+            for (let i = array.length - 1; i > 0; i--) {
             // 打乱数组的玩家
             var j = Math.floor(Math.random() * (i + 1));
             var temp = array[i];
@@ -83,10 +85,10 @@ function button() {
 
 
 // 键盘事件，onkeydown事件当用户按下按键触发
-document.onkeydown = function (a) {//a是按键信息对象以函数参数的形式传递进来
+document.onkeydown = function (event) {//a是按键信息对象以函数参数的形式传递进来
    
      //取出按键信息中的按键代码(大部分浏览器通过keyCode属性获取按键代码，但少部分浏览器使用的却是charCode
-    var code = a.charCode || a.keyCode;  
+    var code = event.charCode || event.keyCode;  
 
         //13为回车键的编码
     if (code === 13) {   

@@ -11,16 +11,16 @@
 
 <body>
     <header>
-        <a class="return"></a>
+        <a class="return" onclick="backtrack()"></a>
         <span class="font">查看身份</span>
         <div class="close">
-            <a class="content"></a>
+            <a class="content" onclick="off()"></a>
         </div>
     </header>
     <main>
         <div class="box">
             <div class="circle">
-                <span class="figure">1</span>
+                <span class="figure" id="aaa">1</span>
             </div>
             <span class="picture"></span>
             <div class="circle-box">
@@ -30,7 +30,7 @@
         </div>
     </main>
     <footer>
-        <button>查看1号身份</button>
+        <button id="button" onclick="button()">查看1号身份</button>
     </footer>
 
     <script type="text/javascript" src="../js/check.js"></script>
