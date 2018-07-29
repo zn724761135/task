@@ -9,6 +9,7 @@ body{
 
 /*main主体*/ 
 main{
+    margin-top: 1rem;
     padding: .9rem .88rem 0 .88rem;
 
     .box{
@@ -57,22 +58,5 @@ main{
             font-size: .4rem;
             color:$bg;
         }
-    }
-}
-
-footer{
-    @include flex(center,center);
-    margin-top:1rem;
-    
-    button{
-        @include box (100%,.85rem);
-        margin: 0 .75rem;
-        background: $orange;
-        font-size: .48rem;
-        /*字符间距*/
-        letter-spacing:.1rem;
-        color: $white;
-        /*鼠标指标为一只手*/
-        cursor:pointer;
     }
 }

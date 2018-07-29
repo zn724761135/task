@@ -4,10 +4,15 @@
 
 
 header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     @include flex(space-between,center);
     height: 1rem;
     border-bottom: .01rem solid rgba(255,255,255,.5);
     background: $bg;
+    z-index: 1;
 
     .return{
         display: inline-block;
