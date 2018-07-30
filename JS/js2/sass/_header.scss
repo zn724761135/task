@@ -2,6 +2,9 @@
 
 @import"_layout";
 
+body{
+    background:$bg;
+}
 
 header{
     position: fixed;

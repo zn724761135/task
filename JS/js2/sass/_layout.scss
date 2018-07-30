@@ -4,6 +4,7 @@ $white:#FFFFFF;
 $blue:#69D1E9;
 $bg:#29BDE0;
 $gray:#E7E7E7;
+$black:#565656;
 $header:.05rem solid $white;
 $main:.01rem  solid #C9C9C9;
 $font:.05rem solid ;
@@ -15,6 +16,12 @@ $border:.01rem solid $orange;
     width: $w;
     height: $h;
 }
+
+@mixin wrap{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 @mixin txet{
     text-align: center;
 }
@@ -33,4 +40,28 @@ $border:.01rem solid $orange;
     @include box(.02rem,.5rem );
     border: .01rem  solid $white;
     background: $white;
+}
+
+
+//玩家角色属性盒子
+@mixin name{
+    float: left;
+    @include box(23.5vw,23.5vw);
+    margin: 0 4vw 8.3vw 4vw;
+    border: $header;
+    background: #F5C97B;
+
+    .role{
+        @include flex(center,center);
+        height: 75%;
+        font-size: .3rem;
+        color: $black;
+    }
+    .number{
+        @include flex(center,center);
+        height: 25%;
+        background: rgba(26,153,183,.5);
+        font-size: .23rem;
+        color: $white;
+    }
 }

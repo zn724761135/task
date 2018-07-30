@@ -25,6 +25,10 @@ ul {
 }
 
 /*眉页*/
+body {
+  background: #29BDE0;
+}
+
 header {
   position: fixed;
   top: 0;
@@ -87,10 +91,6 @@ header .close a.content.content::after {
 }
 
 /*文本主体*/
-body {
-  background: #29BDE0;
-}
-
 /*main主体*/
 main {
   margin-top: 1rem;

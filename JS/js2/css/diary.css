@@ -25,6 +25,10 @@ ul {
 }
 
 /*眉页*/
+body {
+  background: #29BDE0;
+}
+
 header {
   position: fixed;
   top: 0;
@@ -87,6 +91,38 @@ header .close a.content.content::after {
 }
 
 /*文本主体*/
+/*主体*/
+main {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1.7rem 0;
+}
+main div.box {
+  float: left;
+  width: 23.5vw;
+  height: 23.5vw;
+  margin: 0 4vw 8.3vw 4vw;
+  border: 0.05rem solid #FFFFFF;
+  background: #F5C97B;
+}
+main div.box .role {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75%;
+  font-size: .3rem;
+  color: #565656;
+}
+main div.box .number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25%;
+  background: rgba(26, 153, 183, 0.5);
+  font-size: .23rem;
+  color: #FFFFFF;
+}
+
 /*底部按钮*/
 footer {
   position: fixed;

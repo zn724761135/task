@@ -2,3 +2,13 @@
 
 @import"_layout";
 
+
+/*主体*/
+main{
+    @include wrap;
+    margin:1.7rem 0;
+
+    div.box{
+        @include name;
+    }
+}

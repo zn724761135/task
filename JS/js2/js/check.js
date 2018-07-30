@@ -70,6 +70,6 @@ function button() {
     }
     if (i >= arr.length) {
         // 大于等于数组长度进入下一个页面
-        location.href = "../html/Player.html";
+        location.href = "../html/diary.html";
     }
 }
