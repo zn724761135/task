@@ -70,4 +70,7 @@ function button() {
     // 把玩家对象数组储存到浏览器本地
     localStorage.setItem("store", JSON.stringify(PartArr));
     console.log(PartArr);
+ 
+
+    location.href = "../html/libretto.html";//进入下一个页面
 }
