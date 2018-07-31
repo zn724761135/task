@@ -18,57 +18,39 @@ function off() {
 var data = JSON.parse(localStorage.getItem('key'));
 
 
-var arr = [];
-var arr = data;
+var arr = [];//声明一个数组
+var arr = data;//把获取的数据传递到数组
 console.log(arr);
 
 
+// 获取角色属性dom节点
+var role = document.getElementsByClassName("role");
+// 获取角色人数序号dom节点
+var number = document.getElementsByClassName("number");
+// 获取角色属性盒子父元素节点
+var parent = document.getElementsByTagName("main")[0];
+console.log(parent)
 
-var role = document.getElementsByClassName("role")[0];
-var number = document.getElementsByClassName("number")[0];
-var a = document.getElementsByTagName("main")[0];
-console.log(a)
 
+// 通过父元素节点克隆人数属性盒子
 for (let i=0;i < arr.length - 1; i++) {
-    var b = document.getElementsByClassName("box")[0].cloneNode(true);
-    a.appendChild(b);
+    
+    // 获取子级盒子属性节点,并克隆节点
+    var son = document.getElementsByClassName("box")[0].cloneNode(true);
+    parent.appendChild(son);//规定在父级里面克隆子级节点
 }
 
-var a = 0;
-var m = 0;
+var x = 0;//声明一个变量记录玩家序号
+
 for (let i = 0; i <= arr.length - 1; i++) {
-    a = arr[i];
-    role.innerText=(arr[i]);
-    m = m + 1
-    console.log(a);
-    console.log(m);
-    number.innerText=(m);
-    console.log(role);
-    console.log(number);
+    role[i].innerText=(arr[i]);//获取数组指标对应的玩家属性
+    x = x + 1;//每次循把玩家人数序号+1
+    number[i].innerText=(x +"号");//把玩家人数序号传入对应的盒子
+    console.log(arr[i])
+    console.log(x);
+
 }
 
 
 
 
-
-
-
-
-// for (let i = 0; i <= arr.length - 1; i++) {
-
-//     a.innerHTML  +=  ` 
-//     <div class="box">
-//          <span class="role">水民</span>
-//     <span class="number">1号</span>   
-//         </div>`
-//     console.log(a.innerHTML)
-
-// }
-
-// var a = document.getElementsByTagName("main")[0];
-// console.log(a)
-
-// for (var i=0;i < arr.length - 1; i++) {
-//     var b = document.getElementsByClassName("box")[0].cloneNode(true);
-//     a.appendChild(b);
-// }
