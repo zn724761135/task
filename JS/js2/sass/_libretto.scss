@@ -6,12 +6,12 @@
 
 /*主体*/
 main {
-    padding: .2rem .15rem;
+    padding: .1rem .15rem;
     margin-top: 1rem;
 
-    div.box {
-        height: 1rem;
+    h4{
         border: $main;
+        margin-top: .2rem;
         background: $white;
         line-height: 1rem;
         text-align: center;
@@ -51,11 +51,12 @@ main {
 
                 img{
                     @include box (.4rem,.4rem);
-                    margin-bottom: 0.12rem;
+                    margin: 0.11rem 0 0 .08rem;
                 }
             }
             .sun{
                 @extend .moon;
+                margin-top: .4rem;
             }
         }
         
@@ -65,6 +66,7 @@ main {
             margin-bottom: .2rem;
             /*字符间距*/
             letter-spacing: .05rem;
+            text-align: center;
             color: $white;
         }
         .sjx{

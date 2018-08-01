@@ -95,12 +95,12 @@ header .close a.content.content::after {
 
 /*主体*/
 main {
-  padding: .2rem .15rem;
+  padding: .1rem .15rem;
   margin-top: 1rem;
 }
-main div.box {
-  height: 1rem;
+main h4 {
   border: 0.01rem solid #C9C9C9;
+  margin-top: .2rem;
   background: #FFFFFF;
   line-height: 1rem;
   text-align: center;
@@ -142,7 +142,10 @@ main ul .bar .moon, main ul .bar .sun {
 main ul .bar .moon img, main ul .bar .sun img {
   width: 0.4rem;
   height: 0.4rem;
-  margin-bottom: 0.12rem;
+  margin: 0.11rem 0 0 .08rem;
+}
+main ul .bar .sun {
+  margin-top: .4rem;
 }
 main ul .step {
   background: #24A7C6;
@@ -150,6 +153,7 @@ main ul .step {
   margin-bottom: .2rem;
   /*字符间距*/
   letter-spacing: .05rem;
+  text-align: center;
   color: #FFFFFF;
 }
 main ul .sjx {

@@ -45,7 +45,6 @@ $border:.01rem solid $orange;
 
 //玩家角色属性盒子
 @mixin name{
-    float: left;
     @include box(23.5vw,23.5vw);
     margin: 0 4vw 8.3vw 4vw;
     border: $header;
