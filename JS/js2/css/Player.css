@@ -90,7 +90,7 @@ main .player .player-input {
 }
 main .box {
   height: 1.5rem;
-  margin-top: 0.15rem;
+  margin-top: .15rem;
   background: #FFFFFF;
 }
 main .quantity {
@@ -131,6 +131,8 @@ footer button {
   color: #FFFFFF;
   /*鼠标指标为一只手*/
   cursor: pointer;
+  /*阴影效果*/
+  box-shadow: 0 0 0 1.5px #FBB435;
 }
 
 /*# sourceMappingURL=Player.css.map */

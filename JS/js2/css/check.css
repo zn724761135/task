@@ -173,6 +173,8 @@ footer button {
   color: #FFFFFF;
   /*鼠标指标为一只手*/
   cursor: pointer;
+  /*阴影效果*/
+  box-shadow: 0 0 0 1.5px #FBB435;
 }
 
 /*# sourceMappingURL=check.css.map */
