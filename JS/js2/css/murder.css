@@ -96,7 +96,7 @@ header .return {
 main {
   display: flex;
   flex-wrap: wrap;
-  margin: 1.2rem 0;
+  margin: 1.2rem 0 2rem 0;
 }
 main div.top-box {
   position: relative;
@@ -147,6 +147,18 @@ main div.box .number {
   background: rgba(26, 153, 183, 0.5);
   font-size: .23rem;
   color: #FFFFFF;
+}
+main div.box ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main div.box .knife {
+  display: none;
+  width: 4.5vw;
+  height: 4.5vw;
+  margin-top: 2vw;
+  background: url(../img/icon/knife.png) no-repeat 0 0/100%;
 }
 
 footer {

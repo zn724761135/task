@@ -58,13 +58,13 @@ check.onclick=function() {
         // console.log(check)
         // console.log(i)
     } else if (i != 0) {
-        var bb = m - 1;
+        var number = m - 1;
         // 显示反面图片
         verso.style.display = "inline-block";
         // 隐藏正面图片和玩家描述盒子
         front.style.display = "none";
         // 修改button内容
-        check.innerText = ("查看" + bb + "号身份");
+        check.innerText = ("查看" + number + "号身份");
         // 修改玩家数量值
         count.innerText = m - 1;
         i = i + 0.5;

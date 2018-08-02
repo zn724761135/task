@@ -10,7 +10,7 @@ header .return{
 
 main{
     @include wrap;
-    margin:1.2rem 0;
+    margin:1.2rem 0 2rem 0;
 
     div.top-box{
         position: relative;
@@ -41,5 +41,16 @@ main{
     
     div.box{
         @include name;
+
+        ul{
+            @include flex(center,center);
+        }
+        
+        .knife{
+            display: none;
+            @include box(4.5vw,4.5vw);
+            margin-top: 2vw;
+            background: url(../img/icon/knife.png) no-repeat 0 0/100%;
+        }
     }
 }

@@ -1,10 +1,12 @@
 // 返回按钮返回到发牌页面
-function backtrack() {
+var backtrack=document.getElementById("backtrack");
+backtrack.onclick=function() {
     location.href = "../html/check.html";
 }
 
 // 关闭按钮返回到主页面
-function off() {
+var off=document.getElementById("off");
+off.onclick=function() {
     // 点击关闭弹出提示窗口
     if (confirm("是否要退出游戏返回到主页面")) {
         location.href = "../html/start.html"; //点击确定返回到主页面
@@ -20,7 +22,7 @@ var data = JSON.parse(localStorage.getItem('key'));
 
 var arr = []; //声明一个数组
 var arr = data; //把获取的数据传递到数组
-console.log(arr);
+// console.log(arr);
 
 
 // 获取角色属性dom节点
@@ -29,7 +31,7 @@ var role = document.getElementsByClassName("role");
 var number = document.getElementsByClassName("number");
 // 获取角色属性盒子父元素节点
 var parent = document.getElementsByTagName("main")[0];
-console.log(parent)
+// console.log(parent)
 
 
 // 通过父元素节点克隆人数属性盒子
@@ -45,13 +47,14 @@ for (let i = 0; i <= arr.length - 1; i++) {
     role[i].innerText = (arr[i]); //获取数组指标对应的玩家属性
     x = x + 1; //每次循把玩家人数序号+1
     number[i].innerText = (x + "号"); //把玩家人数序号传入对应的盒子
-    console.log(arr[i])
-    console.log(x);
+    // console.log(arr[i])
+    // console.log(x);
 
 }
 
 // 点击button生成构造函数
-function button() {
+var button=document.getElementsByTagName("button")[0];
+button.onclick=function() {
     // 创建构造函数
     function Part(breed, status, num) {
         this.breed = breed;
@@ -69,7 +72,7 @@ function button() {
     }
     // 把玩家对象数组储存到浏览器本地
     localStorage.setItem("store", JSON.stringify(PartArr));
-    console.log(PartArr);
+    // console.log(PartArr);
  
 
     location.href = "../html/libretto.html";//进入下一个页面

@@ -11,6 +11,8 @@ function off() {
 // 获取保存到本地的玩家属性的对象数组的数据
 var data = JSON.parse(localStorage.getItem("store"));
 console.log(data)
+var arr=[];
+arr=data;
 
 // 获取角色属性dom节点
 var role = document.getElementsByClassName("role");
@@ -30,12 +32,25 @@ for (let i = 0; i < arr.length - 1; i++) {
 var x = 0; //声明一个变量记录玩家序号
 
 for (let i = 0; i <= arr.length - 1; i++) {
-    role[i].innerText = (arr[i]); //获取数组指标对应的玩家属性
-    x = x + 1; //每次循把玩家人数序号+1
+    role[i].innerText = (arr[i].breed); //获取数组指标对应的玩家对象类型属性
+    x = arr[i].num; //获取数组指标对应的玩家对象的玩家序号
     number[i].innerText = (x + "号"); //把玩家人数序号传入对应的盒子
     console.log(arr[i])
     console.log(x);
 }
+
+
+
+
+
+
+// for (let i = 0; i <= arr.length - 1; i++) {
+//     role[i].innerText = (arr[i]); //获取数组指标对应的玩家属性
+//     x = x + 1; //每次循把玩家人数序号+1
+//     number[i].innerText = (x + "号"); //把玩家人数序号传入对应的盒子
+//     console.log(arr[i])
+//     console.log(x);
+// }
 
 
 
