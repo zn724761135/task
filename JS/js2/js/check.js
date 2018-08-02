@@ -34,8 +34,6 @@ var i = 0;
 var m = 2;
 
 check.onclick=function() {
-
-
     if (i % 1 == 0) {
         //隐藏反面图片
         verso.style.display = "none";
@@ -47,12 +45,11 @@ check.onclick=function() {
         player.innerText = (arr[i]);
         i = i + 0.5;
         m = m + 1;
-        console.log(arr)
-        console.log(player)
-        console.log(check)
-        console.log(i)
-    } else
-    if (i != 0) {
+        // console.log(arr)
+        // console.log(player)
+        // console.log(check)
+        // console.log(i)
+    } else if (i != 0) {
         var bb = m - 1;
         // 显示反面图片
         verso.style.display = "inline-block";
@@ -63,15 +60,15 @@ check.onclick=function() {
         // 修改玩家数量值
         count.innerText = m - 1;
         i = i + 0.5;
-        console.log(i)
-    }
-    if (m > arr.length + 1) {
-        // 大于数组长度修改button按钮值
-        check.innerText = ("法官查看");
+        // console.log(i)
     }
     if (i >= arr.length) {
         // 大于等于数组长度进入下一个页面
         location.href = "../html/diary.html";
         return;
+    }
+    if (m > arr.length + 1) {
+        // 大于数组长度修改button按钮值
+        check.innerText = ("法官查看");
     }
 }
