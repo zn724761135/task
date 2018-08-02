@@ -4,7 +4,7 @@ var data = JSON.parse(localStorage.getItem('key'));
 // 返回按钮返回到发牌页面
 function backtrack() {
     location.href = "../html/Player.html";
-}
+} 
 
 // 关闭按钮返回到主页面
 function off() {
@@ -17,15 +17,15 @@ function off() {
 }
 
 // 获取背面图片dom节点
-var verso = document.getElementsByClassName("picture")[0];
+var verso = document.getElementById("verso");
 // 获取正面图片角色盒子dom节点
 var front = document.getElementsByClassName("circle-box")[0];
 // 获取角色描述dom节点
-var player = document.getElementsByClassName("describe")[0];
+var player = document.getElementById("player");
 // 获取玩家数量dom节点
-var count = document.getElementsByClassName("figure")[0];
+var count = document.getElementById("count");
 // 获取button按钮dom节点
-var check = document.getElementById("button");
+var check = document.getElementsByTagName("button")[0];
 
 var arr = []; //声明一个空数组
 var arr = data; //把获取到本地的数据传到数组里
@@ -33,8 +33,9 @@ var arr = data; //把获取到本地的数据传到数组里
 var i = 0;
 var m = 2;
 
-function button() {
-    // 
+check.onclick=function() {
+
+
     if (i % 1 == 0) {
         //隐藏反面图片
         verso.style.display = "none";
@@ -71,5 +72,6 @@ function button() {
     if (i >= arr.length) {
         // 大于等于数组长度进入下一个页面
         location.href = "../html/diary.html";
+        return;
     }
 }

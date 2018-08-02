@@ -19,51 +19,32 @@ var data = JSON.parse(localStorage.getItem("store"));
 console.log(data)
 
 
-window.onload = function () {
-
-    var b = document.getElementsByTagName("h4");
-    var c = document.getElementsByTagName("ul");
-
-    for (let i = 0; i < b.length; i++) {
-        b[i].index = i;
-        b[i].onclick = function () {
-            if (this.className == "") {
-                c[this.index].style.display = "none";
-                this.className = "block";
-            } else {
-                c[this.index].style.display = "block";
-                this.className = "";
-            }
-
-
-        }
-
-    }
-
+var killer = document.getElementsByClassName("step")[0];
+killer.onclick = function () {
+    location.href = "../html/murder.html"
 }
 
-// window.onload = function (){
-//     var oUl = document.getElementById('list');
-//     var aH2 = document.getElementsByTagName('h4');
-//     var aUl = this.document.getElementsByTagName('ul');
 
-//     for(var i=0;i<aH2.length;i++){
-//         aH2[i].index=i;
-//         aH2[i].onclick = function(){
-//             for(var i=0;i<aH2.length;i++){
-//                 if(aH2[i] !=this){
-//                     aUl[i].style.display='none';
-//                     aH2[i].className='';
-//                 }
-//             }
-//             if(this.className==''){
-//                 aUl[this.index].style.display='none';
-//                 this.className='active';
-//             }else{
-//                 aUl[this.index].style.display='block';
-//                 this.className='';
-//             }
-//         };
-//     }
 
-// };
+
+
+// 点击下拉框
+window.onload = function () {
+    // 获取天数dom节点
+    var Days = document.getElementsByTagName("h4");
+    // 获取游戏进度节点
+    var progress = document.getElementsByTagName("ul");
+
+    for (let i = 0; i < Days.length; i++) {
+        Days[i].index = i;
+        Days[i].onclick = function () {
+            if (this.className == "") {
+                progress[this.index].style.display = "none";
+                this.className = "block";
+            } else {
+                progress[this.index].style.display = "block";
+                this.className = "";
+            }
+        }
+    }
+}
