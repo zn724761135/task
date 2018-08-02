@@ -53,10 +53,10 @@ check.onclick=function() {
         player.innerText = (arr[i]);
         i = i + 0.5;
         m = m + 1;
-        console.log(arr)
-        console.log(player)
-        console.log(check)
-        console.log(i)
+        // console.log(arr)
+        // console.log(player)
+        // console.log(check)
+        // console.log(i)
     } else if (i != 0) {
         var bb = m - 1;
         // 显示反面图片
@@ -68,7 +68,7 @@ check.onclick=function() {
         // 修改玩家数量值
         count.innerText = m - 1;
         i = i + 0.5;
-        console.log(i)
+        // console.log(i)
     }
 
     if (m > arr.length + 1) {
