@@ -31,7 +31,7 @@
 </html> -->
 
 
- 
+
 
 <!-- <html>
 	<head>
@@ -82,7 +82,7 @@
 
 
 
-	<!-- <html>
+<!-- <html>
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
@@ -190,7 +190,7 @@
 
 
 
-    <!-- <!DOCTYPE HTML>
+<!-- <!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -315,6 +315,149 @@ window.onload = function (){
         var a=sire.replaceChild(child,father[3]);//替换文本节点
         console.log(a)
 
+    </script>
+</body>
+
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+
+    <div id="abc"></div>
+    <p></p>
+    <p></p>
+    <div class="d"></div>
+    <p class="d"></p>
+    <span class="d"></span>
+    <span class="a"></span>
+    <p class="a  b"></p>
+    <div class="a b  c"></div>
+    <span class="a-b"></span>
+    <p class="a-c"></p>
+
+    <div class="box">
+        <ul class="lang">
+            <li class="a">1</li>
+            <li class="b">2</li>
+            <li class="c">3</li>
+        </ul>
+    </div>
+
+
+
+    <script>
+        // 按ID获取：
+        var id = document.getElementById("abc");
+        // 按标签获取：
+        var tag = document.getElementsByTagName("p")[0];
+        //按class获取
+        var a = document.getElementsByClassName("a")[0];
+
+        // 按ID获取：
+        var a = $('#abc')
+        //第一个元素存在，获取第1个DOM元素
+        var b = a.get(0);
+        // 重新把DOM包装为jQuery对象
+        var another = $(b);
+        // console.log(b)
+        // console.log(another)
+
+        // 按标签获取：
+        var tag = $('p')
+        // console.log(tag)
+
+
+        // 按class获取
+        var a = $('.a')
+        // console.log(a)
+
+        var a = $('.a.b') //之间不能有空格
+        // console.log(a)
+
+
+        // 按属性获取,获取所有以a-开头的节点
+        var a = $('[class^="a-"]')
+        // console.log(a)
+
+        //获取所有class="d"节点
+        var a = $('.d')
+        // console.log(a)
+        // 获取所有p标签的class="d"的节点
+        var b = $('p.d')
+        // console.log(b)
+
+
+        // 多项选择器获取
+        var a = $('p,span') //获取所有p标签和span标签
+        // console.log(a)
+
+
+
+        // 层级选择器
+        // 选出内容为1
+        var a = $('ul.lang li.a-1') //用空格隔开
+        // console.log(a)
+        var b = $('div.box li.a-1') //用空格隔开
+        // console.log(b)
+
+
+
+        // 选择所有的<li>节点
+        var a = $('ul.lang li') //用空格隔开
+        // console.log(a)
+
+
+        // 子选择器
+        var a = $('ul.lang>li')
+        // console.log(a)
+
+
+
+        //过滤器（Filter）
+        var a = $('ul.lang li'); // 选出所有li节点
+        console.log(a)
+        var b = $('ul.lang li:first-child'); // 仅选出一个元素1
+        console.log(b)
+        var c = $('ul.lang li:last-child'); // 仅选出最后一个元素3
+        console.log(c)
+        var d = $('ul.lang li:nth-child(2)'); // 选出第N个元素，N从1开始,这里选择第二个元素
+        console.log(d)
+        var e = $('ul.lang li:nth-child(even)'); // 选出序号为偶数的元素
+        console.log(e)
+        var f = $('ul.lang li:nth-child(odd)'); // 选出序号为奇数的元素
+        console.log(f)
     </script>
 </body>
 
