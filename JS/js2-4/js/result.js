@@ -1,6 +1,6 @@
 $('.left').click(function () {
     if (confirm("返回到主页")) {
-        localStorage.clear();
+        localStorage.clear(); //清除所有数据
         location.href = "../html/start.html";
     } else {
         return false;
@@ -23,28 +23,31 @@ console.log(killarr)
 var castarr = JSON.parse(localStorage.getItem("castarr"));
 console.log(castarr)
 
-if(killarr!=null){
+if (killarr != null) {
     // 循环出天数
     for (let i = 0; i < killarr.length - 1; i++) {
         $('main').append($('ul').eq(0).clone(true));
     }
-    
-    var x = 0//定义一个进行了多少天数的变量
+
+    var x = 0 //定义一个进行了多少天数的变量
     for (let i = 0; i < killarr.length; i++) {
         // 每一天黑夜杀手杀人的数据
         $('.night').eq(i).text("黑夜：" + killarr[i].num + "号被杀死，真实身份是" + killarr[i].breed);
-        x = i + 1//循环的天数+1
+        x = i + 1 //循环的天数+1
         // 显示对应的天数
         $('.days').eq(i).text("第" + x + "天");
     }
+}
+if (castarr != null) {
     // 每一天白天被投死的数据
     for (let i = 0; i < castarr.length; i++) {
         $('.daytime').eq(i).text("白天：" + castarr[i].num + "号被投死，真实身份是" + castarr[i].breed);
     }
 }
 
+
 // 点击再来一局
-$('button').click(function(){
-    localStorage.clear();//清除所有数据
-    location.href="../html/Player.html"//返回到分配玩家页面
+$('button').click(function () {
+    localStorage.clear(); //清除所有数据
+    location.href = "../html/Player.html" //返回到分配玩家页面
 })

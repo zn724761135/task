@@ -50,7 +50,7 @@ if (castarr == null) {
     var castarr = [];
 }
 
-function Cast (num, breed) {
+function Cast(num, breed) {
     this.num = num;
     this.breed = breed;
 }
@@ -66,36 +66,41 @@ console.log(civilian)
 
 // 点击投票按钮
 $('button').click(function () {
-    // 记录投杀玩家的序号push到投死的玩家数组
-    castarr.push(new Cast(arr[a].num,arr[a].breed));
-    // 保存push的死亡玩家数组
-    localStorage.setItem("castarr", JSON.stringify(castarr));
-    // 点击杀手投票投死时杀手人数-1
-    if (arr[a].breed == "杀手") {
-        Killer = Killer - 1;
-    } else if (arr[a].breed == "平民") {
-        // 点击平民投票投死时平民人数-1
-        civilian = civilian - 1;
-    }
-    // 时时保存杀手剩余的人数
-    localStorage.setItem("Killernum", JSON.stringify(Killer));
-    // 时时保存平民剩余的人数
-    localStorage.setItem("civiliannum", JSON.stringify(civilian));
-    // 当杀手人数或平民人数为0时结束游戏
-    if (Killer == "0" || civilian == "0") {
-        location.href = "../html/result.html";
-        return;
-    }
-    // 当点击被杀死和被投死的玩家，提示玩家已死亡
-    if (arr[a].status == "杀死" || arr[a].status == "投死") {
-        alert("该玩家已经死亡，请选择其他玩家");
+    // 当未选择玩家时，跳出提示弹窗
+    if (a == undefined) {
+        alert("请选择要投死的玩家")
     } else {
-        // 当选中其他玩家投票
-        arr[a].status = "投死"; //把玩家对象的status属性值改为投死
-        // 投杀玩家的背景改变
-        $('.box').eq(a).css("background", "#e4e4e4");
-        // 保存被投死的玩家对象
-        localStorage.setItem("store", JSON.stringify(arr));
-        location.href = "../html/libretto.html"; ////返回到游戏进度页面  
+        // 记录投杀玩家的序号push到投死的玩家数组
+        castarr.push(new Cast(arr[a].num, arr[a].breed));
+        // 保存push的死亡玩家数组
+        localStorage.setItem("castarr", JSON.stringify(castarr));
+        // 点击杀手投票投死时杀手人数-1
+        if (arr[a].breed == "杀手") {
+            Killer = Killer - 1;
+        } else if (arr[a].breed == "平民") {
+            // 点击平民投票投死时平民人数-1
+            civilian = civilian - 1;
+        }
+        // 时时保存杀手剩余的人数
+        localStorage.setItem("Killernum", JSON.stringify(Killer));
+        // 时时保存平民剩余的人数
+        localStorage.setItem("civiliannum", JSON.stringify(civilian));
+        // 当杀手人数或平民人数为0时结束游戏
+        if (Killer == "0" || civilian == "0") {
+            location.href = "../html/result.html";
+            return;
+        }
+        // 当点击被杀死和被投死的玩家，提示玩家已死亡
+        if (arr[a].status == "杀死" || arr[a].status == "投死") {
+            alert("该玩家已经死亡，请选择其他玩家");
+        } else {
+            // 当选中其他玩家投票
+            arr[a].status = "投死"; //把玩家对象的status属性值改为投死
+            // 投杀玩家的背景改变
+            $('.box').eq(a).css("background", "#e4e4e4");
+            // 保存被投死的玩家对象
+            localStorage.setItem("store", JSON.stringify(arr));
+            location.href = "../html/libretto.html"; ////返回到游戏进度页面  
+        }
     }
 })

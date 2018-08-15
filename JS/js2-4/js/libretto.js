@@ -1,8 +1,8 @@
 // 返回按钮返回到发牌页面
 $('#backtrack').click(function () {
     //点击按钮清除本地存储的数据
-    localStorage.removeItem("civiliannum");
-    localStorage.removeItem("Killernum");
+    localStorage.removeItem("castarr");
+    localStorage.removeItem("killarr");
     localStorage.removeItem("statusarr");
     localStorage.removeItem("fate");
     localStorage.removeItem("killarr");
@@ -332,16 +332,21 @@ for (let i = 0; i < statusarr.length; i++) {
     }
 }
 
-
-
 //点击下拉宽，显示和隐藏
 $("h4").click(function () {
     $(this).next().toggle();
 });
 
+// 点击结束游戏按钮
 $('button').eq(0).click(function () {
-    location.href = "../html/result.html";
+    if(confirm("确定要现在结束游戏吗？")){
+        location.href = "../html/result.html";//点击确定结束游戏
+    }else{
+        return false;//点击取消留在当前页面
+    }
 })
+
+// 点击法官日志按钮查看log记录
 $('button').eq(1).click(function () {
     location.href = "../html/log.html"
 })

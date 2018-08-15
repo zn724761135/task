@@ -75,34 +75,39 @@ console.log(civilian)
 
 // 点击杀人按钮
 $('button').click(function () {
-    // 记录被杀玩家的序号push到被杀死的玩家数组
-    killarr.push(new Killed(arr[a].num,arr[a].breed));
-    // 保存push的死亡玩家数组
-    localStorage.setItem("killarr", JSON.stringify(killarr));
-    // 当杀手点击平民并杀死时平民人数-1
-    if (arr[a].breed == "平民") {
-        civilian = civilian - 1;
-    }
-    // 时时保存平民剩余的人数
-    localStorage.setItem("civiliannum", JSON.stringify(civilian));
-    // 当平民人数为0时结束游戏
-    if (civilian == "0") {
-        location.href = "../html/result.html";
-        return;
-    }
-    // 当点击被杀死和被投死的玩家，提示玩家已死亡
-    if (arr[a].status == "杀死" || arr[a].status == "投死") {
-        alert("该玩家已经死亡，请选择其他玩家");
-    } else if (arr[a].breed == "杀手") {
-        // 当杀手点击本职业玩家跳出窗口提示
-        alert("你的职业是杀手，不能杀死本职业的玩家")
+    // 当杀手未选择玩家时，跳出提示弹窗
+    if (a == undefined) {
+        alert("请选择要杀死的玩家")
     } else {
-        // 当杀手点击平民
-        arr[a].status = "杀死"; //把玩家对象的status属性值改为杀死
-        // 被杀玩家的背景改变
-        $('.box').eq(a).css("background", "#e4e4e4");
-        // 保存被杀死的玩家对象
-        localStorage.setItem("store", JSON.stringify(arr));
-        location.href = "../html/libretto.html"; //返回到游戏进度页面      
+        // 当杀手点击平民并杀死时平民人数-1
+        if (arr[a].breed == "平民") {
+            civilian = civilian - 1;
+            // 记录被杀玩家的序号push到被杀死的玩家数组
+            killarr.push(new Killed(arr[a].num, arr[a].breed));
+            // 保存push的死亡玩家数组
+            localStorage.setItem("killarr", JSON.stringify(killarr));
+        }
+        // 时时保存平民剩余的人数
+        localStorage.setItem("civiliannum", JSON.stringify(civilian));
+        // 当平民人数为0时结束游戏
+        if (civilian == "0") {
+            location.href = "../html/result.html";
+            return;
+        }
+        // 当点击被杀死和被投死的玩家，提示玩家已死亡
+        if (arr[a].status == "杀死" || arr[a].status == "投死") {
+            alert("该玩家已经死亡，请选择其他玩家");
+        } else if (arr[a].breed == "杀手") {
+            // 当杀手点击本职业玩家跳出窗口提示
+            alert("你的职业是杀手，不能杀死本职业的玩家")
+        } else {
+            // 当杀手点击平民
+            arr[a].status = "杀死"; //把玩家对象的status属性值改为杀死
+            // 被杀玩家的背景改变
+            $('.box').eq(a).css("background", "#e4e4e4");
+            // 保存被杀死的玩家对象
+            localStorage.setItem("store", JSON.stringify(arr));
+            location.href = "../html/libretto.html"; //返回到游戏进度页面      
+        }
     }
 })
