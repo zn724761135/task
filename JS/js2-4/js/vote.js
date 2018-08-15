@@ -50,48 +50,40 @@ if (castarr == null) {
     var castarr = [];
 }
 
-var killer = []; //创建一个杀手数组；
-var civilian = []; //创建一个平民数组；
-console.log(killer)
-console.log(civilian)
-
-for (let i = 0; i < arr.length; i++) {
-    //把杀手对象push到杀手数组
-    if (arr[i].breed == "杀手") {
-        killer.push(arr[i]);
-    }
-    // 把平民对象push到平民数组
-    if (arr[i].breed == "平民") {
-        civilian.push(arr[i])
-    }
+function Cast (num, breed) {
+    this.num = num;
+    this.breed = breed;
 }
-// 获取杀手死亡数量
-var slayernum = JSON.parse(localStorage.getItem("slayer"));
-// 获取平民死亡数量
-var Plebsnum = JSON.parse(localStorage.getItem("Plebs"));
-var slayer = 0;//定义杀手死亡变量为0
-var slayer = slayernum;//把获取的杀手死亡数量传到杀手的变量
-var Plebs;//定义平民死亡变量
-var Plebs = Plebsnum;//把获取的平民死亡数量传到平民的变量
-console.log(slayer)
-console.log(Plebs)
+
+// 读取分配角色时储存的杀手人数和剩下的杀手人数
+var Killernum = JSON.parse(localStorage.getItem("Killernum"));
+// 读取剩下的平民人数
+var civiliannum = JSON.parse(localStorage.getItem("civiliannum"));
+var Killer = Killernum; //定义一个杀手变量，把获取的杀手人数传到该变量
+console.log(Killer)
+var civilian = civiliannum; //定义一个平民变量，把获取的平民人数传到该变量
+console.log(civilian)
 
 // 点击投票按钮
 $('button').click(function () {
-    // 当杀手被投死杀手变量+1
+    // 记录投杀玩家的序号push到投死的玩家数组
+    castarr.push(new Cast(arr[a].num,arr[a].breed));
+    // 保存push的死亡玩家数组
+    localStorage.setItem("castarr", JSON.stringify(castarr));
+    // 点击杀手投票投死时杀手人数-1
     if (arr[a].breed == "杀手") {
-        slayer = slayer + 1;
+        Killer = Killer - 1;
     } else if (arr[a].breed == "平民") {
-    //当平民被杀死或投死平民变量+1
-        Plebs = Plebs + 1;
+        // 点击平民投票投死时平民人数-1
+        civilian = civilian - 1;
     }
-    // 保存杀手死亡变量，下一次读取
-    localStorage.setItem("slayer", JSON.stringify(slayer));
-    // 保存平民死亡变量，下一次读取
-    localStorage.setItem("Plebs", JSON.stringify(Plebs));
-    // 当杀手或平民死亡数量全部死亡结束游戏
-    if (slayer >= killer.length || Plebs >= civilian.length) {
-        location.href = "../html/start.html";
+    // 时时保存杀手剩余的人数
+    localStorage.setItem("Killernum", JSON.stringify(Killer));
+    // 时时保存平民剩余的人数
+    localStorage.setItem("civiliannum", JSON.stringify(civilian));
+    // 当杀手人数或平民人数为0时结束游戏
+    if (Killer == "0" || civilian == "0") {
+        location.href = "../html/result.html";
         return;
     }
     // 当点击被杀死和被投死的玩家，提示玩家已死亡
@@ -99,15 +91,11 @@ $('button').click(function () {
         alert("该玩家已经死亡，请选择其他玩家");
     } else {
         // 当选中其他玩家投票
-        arr[a].status = "投死";//把玩家对象的status属性值改为投死
+        arr[a].status = "投死"; //把玩家对象的status属性值改为投死
         // 投杀玩家的背景改变
         $('.box').eq(a).css("background", "#e4e4e4");
         // 保存被投死的玩家对象
         localStorage.setItem("store", JSON.stringify(arr));
-        // 记录投杀玩家的序号push到投死的玩家数组
-        castarr.push(arr[a].num);
-        // 保存push的死亡玩家数组
-        localStorage.setItem("castarr", JSON.stringify(castarr));
-        location.href = "../html/libretto.html";////返回到游戏进度页面  
+        location.href = "../html/libretto.html"; ////返回到游戏进度页面  
     }
 })

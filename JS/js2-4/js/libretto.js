@@ -1,8 +1,8 @@
 // 返回按钮返回到发牌页面
 $('#backtrack').click(function () {
     //点击按钮清除本地存储的数据
-    localStorage.removeItem("Plebs");
-    localStorage.removeItem("slayer");
+    localStorage.removeItem("civiliannum");
+    localStorage.removeItem("Killernum");
     localStorage.removeItem("statusarr");
     localStorage.removeItem("fate");
     localStorage.removeItem("killarr");
@@ -15,6 +15,7 @@ $('#backtrack').click(function () {
 // 关闭按钮返回到主页面
 $('#off').click(function () {
     if (confirm("是否要退出游戏返回到主页面")) {
+        localStorage.clear(); //清除所有数据
         location.href = "../html/start.html"; //点击确定返回到主页面
     } else {
         return false; //点击取消停留在当前页面
@@ -157,6 +158,7 @@ console.log(fate)
 localStorage.setItem("fate", JSON.stringify(fate)); //保存死亡对象数组
 
 
+
 // 创建一个天数数组
 var time = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"];
 if (cast != undefined) {
@@ -165,12 +167,24 @@ if (cast != undefined) {
         $('main').append($('#Days').eq(0).clone(true));
     }
 
-    for (let i = 0; i <= time.length - 1; i++) {
+    for (let e = 0; e <= cast.length ; e++) {
         // 根据生成的天数并改变为第几天
-        $('h4').eq(i).text("第" + time[i] + "天")
+        $('h4').eq(e).text("第" + time[e] + "天")
         // 生成新的一天后，把前一天的进度隐藏
         for (let i = 0; i < $('ul').length - 1; i++) {
-            $('ul').eq(i).css("display", "none")
+            $('ul').eq(i).css("display", "none");
+        }
+        console.log(e+'e')
+        // 当e小于天数长度
+        if (e < cast.length) {
+            for (let i = 0; i<$('ul li').length; i++) {
+                if (i === 2 || i === 4 || i === 6 || i === 5) {
+                    // 点击当前天数之前的天数跳出弹窗提示
+                    $('ul').eq(e).find('li').eq(i).click(function () {
+                        alert('请按正确流程')
+                    })
+                } 
+            }
         }
     }
 }
@@ -178,7 +192,7 @@ if (cast != undefined) {
 // 显示每一天对应被杀死的人
 if (kill != null) {
     for (let i = 0; i < kill.length; i++) {
-        $('.killed').eq(i).text(kill[i] + "号被杀死，他的真实身份是" + arr[i].breed).css({
+        $('.killed').eq(i).text(kill[i].num + "号被杀死，他的真实身份是" + kill[i].breed).css({
             "font-size": ".1rem",
             "margin-bottom": ".2rem",
         })
@@ -188,7 +202,7 @@ if (kill != null) {
 // 显示每一天对应被投死的人
 if (cast != null) {
     for (let i = 0; i <= cast.length - 1; i++) {
-        $('.Cast').eq(i).text(cast[i] + "号被投死，他的真实身份是" + arr[i].breed).css({
+        $('.Cast').eq(i).text(cast[i].num + "号被投死，他的真实身份是" + cast[i].breed).css({
             "font-size": ".1rem",
             "margin-bottom": ".2rem",
         })
@@ -219,48 +233,84 @@ if (statusarr.length == 0) {
     localStorage.setItem("statusarr", JSON.stringify(statusarr));
 }
 
+// 定义点击杀人按钮的方法
+if (cast) {
+    li1(cast.length)//当该数组长度存在把该值调用到e
+} else {
+    li1(0)//当数组长度不存在把该值调用到e
+}
+
 // 点击杀手杀人按钮
-$('ul li:nth-child(3)').click(function () {
-    if (initialize == state[0]) {
-        //改变状态机初始状态为发表遗言状态，防止跳转回来不可以按正常流程进行
-        initialize = state[1];
-        //保存改变的状态，单杀手杀人后跳转回来再读取这个状态
-        localStorage.setItem("condition", JSON.stringify(initialize));
-        // 进入到杀人页面
-        location.href = "../html/murder.html";
-    }
-    fsm.killer() //定义状态机过渡的方法
-})
+function li1 (e){
+    $('ul li:nth-child(3)').eq(e).click(function () {
+        if (initialize == state[0]) {
+            //改变状态机初始状态为发表遗言状态，防止跳转回来不可以按正常流程进行
+            initialize = state[1];
+            //保存改变的状态，单杀手杀人后跳转回来再读取这个状态
+            localStorage.setItem("condition", JSON.stringify(initialize));
+            // 进入到杀人页面
+            location.href = "../html/murder.html";
+        }
+        fsm.killer() //定义状态机过渡的方法
+    })
+}
+
+// 定义亡灵按钮的方法
+if (cast) {
+    li2(cast.length);//当该数组长度存在把该值调用到e
+} else {
+    li2(0)//当数组长度不存在把该值调用到e
+}
 
 // 点击亡灵发表遗言按钮
-$('ul li:nth-child(5)').click(function () {
-    if (initialize == state[1]) {
-        initialize = state[2]; //修改状态变量，防止后面无法做判断
-        console.log(initialize)
-    }
-    fsm.ghost() //定义状态机过渡的方法
-})
+function li2 (e) {
+    $('ul li:nth-child(5)').eq(e).click(function () {
+        if (initialize == state[1]) {
+            initialize = state[2]; //修改状态变量，防止后面无法做判断
+            console.log(initialize)
+        }
+        fsm.ghost() //定义状态机过渡的方法
+    })
+}
+
+// 点击讨论按钮的方法
+if (cast) {
+    li3(cast.length)//当该数组长度存在把该值调用到e
+} else {
+    li3(0)//当数组长度不存在把该值调用到e
+}
 
 // 点击讨论按钮
-$('ul li:nth-child(6)').click(function () {
-    if (initialize == state[2]) {
-        initialize = state[3] //修改状态变量，防止后面无法做判断
-        console.log(initialize)
-    }
-    fsm.player() //定义状态机过渡的方法
-})
+function li3(e){
+    $('ul li:nth-child(6)').eq(e).click(function () {
+        if (initialize == state[2]) {
+            initialize = state[3] //修改状态变量，防止后面无法做判断
+            console.log(initialize)
+        }
+        fsm.player() //定义状态机过渡的方法
+    })
+}
+
+// 定义投票按钮的方法
+if (cast) {
+    li4(cast.length)//当该数组长度存在把该值调用到e
+} else {
+    li4(0)//当数组长度不存在把该值调用到e
+}
 
 // 点击投票按钮
-$('ul li:nth-child(7)').click(function () {
-    if (initialize == state[3]) {
-        initialize = state[0] //修改状态变量为初始状态，反正第二天不能按正常流程进行
-        console.log(initialize)
-        // 保存状态变量，生成第二天后读取数据
-        localStorage.setItem("condition", JSON.stringify(initialize));
-        location.href = "../html/vote.html"; //进入投票页面
-    }
-    fsm.finally() //定义状态机过渡的方法
-})
+function li4(e){
+    $('ul li:nth-child(7)').eq(e).click(function () {
+        if (initialize == state[3]) {
+            initialize = state[0] //修改状态变量为初始状态，反正第二天不能按正常流程进行
+            console.log(initialize)
+            // 保存状态变量，生成第二天后读取数据
+            localStorage.setItem("condition", JSON.stringify(initialize));
+            location.href = "../html/vote.html"; //进入投票页面
+        }
+        fsm.finally() //定义状态机过渡的方法
+    })
+}
 
 // 当步骤对象从no被修改为yes后改变对应的背景颜色
 for (let i = 0; i < statusarr.length; i++) {
@@ -282,16 +332,18 @@ for (let i = 0; i < statusarr.length; i++) {
     }
 }
 
+
+
 //点击下拉宽，显示和隐藏
 $("h4").click(function () {
     $(this).next().toggle();
 });
 
-$('button').eq(0).click(function(){
-    location.href="..."
+$('button').eq(0).click(function () {
+    location.href = "../html/result.html";
 })
-$('button').eq(1).click(function(){
-    location.href="../html/log.html"
+$('button').eq(1).click(function () {
+    location.href = "../html/log.html"
 })
 
 

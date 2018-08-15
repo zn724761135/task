@@ -60,37 +60,36 @@ if (killarr == null) {
 }
 console.log(killarr)
 
+function Killed(num, breed) {
+    this.num = num;
+    this.breed = breed;
+}
 
-var civilian = []; //创建一个平民数组；
+// 读取分配角色时储存的平民人数和剩下的平民人数
+var civiliannum = JSON.parse(localStorage.getItem("civiliannum"));
+var civilian = civiliannum; //定义一个平民变量，把获取的平民人数传到该变量
 console.log(civilian)
 
-for (let i = 0; i < arr.length; i++) {
-    // 把平民对象push到平民数组
-    if (arr[i].breed == "平民") {
-        civilian.push(arr[i])
-    }
-}
-// 获取平民死亡数量
-var Plebsnum = JSON.parse(localStorage.getItem("Plebs"));
-var Plebs = 0; //定义平民死亡变量为0
-var Plebs = Plebsnum; //把获取的平民死亡数量传到平民的变量
-console.log(Plebs)
+
 
 
 // 点击杀人按钮
 $('button').click(function () {
-    //当平民被杀死或投死平民变量+1
+    // 记录被杀玩家的序号push到被杀死的玩家数组
+    killarr.push(new Killed(arr[a].num,arr[a].breed));
+    // 保存push的死亡玩家数组
+    localStorage.setItem("killarr", JSON.stringify(killarr));
+    // 当杀手点击平民并杀死时平民人数-1
     if (arr[a].breed == "平民") {
-        Plebs = Plebs + 1;
+        civilian = civilian - 1;
     }
-    // 保存平民死亡变量，下一次读取
-    localStorage.setItem("Plebs", JSON.stringify(Plebs));
-    // 当平民死亡数量全部死亡结束游戏
-    if (Plebs >= civilian.length) {
-        location.href = "../html/start.html";
+    // 时时保存平民剩余的人数
+    localStorage.setItem("civiliannum", JSON.stringify(civilian));
+    // 当平民人数为0时结束游戏
+    if (civilian == "0") {
+        location.href = "../html/result.html";
         return;
     }
-
     // 当点击被杀死和被投死的玩家，提示玩家已死亡
     if (arr[a].status == "杀死" || arr[a].status == "投死") {
         alert("该玩家已经死亡，请选择其他玩家");
@@ -102,10 +101,6 @@ $('button').click(function () {
         arr[a].status = "杀死"; //把玩家对象的status属性值改为杀死
         // 被杀玩家的背景改变
         $('.box').eq(a).css("background", "#e4e4e4");
-        // 并记录被杀玩家的序号push到被杀死的玩家数组
-        killarr.push(arr[a].num)
-        // 保存push的死亡玩家数组
-        localStorage.setItem("killarr", JSON.stringify(killarr));
         // 保存被杀死的玩家对象
         localStorage.setItem("store", JSON.stringify(arr));
         location.href = "../html/libretto.html"; //返回到游戏进度页面      
