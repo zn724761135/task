@@ -3,7 +3,6 @@ $('#backtrack').click(function () {
     location.href = "../html/check.html";
 })
 
-
 // 关闭按钮返回到主页面
 $('#off').click(function () {
     if (confirm("是否要退出游戏返回到主页面")) {
@@ -13,19 +12,16 @@ $('#off').click(function () {
     }
 })
 
-
 // 获取发牌时保存的数据
 var data = JSON.parse(localStorage.getItem('key'));
 var arr = []; //声明一个数组
 var arr = data; //把获取的数据传递到数组
 console.log(arr);
 
-
 // 循环出玩家对应的盒子
 for (let i = 0; i < arr.length - 1; i++) {
     $('main').append($('.box').eq(0).clone(true)) //在main里面循环对应的玩家盒子
 }
-
 
 var x = 0; //声明一个变量记录玩家序号
 // 循环玩家角色
@@ -34,8 +30,6 @@ for (let i = 0; i <= arr.length - 1; i++) {
     x = i + 1; //获取数组指标对应的玩家对象的玩家序号
     $('.number').eq(i).text(x + "号"); //把玩家人数序号传入对应指标的盒子
 }
-
-
 
 // 点击button生成构造函数
 $('button').click(function () {
@@ -57,6 +51,8 @@ $('button').click(function () {
     // console.log(PartArr);
     location.href = "../html/libretto.html"; //进入下一个页面
 })
+
+
 
 
 
