@@ -174,7 +174,7 @@ if (cast != undefined) {
         for (let i = 0; i < $('ul').length - 1; i++) {
             $('ul').eq(i).css("display", "none");
         }
-        console.log(e+'e')
+        // console.log(e+'e')
         // 当e小于天数长度
         if (e < cast.length) {
             for (let i = 0; i<$('ul li').length; i++) {
