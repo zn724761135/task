@@ -1,13 +1,73 @@
-
 @charset"UTF-8";
-
-
 @import"_layout";
-
-
 /*文本主体*/
-body{
-    height: 100%;
+
+/*背景图片*/
+body {
     background: url(../img/bg2.png) no-repeat;
     background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include box(9rem, 5.5rem);
+    margin: -2.5rem -4rem;
+    background: #d3d7e0;
+    span.font {
+        display: block;
+        margin: .3rem;
+        font-size: .4rem;
+        text-align: center;
+        color: $blue;
+    }
+    div.user {
+        @include flex(flex-start, center);
+        @include box(80%, .9rem);
+        margin: .4rem auto;
+        background: $white;
+        input {
+            @include box(70%, .8rem); 
+            margin-left: 30px;
+            border: none;
+            /*清除点击imput后的边框*/
+            outline: none;
+        }
+        .iphone {
+            @include box(.4rem, .4rem);
+            margin-left: 15px;
+            background: url(../img/input.png) no-repeat 0 0;
+
+            &::after{
+                @include name;
+            }
+        }
+    }
+    div.password {
+        @extend div.user ;
+        .lock {
+            @include box(.4rem, .4rem);
+            margin-left: 15px;
+            background: url(../img/input.png) no-repeat 0 -35px;
+
+            &::after{
+               @include name;
+            }
+        }
+    }
+
+    button{
+        @include flex(center,center);
+        @include box (80%,45px);
+        margin: 40px auto 0 auto;
+        background:$blue;
+        font-size: 18px;
+        color: $white;
+        /*字符间距*/
+        letter-spacing:5px;
+        box-shadow: 0 0 0 1px $blue;
+    }
 }
