@@ -167,7 +167,7 @@ if (cast != undefined) {
         $('main').append($('#Days').eq(0).clone(true));
     }
 
-    for (let e = 0; e <= cast.length ; e++) {
+    for (let e = 0; e <= cast.length; e++) {
         // 根据生成的天数并改变为第几天
         $('h4').eq(e).text("第" + time[e] + "天")
         // 生成新的一天后，把前一天的进度隐藏
@@ -176,18 +176,27 @@ if (cast != undefined) {
         }
         // console.log(e+'e')
         // 当e小于天数长度
-        if (e < cast.length) {
-            for (let i = 0; i<$('ul li').length; i++) {
-                if (i === 2 || i === 4 || i === 6 || i === 5) {
-                    // 点击当前天数之前的天数跳出弹窗提示
-                    $('ul').eq(e).find('li').eq(i).click(function () {
-                        alert('请按正确流程')
-                    })
-                } 
-            }
-        }
+        // if (e < cast.length) {
+        //     for (let i = 0; i<$('ul li').length; i++) {
+        //         if (i === 2 || i === 4 || i === 6 || i === 5) {
+        //             // 点击当前天数之前的天数跳出弹窗提示
+        //             $('ul').eq(e).find('li').eq(i).click(function () {
+        //                 alert('请按正确流程')
+        //             })
+        //         } 
+        //     }
+        // }
     }
 }
+
+// 定义一个委托事件,当点击当前天数之前的天数跳出提示
+for (let i = 0; i < $('ul').length - 1; i++) {
+    let x = i + 1;
+    $('ul').eq(i).on('click', 'li.step', function () {
+        alert("这是是第" + x + "天的流程，请按正确的天数流程进行")
+    })
+}
+
 
 // 显示每一天对应被杀死的人
 if (kill != null) {
@@ -235,13 +244,13 @@ if (statusarr.length == 0) {
 
 // 定义点击杀人按钮的方法
 if (cast) {
-    li1(cast.length)//当该数组长度存在把该值调用到e
+    li1(cast.length) //当该数组长度存在把该值调用到e
 } else {
-    li1(0)//当数组长度不存在把该值调用到e
+    li1(0) //当数组长度不存在把该值调用到e
 }
 
 // 点击杀手杀人按钮
-function li1 (e){
+function li1(e) {
     $('ul li:nth-child(3)').eq(e).click(function () {
         if (initialize == state[0]) {
             //改变状态机初始状态为发表遗言状态，防止跳转回来不可以按正常流程进行
@@ -257,13 +266,13 @@ function li1 (e){
 
 // 定义亡灵按钮的方法
 if (cast) {
-    li2(cast.length);//当该数组长度存在把该值调用到e
+    li2(cast.length); //当该数组长度存在把该值调用到e
 } else {
-    li2(0)//当数组长度不存在把该值调用到e
+    li2(0) //当数组长度不存在把该值调用到e
 }
 
 // 点击亡灵发表遗言按钮
-function li2 (e) {
+function li2(e) {
     $('ul li:nth-child(5)').eq(e).click(function () {
         if (initialize == state[1]) {
             initialize = state[2]; //修改状态变量，防止后面无法做判断
@@ -275,13 +284,13 @@ function li2 (e) {
 
 // 点击讨论按钮的方法
 if (cast) {
-    li3(cast.length)//当该数组长度存在把该值调用到e
+    li3(cast.length) //当该数组长度存在把该值调用到e
 } else {
-    li3(0)//当数组长度不存在把该值调用到e
+    li3(0) //当数组长度不存在把该值调用到e
 }
 
 // 点击讨论按钮
-function li3(e){
+function li3(e) {
     $('ul li:nth-child(6)').eq(e).click(function () {
         if (initialize == state[2]) {
             initialize = state[3] //修改状态变量，防止后面无法做判断
@@ -293,13 +302,13 @@ function li3(e){
 
 // 定义投票按钮的方法
 if (cast) {
-    li4(cast.length)//当该数组长度存在把该值调用到e
+    li4(cast.length) //当该数组长度存在把该值调用到e
 } else {
-    li4(0)//当数组长度不存在把该值调用到e
+    li4(0) //当数组长度不存在把该值调用到e
 }
 
 // 点击投票按钮
-function li4(e){
+function li4(e) {
     $('ul li:nth-child(7)').eq(e).click(function () {
         if (initialize == state[3]) {
             initialize = state[0] //修改状态变量为初始状态，反正第二天不能按正常流程进行
@@ -339,10 +348,10 @@ $("h4").click(function () {
 
 // 点击结束游戏按钮
 $('button').eq(0).click(function () {
-    if(confirm("确定要现在结束游戏吗？")){
-        location.href = "../html/result.html";//点击确定结束游戏
-    }else{
-        return false;//点击取消留在当前页面
+    if (confirm("确定要现在结束游戏吗？")) {
+        location.href = "../html/result.html"; //点击确定结束游戏
+    } else {
+        return false; //点击取消留在当前页面
     }
 })
 
