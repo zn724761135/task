@@ -14,7 +14,7 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    @include box(9rem, 5.5rem);
+    @include box(9rem, 6rem);
     margin: -2.5rem -4rem;
     background: #d3d7e0;
     span.font {
@@ -59,10 +59,21 @@ body {
         }
     }
 
+    .hint{
+        @include flex (center,center);
+        position: absolute;
+        left: 50%;
+        width: 150px;
+        margin-left: -75px;
+        font-size: 18px;
+        letter-spacing:5px;
+        color: red;
+    }
+
     button{
         @include flex(center,center);
         @include box (80%,45px);
-        margin: 40px auto 0 auto;
+        margin: 60px auto 0 auto;
         background:$blue;
         font-size: 18px;
         color: $white;

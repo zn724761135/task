@@ -462,3 +462,95 @@ window.onload = function (){
 </body>
 
 </html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .child {
+            background: burlywood;
+            margin: 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sire" class="box">
+        <span class="child">aaa</span>
+        <span class="child">bbb</span>
+        <span class="child">ccc</span>
+        <span class="child">ddd</span>
+    </div>
+
+
+    <script>
+        // var a =document.getElementById("sire")
+        // var a=document.getElementsByClassName("child")[0]
+        // var a=document.getElementsByTagName("span")[0]
+        var sire = document.getElementsByClassName("box")[0];
+        // var child = document.getElementsByClassName("child")[0];
+        // var father=document.getElementById("sire").childNodes;
+        // var father = document.getElementById("sire").children;
+        // console.log(father)
+        // var a=document.getElementsByClassName('child')[0].parentNode;
+        // console.log(a)
+        // var a=document.getElementsByClassName('child')[0];
+
+        // a.innerHTML="abc"
+        // a.innerText="abc"
+        // console.log(a)
+
+
+        // var a = document.createElement("span"); 
+        // var asd = document.createTextNode("新增") 
+        // a.appendChild(asd);
+        // sire.appendChild(a);
+
+        // var child = document.getElementsByClassName("child")[0].cloneNode(true);
+        // sire.appendChild(child);
+
+        // var a = document.getElementById("sire");
+        // a.removeChild(a.children[1]);
+
+        // var a = document.getElementById("sire");
+        // console.log(a.children)
+        // a.removeChild(a.children[1]);
+
+
+        var a = document.getElementById("sire");
+        var b = document.createElement("span");
+        var asd = document.createTextNode("替换")
+        b.appendChild(asd);
+        a.replaceChild(b, a.children[1]);
+    </script>
+</body>
+
+</html>
