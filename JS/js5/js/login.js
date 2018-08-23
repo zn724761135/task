@@ -44,7 +44,7 @@
 
 //     // 当用户未输入账号密码点击登录按钮跳出提示
 //     if (user == undefined || user == "" || password == undefined || password == "") {
-//         $('#hint').text("请输入账号密码 ");
+//         hint.innerText="请输入账号密码";
 //     } else if (user != undefined && password != undefined) {
 //         // ajax状态改变事件
 //         // 当输入账号密码点击登录按钮发起post请求,并返回数据
