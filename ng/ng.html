@@ -1,0 +1,570 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+</head>
+
+<body>
+
+  <!-- 指令 -->
+
+  <!-- <div ng-app="">
+    <p>名字 :
+      <input type="text" ng-model="name">
+    </p>
+    <h1>Hello {{name}}</h1>
+  </div> -->
+
+  <!-- <div ng-app="" ng-init="firstName='aa'">
+    <p>姓名为
+      <span ng-bind="firstName"></span>
+    </p>
+  </div> -->
+  <!-- <div data-ng-app="" data-ng-init="firstName='John'">
+
+    <p>姓名为
+      <span data-ng-bind="firstName"></span>
+    </p>
+
+  </div> -->
+
+
+
+
+
+  <!-- 表达式 -->
+
+  <!-- <div ng-app="">
+    <p>我的第一个表达式： {{ 5 + 5 }}</p>
+  </div> -->
+
+
+
+
+
+
+
+
+
+  <!-- <div ng-app="myApp" ng-controller="myCtrl">
+    <span>名:</span>
+    <input type="text" ng-model="firstName">
+    <br>
+    <span>姓:</span>
+    <input type="text" ng-model="lastName">
+    <br>
+    <br>
+    <span>姓名: {{firstName + " " + lastName}}
+    </span>
+  </div>
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+      $scope.firstName = "John";
+      $scope.lastName = "Doe";
+    });
+  </script> -->
+
+
+  <!-- <div ng-app="myApp" ng-controller="myCtrl">
+    <span>名:</span>
+    <input type="text" ng-model="firstName">
+    <br>
+    <span>姓:</span>
+    <input type="text" ng-model="lastName">
+    <br>
+    <br>
+    <span>姓名: {{funname()}}</span>
+  </div>
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+      $scope.firstName = "John";
+      $scope.lastName = "Doe";
+      $scope.funname = function () {
+        return $scope.firstName + " " + $scope.lastName;
+      }
+    });
+  </script> -->
+
+
+  <!-- <div ng-app="myApp" ng-controller="myCtrl">
+    <span>名:</span>
+    <input type="text" ng-model="firstName">
+    <br>
+    <span>姓:</span>
+    <input type="text" ng-model="lastName">
+    <br>
+    <br>
+    <span>姓名: {{firstName + " " + lastName}}</span>
+  </div>
+
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+      // $scope.names = [];
+    });
+  </script> -->
+
+
+
+
+
+
+
+
+  <!-- 数字表达式 -->
+
+  <!-- <div ng-app="" ng-init="quantity=2;cost=5">
+    <p>总价: {{ quantity * cost }}</p>
+  </div> -->
+
+  <!-- <div ng-app="" ng-init="quantity=1;cost=5">
+    <p>总价:
+      <span ng-bind="quantity * cost"></span>
+    </p>
+  </div> -->
+
+
+
+
+  <!-- 对象表达式 -->
+
+  <!-- <div ng-app="" ng-init="firstName='ba';lastName='ba'">
+
+    <p>姓名： {{ firstName + " " + lastName }}</p>
+
+  </div> -->
+
+
+
+
+  <!-- 数组表达式 -->
+
+  <!-- <div ng-app="" ng-init="person={firstName:'John',lastName:'Doe'}">
+    <p>姓为 {{ person.firstName }}</p>
+    <p>姓为 {{ person.lastName }}</p>
+  </div> -->
+
+  <!-- <div ng-app="" ng-init="points=[1,15,19,2,40]">
+    <p>第三个值为 {{ points[2] }}</p>
+  </div> -->
+
+
+
+
+
+  <!-- 循环标签 -->
+
+  <!-- <div data-ng-app="" data-ng-init="names=['Jani','Hege','Kai']">
+    <p>使用 ng-repeat 来循环数组</p>
+    <ul>
+      <li data-ng-repeat="x in names">
+        {{ x }}
+      </li>
+    </ul>
+  </div> -->
+
+
+
+
+
+
+  <!-- 对象数组循环 -->
+
+  <!-- <div ng-app="" ng-init="names=[
+  {name:'Jani',country:'Norway'},
+  {name:'Hege',country:'Sweden'},
+  {name:'Kai',country:'Denmark'}]">
+    <p>循环对象：</p>
+    <ul>
+      <li ng-repeat="x    in names">
+        {{ x.name + ', ' + x.country }}
+      </li>
+    </ul>
+  </div> -->
+
+
+
+
+
+
+  <!-- 自定义指令 -->
+
+  <!-- <body ng-app="myApp"> -->
+  <!-- <ng-custom></ng-custom> -->
+  <!-- <div ng-custom></div> -->
+  <!-- <div class="ng-custom"></div> -->
+  <!-- directive:ng-custom -->
+
+  <!-- <script>
+      var app = angular.module("myApp", []);
+      app.directive("ngCustom", function () {
+        return {
+          // restrict: "A",//A做为属性使用
+          // restrict: "C",//C 作为类名使用
+          // restrict: "E",//E 作为元素名使用
+          restrict: "M",//M 作为注释使用
+          replace:true,//作为注释使用必须使用replace 属性，否则是不可见的。
+          template: "<h1>自定义指令!</h1>"
+        };
+      });
+    </script> -->
+
+  <!-- </body> -->
+
+
+
+
+
+
+  <!-- 双向绑定 -->
+
+  <!-- <div ng-app="myApp" ng-controller="myCtrl">
+    <span>名字:
+    <input ng-model="name"></span>
+    <p>你输入的是{{name}}</p>
+  </div>
+
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+      $scope.name = "John Doe";
+    });
+  </script> -->
+
+
+
+
+
+
+
+  <!--  验证用户输入-->
+
+  <!-- <form ng-app="" name="myForm">
+    Email:
+    <input type="email" name="" ng-model="text">
+    <span ng-show="myForm.$error.email">不是一个合法的邮箱地址</span>
+  </form> -->
+  <!-- <p>在输入框中输入你的邮箱地址，如果不是一个合法的邮箱地址，会弹出提示信息。</p> -->
+
+
+
+
+
+
+
+
+
+  <!-- 作用域Scope -->
+
+  <!-- <div ng-app="myapp" ng-controller="myctlr">
+    <h1>{{name}}</h1>
+  </div>
+  <script>
+    var app=angular.module('myapp',[])
+    app.controller('myctlr',function($scope){
+      $scope.name="aaaaa"
+    })
+  </script> -->
+
+
+
+  <!-- <div ng-app="myapp" ng-controller="myctlr">
+    <input  ng-model="name">
+    <h1>{{greeting}}</h1>
+    <button ng-click="yes()">确定</button>
+  </div>
+  <script>
+    var app = angular.module('myapp', []);
+    app.controller('myctlr', function ($scope) {
+      $scope.name = "aaaa";
+      $scope.yes = function () {
+        $scope.greeting = "hello " + $scope.name;
+      };
+    });
+  </script> -->
+
+
+
+
+  <!-- Scope 作用范围 -->
+  <!-- 当我们使用 ng-repeat 指令时，每个重复项都访问了当前的重复对象: -->
+
+  <!-- <div ng-app="myapp" ng-controller="myctlr">
+    <ul>
+      <li ng-repeat="x in name ">{{x}}</li>
+    </ul>
+  </div>
+  <script>
+  var app=angular.module("myapp",[]);
+  app.controller("myctlr",function($scope){
+    $scope.name=["aaa","bbb","ccc"];
+  })
+  </script> -->
+
+
+
+
+  <!-- 根作用域 -->
+  <!-- 所有的应用都有一个 $rootScope，它可以作用在 ng-app 指令包含的所有 HTML 元素中。
+$rootScope 可作用于整个应用中。是各个 controller 中 scope 的桥梁。用 rootscope 定义的值，
+可以在各个 controller 中使用。 -->
+
+  <!-- <div ng-app="myapp" ng-controller="myctlr">
+    <p>带有aaa的字段{{name}}</p>
+    <ul>
+      <li ng-repeat="x in names">{{x}} {{name}}</li>
+    </ul>
+  </div>
+  <script>
+    var app = angular.module("myapp", []);
+    app.controller("myctlr", function ($scope, $rootScope) {
+      $scope.names = ["a", "b", "c"];
+      $rootScope.name = "aaa"
+    })
+  </script> -->
+
+
+
+
+
+  <!-- 过滤器可以通过一个管道字符（|）和一个过滤器添加到表达式中。. -->
+  <!-- uppercase 过滤器将字符串格式化为大写： -->
+  <!-- <div ng-app="myapp" ng-controller="myctlr">
+    <input type="text" name="" ng-model="name">
+    <span>{{name | uppercase}}</span>
+  </div>
+  <script>
+  var app=angular.module("myapp",[]);
+  app.controller("myctlr",function($scope){
+    $scope.name="aaa"
+  })
+  </script> -->
+
+
+
+
+
+  <!-- lowercase 过滤器将字符串格式化为小写： -->
+  <!-- <div ng-app="myapp" ng-controller="myctlr">
+    <input type="text" ng-model="name">
+    <p>{{name | lowercase}}</p>
+  </div>
+  <script>
+  var app=angular.module("myapp",[]);
+  app.controller("myctlr",function($scope){
+    $scope.name="AAA"
+  })
+  </script> -->
+
+
+
+
+
+
+
+  <!-- currency 过滤器 -->
+  <!-- currency 过滤器将数字格式化为货币格式： -->
+  <!-- <div ng-app="myapp" ng-controller="myctlr">
+    <span>数量</span>
+    <input type="number" ng-model="quantity">
+    <br>
+    <span>价格</span>
+    <input type="number" ng-model="num">
+    <p>总价：{{(quantity * num) | currency}}</p>
+  </div>
+  <script>
+  var app=angular.module("myapp",[]);
+  app.controller("myctlr",function($scope){
+    $scope.quantity=1;
+    $scope.num=2;
+  })
+  </script> -->
+
+
+
+
+
+  <!-- 过滤器可以通过一个管道字符（|）和一个过滤器添加到指令中。 -->
+  <!-- orderBy 过滤器根据表达式排列数组： -->
+  <!-- <div ng-app="myapp" ng-controller="myctlr">
+    <ul>
+      <li ng-repeat="x in names | orderBy:'num' ">{{x.name + ' '+ x.num}}</li>
+    </ul>
+  </div>
+  <script>
+    var app = angular.module("myapp", []);
+    app.controller("myctlr", function ($scope) {
+      $scope.names = [
+        {name:'啦啦啦',num:'4'},
+        {name:'哈哈哈',num:'3'},
+        {name:'嘻嘻嘻',num:'1'}
+      ];
+    })
+  </script> -->
+
+
+
+
+  <!-- 过滤输入 -->
+  <!-- 输入过滤器可以通过一个管道字符（|）和一个过滤器添加到指令中，该过滤器后跟一个冒号和一个模型名称 -->
+  <!--filter 过滤器从数组中选择一个子集：  -->
+  <!-- <div ng-app="myapp" ng-controller="myctlr">
+    <input type="text" ng-model="test">
+    <ul>
+      <li ng-repeat="x in name | filter:test">{{x.name}}</li>
+    </ul>
+  </div>
+  <script>
+  var app=angular.module("myapp",[]);
+  app.controller("myctlr",function($scope){
+    $scope.name=[
+        {name:'aaa'},
+        {name:'bbb'},
+        {name:'ccc'}
+    ]
+  })
+  </script> -->
+
+
+
+
+
+  <!--  $location 服务，它可以返回当前页面的 URL 地址。 -->
+  <!-- 使用了内建的 $location 服务获取当前页面的 URL。 -->
+  <!-- <div ng-app="myapp" ng-controller="myctlr">
+    <p>当前url：{{myurl}}</p>
+  </div>
+  <script>
+  var app=angular.module("myapp",[]);
+  app.controller("myctlr",function($scope,$location){
+    $scope.myurl=$location.absUrl();
+  })
+  </script> -->
+
+
+
+
+
+
+
+  <!-- $timeout 服务 -->
+  <!-- AngularJS $timeout 服务对应了 JS window.setTimeout 函数。 -->
+  <!-- $timeout 访问在规定的毫秒数后执行指定函数。 -->
+  <!-- <div ng-app="myapp" ng-controller="myctlr">
+    <p>两秒后显示信息</p>
+    <h6>{{header}}</h6>
+  </div>
+  <script>
+  var app=angular.module("myapp",[]);
+  app.controller("myctlr",function($scope,$timeout){
+    $scope.header="aaaa";
+    $timeout(function(){
+      $scope.header="bbb";
+    },2000)
+  })
+  </script> -->
+
+
+
+
+
+
+
+
+
+  <!-- $interval 服务 -->
+  <!-- AngularJS $interval 服务对应了 JS window.setInterval 函数。 -->
+  <!-- <div ng-app="myApp" ng-controller="myCtrl">
+    <p>现在时间是:</p>
+    <h6>{{time}}</h6>
+  </div>
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope, $interval) {
+      $scope.time = new Date().toLocaleTimeString();
+      $interval(function () {
+        $scope.time = new Date().toLocaleTimeString();
+      }, 1000);
+    });
+  </script> -->
+
+
+
+
+
+
+  <!-- AngularJS XMLHttpRequest -->
+  <!-- $http 是 AngularJS 中的一个核心服务，用于读取远程服务器的数据。 -->
+
+  <!-- <script>
+    ​ // 简单的 GET 请求，
+    $http({
+      method: 'GET',
+      url: '/someUrl'
+    }).then(function successCallback(response) {
+      // 请求成功执行代码
+    }, function errorCallback(response) {
+      // 请求失败执行代码
+    });
+  </script> -->
+
+
+  <!-- <script>
+      ​ // 简单的 POST 请求，
+    $http({
+      method: 'POST',
+      url: '/someUrl'
+    }).then(function successCallback(response) {
+      // 请求成功执行代码
+    }, function errorCallback(response) {
+      // 请求失败执行代码
+    });
+  </script> -->
+
+  <!-- POST 与 GET 简写方法格式： -->
+  <!-- <script>
+    $http.get('/someUrl', config).then(successCallback, errorCallback);
+    $http.post('/someUrl', data, config).then(successCallback, errorCallback);
+  </script> -->
+
+
+  <!-- 读取 JSON 文件 -->
+  <!-- <script>
+    {
+      "sites": [{
+          "Name": "菜鸟教程",
+          "Url": "www.runoob.com",
+          "Country": "CN"
+        },
+        {
+          "Name": "Google",
+          "Url": "www.google.com",
+          "Country": "USA"
+        },
+        {
+          "Name": "Facebook",
+          "Url": "www.facebook.com",
+          "Country": "USA"
+        },
+        {
+          "Name": "微博",
+          "Url": "www.weibo.com",
+          "Country": "CN"
+        }
+      ]
+    }
+  </script> -->
+
+
+
+
+
+
+
+  ​
+</body>
+
+</html>
