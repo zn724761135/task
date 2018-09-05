@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdn.bootcss.com/angular.js/1.7.0/angular.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.7.0/angular-route.min.js"></script>
+</head>
+
+<body ng-app='myapp'>
+    <ul>
+        <li><a href="#!/">首页</a></li>
+        <li><a href="#!/computers">电脑</a></li>
+        <li><a href="#!/printers">打印机</a></li>
+        <li><a href="#!/blabla">其他</a></li>
+    </ul>
+    <div ng-view></div>
+    <script>
+        angular.module('myapp', ['ngRoute'])
+            .config(['$routeProvider', function ($routeProvider) {
+                $routeProvider
+                    .when('/', {
+                        template: '这是首页页面'
+                    })
+                    .when('/computers', {
+                        template: '这是电脑分类页面'
+                    })
+                    .when('/printers', {
+                        template: '这是打印机页面'
+                    })
+                    .otherwise({
+                        redirectTo: '/'
+                    });
+            }]);
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdn.bootcss.com/angular.js/1.7.0/angular.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.7.0/angular-route.min.js"></script>
+</head>
+
+<body ng-app='myapp'>
+    <ul>
+        <li><a href="#!/">首页</a></li>
+        <li><a href="#!/computers">电脑</a></li>
+        <li><a href="#!/printers">打印机</a></li>
+        <li><a href="#!/blabla">其他</a></li>
+    </ul>
+    <div ng-view></div>
+    <script>
+        angular.module('myapp', ['ngRoute'])
+            .config(['$routeProvider', function ($routeProvider) {
+                $routeProvider.when('/computers', {
+                    templateUrl: 'views/computers.html',
+                });
+            }]);
+    </script>
+</body>
+
+</html>
+
+
+
+<!-- $routeProvider.when(url, {
+    template: string, //在ng-view中插入简单的html内容
+    templateUrl: string, //在ng-view中插入html模版文件
+    controller: string,
+    function / array, //在当前模版上执行的controller函数
+    controllerAs: string, //为controller指定别名
+    redirectTo: string,
+    function, //重定向的地址
+    resolve: object < key,
+    function > //指定当前controller所依赖的其他模块
+}); -->

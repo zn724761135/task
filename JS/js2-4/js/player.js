@@ -55,6 +55,11 @@ function gain(value) {
 gain(quantity.value); //自运行
 
 
+// 自运行
+// (function(){
+
+// }())
+
 
 // 点击button按钮判断条件
 function button() {
