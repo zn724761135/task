@@ -1,0 +1,83 @@
+@charset "UTF-8";
+/*样式重置*/
+html {
+  font-size: 312.5%;
+}
+
+body {
+  margin: 0;
+  font-size: initial;
+}
+
+/*清除ul样式*/
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+/*重置container宽度*/
+@media (min-width: 1200px) {
+  div .container {
+    max-width: 97%;
+  }
+}
+@media (min-width: 992px) {
+  div .container {
+    max-width: 97%;
+  }
+}
+@media (min-width: 768px) {
+  div .container {
+    max-width: 97%;
+  }
+}
+@media (min-width: 576px) {
+  div .container {
+    max-width: 97%;
+  }
+}
+
+/*设置body背景颜色*/
+body {
+  background: #ffffff;
+}
+
+/*文本主体*/
+.header {
+  background: #e8e8e8;
+  border-bottom: 1px solid grey;
+}
+
+.col-12 {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+}
+.col-12 strong {
+  color: #777;
+}
+.col-12 .user {
+  /*显示登录账户*/
+  margin-right: 30px;
+  color: #337ab7;
+}
+.col-12 .user::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+  width: 30px;
+  height: 30px;
+  margin-left: -40px;
+  border-radius: 100%;
+  background: url(../img/lgoin.jpg) no-repeat center/cover;
+}
+.col-12 button {
+  width: 60px;
+  height: 30px;
+  color: #337ab7;
+}
+
+/*# sourceMappingURL=home.css.map */

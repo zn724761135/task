@@ -1,0 +1,53 @@
+@charset"UTF-8";
+@import"_layout";
+
+/*清除ul样式*/
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+/*重置container宽度*/
+div {
+    @include name;
+}
+
+/*设置body背景颜色*/
+body {
+    background: $white;
+}
+
+/*文本主体*/
+.header {
+    background: $gray;
+    border-bottom: 1px solid grey;
+}
+
+.col-12 {
+    position: relative;
+    @include flex(space-between, center);
+    height: 50px;
+
+    strong{
+        color: #777;
+    }
+
+    .user {
+        /*显示登录账户*/
+        margin-right: 30px;
+        color: $home;
+
+        &::before {
+            content: "";
+            @include absolute-vertical(-15px);
+            @include box(30px, 30px);
+            margin-left: -40px;
+            border-radius: 100%;
+            background: url(../img/lgoin.jpg) no-repeat center/cover;
+        }
+    }
+    button{
+        @include box(60px,30px);
+        color: $home;
+    }
+}

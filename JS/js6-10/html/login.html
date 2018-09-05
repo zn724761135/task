@@ -1,13 +1,13 @@
-<div class="box">
-    <span class="font">后台登录系统</span>
+<div class="box" ng-controller="login">
+    <span class="font">后台系统登录</span>
     <div class="user">
         <span class="iphone"></span>
-        <input type="text" id="user" placeholder="用户名">
+        <input type="text"  placeholder="用户名" ng- ng-model="name" ng-focus="value()"><!--ng-focus获取焦点事件-->
     </div>
     <div class="password">
         <span class="lock"></span>
-        <input type="password" id="password" placeholder="密码">
+        <input type="password" placeholder="密码" ng-model="password" ng-focus="value()"><!--ng-focus获取焦点事件-->
     </div>
-    <span class="hint" id="hint"></span>
-    <button>登录</button>
+    <span class="hint">{{hint}}</span>
+    <button ng-click="login()">登录</button>
 </div>
