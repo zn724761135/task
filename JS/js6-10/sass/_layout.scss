@@ -1,8 +1,9 @@
 // 变量
 $blue:#03a9f4;
 $white:#ffffff;
-$gray:#e8e8e8;
+$gray:#f5f5f5;
 $home:#337ab7;
+$home-border:1px solid #e8e8e8;
 
 
 // 混合器
@@ -20,15 +21,6 @@ $home:#337ab7;
     height: $h;
 }
 
-//定位
-@mixin position ($name,$t,$l,$b,$h){
-    position: $name;
-    top: $t;
-    left:$l;
-    bottom: $b;
-    height: $h;
-
-}
 
 // 绝对定位水平居中
 @mixin absolute-level($m-l) {
@@ -67,25 +59,25 @@ $home:#337ab7;
 @mixin name {
     @media (min-width: 1200px) {
         .container {
-            max-width: 97%;
+            max-width: 100%;
         }
     }
     
     @media (min-width: 992px) {
         .container {
-            max-width: 97%;
+            max-width: 100%;
         }
     }
     
     @media (min-width: 768px) {
         .container {
-            max-width: 97%;
+            max-width: 100%;
         }
     }
     
     @media (min-width: 576px) {
         .container {
-            max-width: 97%;
+            max-width: 100%;
         }
     }
 }

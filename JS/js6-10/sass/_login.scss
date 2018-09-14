@@ -3,14 +3,15 @@
 @import"_layout";
 
 
-body {
+.login-bg{
+    @include box (100%,650px);
     background: url(../img/bg2.png) no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
 
 
-.box {
+.login-box{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -75,6 +76,7 @@ body {
         @include box (80%,45px);
         margin: 60px auto 0 auto;
         background:$blue;
+        outline: $blue;
         font-size: 18px;
         color: $white;
         /*字符间距*/

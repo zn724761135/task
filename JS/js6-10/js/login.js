@@ -18,6 +18,9 @@ angular.module("myApp", [])
                     params: { //params可以把$scope的对象序列化成键值对形式
                         name: $scope.name,
                         pwd: $scope.password,
+                    },
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
                     }
                 }).then(function (response) {//发起请求成功
                     // console.log(response);
@@ -28,7 +31,7 @@ angular.module("myApp", [])
                         $scope.hint = response.data.message;//提示密码错误
                     } else if (response.data.code == "0") {
                         $scope.hint = "登录成功";//提示登录成功
-                        $state.go('home');
+                        $state.go('home');//路由跳转到主页
                     }
                 }, function (response) {//发起请求失败
                     console.log(response);
@@ -37,3 +40,7 @@ angular.module("myApp", [])
             }
         }
     })
+
+
+
+

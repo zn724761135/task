@@ -12,15 +12,31 @@
 </head>
 
 <body>
-    <div ui-view></div>
+    <div ui-view=""></div>
 
-    <!-- <script src="https://cdn.bootcss.com/angular.js/1.7.0/angular.min.js"></script> -->
-    <script src="js/min/angular.js"></script><!--加载angularjs模块-->
-    <script src="js/min/angular-ui-router.min.js"></script><!--加载ui路由模块-->
-    <script src="js/min/ocLazyLoad.min.js"></script><!--加载懒加载模块-->
+    <!--加载angularjs模块-->
+    <script src="js/min/angular.js"></script>
 
+    <!--加载ui路由模块-->
+    <script src="js/min/angular-ui-router.min.js"></script>
 
+    <!--加载懒加载模块-->
+    <script src="js/min/ocLazyLoad.min.js"></script>
+
+    <!--加载初始化-->
     <script src="js/app.js"></script>
+    
+    <!--加载过滤器-->
+    <script src="js/filter/filter.js"></script>
+
+    <!-- 加载请求地址方法模块 -->
+    <script src="js/serve/site.js"></script>
+
+    <!-- 加载请求方法模块 -->
+    <script src="js/serve/beg.js"></script>
+
+
+
 
 
 </body>
