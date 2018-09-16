@@ -1,4 +1,4 @@
-<div class="box" >
+<div class="box">
     <div class="top-box">
         <div class="top">
             <div class="content-box">
@@ -11,11 +11,19 @@
             </div>
             <div class="content-box">
                 <strong>类&emsp;&emsp;型</strong>
-                <input type="" ng-model="genre">
+                <!-- <input type="" ng-model="genre"> -->
+                <select ng-model="selectedType" ng-options="x.type for x in type">
+                    </select>
+                <!-- <select>
+                    <option ng-repeat="x in type">{{x.type}}</option>
+                </select> -->
+
             </div>
             <div class="content-box">
                 <strong>状&emsp;&emsp;态</strong>
-                <input type="" ng-model="status">
+                <!-- <input type="" ng-model="status"> -->
+                <select ng-model="selectedStatus" ng-options="x.status for x in status">
+                </select>
             </div>
         </div>
         <div class="bottom">
@@ -74,13 +82,9 @@
         <li>
             <button class="list-btn" ng-click="start()">首页</button>
         </li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li ng-repeat="x in count">
+            <button class="list-btn">{{$index|indexFilter}}</button>
+        </li>
         <li>
             <button class="list-btn" ng-click="end()">尾页</button>
         </li>

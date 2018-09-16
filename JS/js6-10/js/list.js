@@ -1,11 +1,17 @@
 // list列表控制器
 angular.module("myApp", [])
-    .controller("list", function ($scope, $state, $http, beg) {
+    .controller("list", function ($scope, articleConstant, $state, $http, beg) {
         $scope.add = function () { //点击登出按钮返回到
             $state.go('home.add');
         }
 
-        let params = $state.params;//获取传参数据
+        $scope.type = articleConstant.typeItem;
+        console.log($scope.type)
+        $scope.status=articleConstant.statusItem;
+        console.log($scope.status)
+
+
+        let params = $state.params; //获取传参数据
         console.log(params)
 
         //显示当前所在页数
@@ -25,11 +31,23 @@ angular.module("myApp", [])
             //调用list请求方法params为传参，then为请求成功后执行
             beg.getList(params).then(function (response) {
                 console.log(response.data.data)
-                $scope.name = response.data.data.articleList;//把获取的数剧循环出来
+                $scope.name = response.data.data.articleList; //把获取的数剧循环出来
                 console.log($scope.name)
-                let x = response.data.data.total / 10;//定义总页数
+                let x = response.data.data.total / 10; //定义总页数
                 console.log(x);
                 $scope.sum = Math.ceil(x);
+                let arr = new Array(); //创建数组
+                if ($scope.sum < 5) {
+                    for (let i = 1; i <= $scope.sum; i++) {
+                        arr.push(i)
+                    }
+                } else if ($scope.sum >= 5) {
+                    for (let i = 1; i <= 5; i++) {
+                        arr.push(i)
+                    }
+                }
+                $scope.count = arr; //根据数据长度循环出分页按钮
+                console.log($scope.count)
             })
         }
         $scope.list() //调用自身函数，自执行一次
@@ -39,35 +57,35 @@ angular.module("myApp", [])
             if ($scope.number > $scope.sum || $scope.number < 1) {
                 confirm("跳转页数不能大于总页数或小于0")
             } else if ($scope.number <= $scope.sum) {
-                $state.go($state.$current, {//传参
+                $state.go($state.$current, { //传参
                     page: $scope.number,
                     size: 10,
-                    value:$scope.number,
+                    value: $scope.number,
                 }, {
-                    reload: true//刷新单前页面
+                    reload: true //刷新单前页面
                 })
             }
         }
 
         $scope.start = function () { //点击首页按钮
             $scope.number = "" //清除跳转输入框
-            $state.go($state.$current, {//传参
+            $state.go($state.$current, { //传参
                 page: 1,
                 size: 10,
-                value:"",
+                value: "",
             }, {
-                reload: true//刷新单前页面
+                reload: true //刷新单前页面
             })
         }
 
         $scope.end = function () { //点击尾页按钮
             $scope.number = "" //清除跳转输入框
-            $state.go($state.$current, {//传参
+            $state.go($state.$current, { //传参
                 page: $scope.sum,
                 size: 10,
-                value:"",
+                value: "",
             }, {
-                reload: true//刷新单前页面
+                reload: true //刷新单前页面
             })
         }
     })
