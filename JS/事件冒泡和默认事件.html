@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .ul {
+            margin: 0;
+            border: 5px solid aqua;
+            margin: 40px;
+        }
+
+        .li {
+            list-style: none;
+            border: 5px solid aqua;
+            margin: 60px;
+        }
+
+        .div {
+            padding: 0;
+            border: 5px solid aqua;
+            margin: 20px;
+        }
+
+        .span{
+
+            display: block;
+            height: 40px;
+            border: 5px solid aqua;
+            margin: 80px;
+        }
+
+        .a{
+            padding-left: 100px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="div">div元素
+        <ul class="ul">ul元素
+            <li class="li">li元素
+                <span class="span">span元素</span>
+            </li>
+        </ul>
+    </div>
+
+    <a class="a" href="https://www.baidu.com/">百度</a>
+
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        $('.div').click(function () {
+            setInterval(function () {
+                $(".div").css("border-color", "red");
+            }, 1500)
+            // event.stopPropagation();//阻止冒泡事件
+            // event.cancelBubble = true;//阻止冒泡事件
+            // return false;//阻止冒泡事件
+        })
+
+
+        $(".ul").click(function () {
+            setInterval(function () {
+                $(".ul").css("border-color", "blue");
+
+            }, 1000)
+            // event.stopPropagation();
+            // event.cancelBubble = true;
+            // return false;
+        })
+
+        $(".li").click(function () {
+            setInterval(function () {
+                $(".li").css("border-color", "yellow");
+            }, 500)
+            // event.stopPropagation();
+            // event.cancelBubble = true;
+            // return false;
+        })
+
+        $(".span").click(function () {
+            setInterval(function () {
+                $(".span").css("border-color", "orange");
+            }, 0)
+            // event.stopPropagation();
+            // event.cancelBubble = true;
+            // return false;
+        })
+
+
+        $(".a").click(function(){
+            $(".a").css("color", "red");
+            // event.preventDefault();//阻止默认事件
+            // event.returnValue=false;//阻止默认事件
+            // return false;//阻止默认事件
+        })
+
+    </script>
+</body>
+
+</html>

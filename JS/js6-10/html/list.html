@@ -2,6 +2,22 @@
     <div class="top-box">
         <div class="top">
             <div class="content-box">
+                <strong>标&emsp;&emsp;题</strong>
+                <input type="text" ng-model="title">
+            </div>
+            <div class="content-box">
+                <strong>创&ensp;建&ensp;者</strong>
+                <input type="text" ng-model="user">
+            </div>
+            <div class="content-box">
+                <strong>状&emsp;&emsp;态</strong>
+                <select ng-model="selectedStatus" ng-options="x.num as x.status for x in statusItem"></select>
+            </div>
+            <div class="content-box">
+                <strong>类&emsp;&emsp;型</strong>
+                <select ng-model="selectedType" ng-options="x.num as x.type for x in typeItem"></select>
+            </div>
+            <div class="content-box">
                 <strong>发布时间</strong>
                 <input type="date" ng-model="starttime">
             </div>
@@ -9,26 +25,10 @@
                 <strong class="to"></strong>
                 <input type="date" ng-model="endtime">
             </div>
-            <div class="content-box">
-                <strong>类&emsp;&emsp;型</strong>
-                <!-- <input type="" ng-model="genre"> -->
-                <select ng-model="selectedType" ng-options="x.type for x in type">
-                    </select>
-                <!-- <select>
-                    <option ng-repeat="x in type">{{x.type}}</option>
-                </select> -->
-
-            </div>
-            <div class="content-box">
-                <strong>状&emsp;&emsp;态</strong>
-                <!-- <input type="" ng-model="status"> -->
-                <select ng-model="selectedStatus" ng-options="x.status for x in status">
-                </select>
-            </div>
         </div>
         <div class="bottom">
-            <button class="query">搜索</button>
-            <button class="delete">重置</button>
+            <button class="query" ng-click="query()">搜索</button>
+            <button class="delete" ng-click="delete()">重置</button>
         </div>
     </div>
     <div class="bottom-box">
@@ -62,7 +62,7 @@
                     <td>{{x.author}}</td>
                     <td>{{x.status|statusFilter}}</td>
                     <td>
-                        <button class="grid1-content-compile">编辑</button>
+                        <button class="grid1-content-compile" ng-click="compile()">编辑</button>
                         <button class="rid1-content-offline">下线</button>
                         <button class="grid1-content-delete">删除</button>
                     </td>

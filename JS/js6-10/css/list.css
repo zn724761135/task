@@ -37,7 +37,7 @@ body {
   margin-left: 30px;
   background: black;
 }
-.box .top-box .top .content-box input {
+.box .top-box .top .content-box input, .box .top-box .top .content-box select {
   width: 182px;
   height: 30px;
   border-radius: 5px;
@@ -159,7 +159,7 @@ body {
   margin: 0 4px;
   font-size: 15px;
 }
-.list-footer input {
+.list-footer input, .list-footer .box .top-box .top .content-box select, .box .top-box .top .content-box .list-footer select {
   width: 40px;
   line-height: 20px;
   text-align: center;

@@ -1,18 +1,30 @@
 // list列表控制器
 angular.module("myApp", [])
-    .controller("list", function ($scope, articleConstant, $state, $http, beg) {
-        $scope.add = function () { //点击登出按钮返回到
-            $state.go('home.add');
+    .controller("list", function ($filter, $scope, articleConstant, $state, $http, beg) {
+        $scope.add = function () { //点击新增按钮
+            $state.go('home.add', {
+                skip: "add",//传参
+            })
+        }
+        $scope.compile = function () {//点击编辑按钮
+            $state.go('home.add', { 
+                skip: "compile", //传参
+            })
         }
 
-        $scope.type = articleConstant.typeItem;
-        console.log($scope.type)
-        $scope.status=articleConstant.statusItem;
-        console.log($scope.status)
-
+        $scope.typeItem = articleConstant.typeItem;//类似列表
+        // console.log($scope.type)
+        $scope.statusItem = articleConstant.statusItem;//状态列表
+        // console.log($scope.status)
 
         let params = $state.params; //获取传参数据
         console.log(params)
+
+        $scope.selectedType = +$state.params.type;
+        $scope.selectedStatus = +$state.params.status;
+
+        $scope.title = $state.params.title;
+        $scope.user = $state.params.author;
 
         //显示当前所在页数
         if ($state.params.page == undefined) {
@@ -87,5 +99,41 @@ angular.module("myApp", [])
             }, {
                 reload: true //刷新单前页面
             })
+        }
+
+        $scope.query = function () {//搜索按钮
+
+            let starttime = $scope.starttime;//起始时间
+            if (starttime) {
+                starttime = starttime.getTime();
+            } else {
+                starttime = undefined;
+            }
+            let endtime = $scope.endtime;//结束时间
+            if (endtime) {
+                endtime = endtime.getTime();
+            } else {
+                endtime = undefined
+            }
+
+            $state.go($state.$current, {//传参
+                status: $scope.selectedStatus,//状态
+                type: $scope.selectedType,//类型
+                title: $scope.title,//标题
+                author: $scope.user,//创建者
+                startAt: starttime,//开始时间
+                endAt: endtime,//结束时间
+            }, {
+                reload: true//刷新单前页面
+            })
+        }
+
+        $scope.delete = function () {//点击删除按钮，清除所有条件
+            $scope.title = "";
+            $scope.user = "";
+            $scope.selectedType = "";
+            $scope.selectedStatus = "";
+            $scope.starttime = "";
+            $scope.endtime = "";
         }
     })

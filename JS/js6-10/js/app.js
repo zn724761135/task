@@ -46,7 +46,7 @@ angular.module('myApp', ["ui.router", "oc.lazyLoad"]) //加载ui路由模块和�
                 }
             })
         .state('home.list',{//在主页路由跳转到list
-            url:'/list?page&size&value',//定义主页list路由的地址和传参？后面是传参
+            url:'/list?page&size&value&status&type&title&author&startAt&endAt',//定义主页list路由的地址和传参？后面是传参
             views:{//视窗，加载路由主页list的html模块
                 '':{
                     templateUrl:'html/list.html',
@@ -61,15 +61,16 @@ angular.module('myApp', ["ui.router", "oc.lazyLoad"]) //加载ui路由模块和�
             }
         })
         .state('home.add',{//路由跳转到新增
-            url:'/add',//定义新增路由的地址
+            url:'/list?skip',//定义新增路由的地址
             views:{//视窗，加载新增的html模块
                 '':{
-                    templateUrl:"html/add.html"
+                    templateUrl:"html/add.html",
+                    controller:"add"
                 }
             },
             resolve:{//懒加载，加载新增的html模块对应的css和js文件
                 myload:(function($ocLazyLoad){
-                    return $ocLazyLoad.load([])
+                    return $ocLazyLoad.load(["css/add.css","js/add.js"]);
                 })
             }
         })

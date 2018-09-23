@@ -12,10 +12,13 @@ angular.module("myApp")
             //         }
             //     })
             // },
-            getList: function (params) {//list获取列表请求
-                return $http.get(site.getList(), {//调用site地址方法,后面带()为调用，没有()为引用
+            getList: function (params) { //list获取列表请求
+                return $http.get(site.getList(), { //调用site地址方法,后面带()为调用，没有()为引用
                     params: params //传参
                 });
-            }
+            },
+            // postImg: function () {
+            //     return $http.psot(site.postImg(),);
+            // }
         }
     })
