@@ -7,9 +7,9 @@ angular.module("myApp")
         getList:function(){//封装获取list列表数据接口为一个方法
             return '/carrots-admin-ajax/a/article/search';
         },
-        // postImg:function(){
-        //     return'/carrots-admin-ajax/a/u/img/task';
-        // }
+        postAdd:function(){
+            return '/carrots-admin-ajax/a/u/article';
+        }
         
     }
 })

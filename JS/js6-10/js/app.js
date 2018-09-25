@@ -16,6 +16,19 @@
 
 // ui路由
 angular.module('myApp', ["ui.router", "oc.lazyLoad"]) //加载ui路由模块和懒加载模块
+    .config(function ($httpProvider) {//设置请求头数据类型
+        // Set x-www-form-urlencoded Content-Type,设置请求content-type
+        $httpProvider.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+        $httpProvider.defaults.headers.patch['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+        $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+        $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
+        $httpProvider.defaults.transformRequest = function (data) {
+            if (data === undefined) {
+                return data;
+            }
+            return $.param(data);
+        };
+    })
     .config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/login'); //默认加载页面
         $stateProvider
@@ -45,46 +58,46 @@ angular.module('myApp', ["ui.router", "oc.lazyLoad"]) //加载ui路由模块和�
                     })
                 }
             })
-        .state('home.list',{//在主页路由跳转到list
-            url:'/list?page&size&value&status&type&title&author&startAt&endAt',//定义主页list路由的地址和传参？后面是传参
-            views:{//视窗，加载路由主页list的html模块
-                '':{
-                    templateUrl:'html/list.html',
-                    controller:'list',//过滤器
-                    // params:{args:{}}
+            .state('home.list', { //在主页路由跳转到list
+                url: '/list?page&size&value&status&type&title&author&startAt&endAt', //定义主页list路由的地址和传参？后面是传参
+                views: { //视窗，加载路由主页list的html模块
+                    '': {
+                        templateUrl: 'html/list.html',
+                        controller: 'list', //过滤器
+                        // params:{args:{}}
+                    }
+                },
+                resolve: { //懒加载，加载主页list的html模块对应的css和js文件
+                    myload: (function ($ocLazyLoad) {
+                        return $ocLazyLoad.load(["css/list.css", "js/list.js"]);
+                    })
                 }
-            },
-            resolve:{//懒加载，加载主页list的html模块对应的css和js文件
-                myload:(function($ocLazyLoad){
-                    return $ocLazyLoad.load(["css/list.css","js/list.js"]);
-                })
-            }
-        })
-        .state('home.add',{//路由跳转到新增
-            url:'/list?skip',//定义新增路由的地址
-            views:{//视窗，加载新增的html模块
-                '':{
-                    templateUrl:"html/add.html",
-                    controller:"add"
+            })
+            .state('home.add', { //路由跳转到新增
+                url: '/list?skip', //定义新增路由的地址
+                views: { //视窗，加载新增的html模块
+                    '': {
+                        templateUrl: "html/add.html",
+                        controller: "add"
+                    }
+                },
+                resolve: { //懒加载，加载新增的html模块对应的css和js文件
+                    myload: (function ($ocLazyLoad) {
+                        return $ocLazyLoad.load(["css/add.css", "js/add.js"]);
+                    })
                 }
-            },
-            resolve:{//懒加载，加载新增的html模块对应的css和js文件
-                myload:(function($ocLazyLoad){
-                    return $ocLazyLoad.load(["css/add.css","js/add.js"]);
-                })
-            }
-        })
-        .state('home.details',{
-            url:'/details',
-            views:{
-                '':{
-                    templateUrl:"html/details.html"
+            })
+            .state('home.details', {
+                url: '/details',
+                views: {
+                    '': {
+                        templateUrl: "html/details.html"
+                    }
+                },
+                resolve: {
+                    myload: (function ($ocLazyLoad) {
+                        return $ocLazyLoad.load([]);
+                    })
                 }
-            },
-            resolve:{
-                myload:(function($ocLazyLoad){
-                    return $ocLazyLoad.load([]);
-                })
-            }
-        })
+            })
     })

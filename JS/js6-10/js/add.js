@@ -1,6 +1,6 @@
 angular.module('myApp', ['ngFileUpload'])
-    .controller('add', function ($scope, Upload, articleConstant, $timeout, $state, beg) {
-        var url;//定义图片url
+    .controller('add', function ($http, $scope, Upload, articleConstant, $timeout, $state, beg) {
+        var url; //定义图片url
 
         $scope.uploadPic = function (file) { //图片上传
             file.upload = Upload.upload({ //post请求
@@ -65,15 +65,12 @@ angular.module('myApp', ['ngFileUpload'])
         }
 
         $scope.industryHide = true; //定义行业为隐藏
-        $scope.urlShow = true; //定义跳转连接为显示
         $scope.type = function () { //点击类型选择框
             console.log($scope.selectedType)
             if ($scope.selectedType == 3) { //当选择行业大图时显示行业选择框，隐藏跳转连接
                 $scope.industryHide = false;
-                $scope.urlShow = false;
             } else { //当不选择行业大图时隐藏行业下拉框，显示跳转连接
                 $scope.industryHide = true;
-                $scope.urlShow = true;
             }
         }
 
@@ -85,19 +82,45 @@ angular.module('myApp', ['ngFileUpload'])
             }
         }
 
-        $scope.online = function () {//点击上线按钮
-            if (url == undefined) {
-                alert("请先上传图片");//未上传图片提示上传图片
-            } else if (url != undefined) {
+        $scope.beg = function () { //封装请求方法
+            $scope.params = {};//定义发起请求的数据
+            $scope.params.title = $scope.title;//标题
+            $scope.params.type = $scope.selectedType;//类型
+            $scope.params.industry = $scope.selectedIndustry//行业
+            $scope.params.img = url;//图片
+            $scope.params.content = $scope.explain;//说明
+            $scope.params.url = $scope.skipUrl;//跳转连接
+            $scope.params.status = $scope.status;//状态
 
+            // 调用请求方法
+            beg.postAdd($scope.params).then(function (response) {
+                console.log($scope.params);
+                console.log(response)
+                if (confirm("上传成功")) {
+                    $state.go('home.list'); //点击确定上传并返回到list列表页面
+                } else {
+                    $state.reload(); //点击取消上传并刷新当前页面
+                }
+            })
+        }
+
+        $scope.online = function () { //点击上线按钮
+            if (url == undefined) {
+                alert("请先上传图片"); //未上传图片提示上传图片
+            } else if (url != undefined) {
+                $scope.status = 2;//定义status为上线
+                $scope.beg();//调用请求
             }
         }
 
-
-
-
-
-
+        $scope.draft=function(){
+            if (url == undefined) {
+                alert("请先上传图片"); //未上传图片提示上传图片
+            } else if (url != undefined) {
+                $scope.status = 1;//定义status为草稿
+                $scope.beg();//调用请求
+            }
+        }
 
 
     });

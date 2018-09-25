@@ -17,8 +17,8 @@ angular.module("myApp")
                     params: params //传参
                 });
             },
-            // postImg: function () {
-            //     return $http.psot(site.postImg(),);
-            // }
+            postAdd:function(params){
+                return $http.post(site.postAdd(),params)
+            }
         }
     })
