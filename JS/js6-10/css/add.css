@@ -26,6 +26,26 @@ select {
   margin-left: 10px;
 }
 
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 13px;
+}
+
 .add-box {
   padding: 20px;
   background: #ffffff;
@@ -46,6 +66,20 @@ select {
 }
 .add-box .add-content-box .add-content .select-type {
   margin-bottom: 25px;
+}
+.add-box .add-content-box .add-content .select-type #editor {
+  display: inline-block;
+  width: 80%;
+  margin-left: 15px;
+}
+.add-box .add-content-box .add-content .select-type #editor .w-e-toolbar {
+  flex-wrap: wrap;
+}
+.add-box .add-content-box .add-content .select-type #editor .w-e-text-container {
+  height: 200px !important;
+}
+.add-box .add-content-box .add-content .flex {
+  display: flex;
 }
 .add-box .add-content-box .add-content .Upload {
   width: 40px;

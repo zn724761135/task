@@ -62,9 +62,9 @@
                     <td>{{x.author}}</td>
                     <td>{{x.status|statusFilter}}</td>
                     <td>
-                        <button class="grid1-content-compile" ng-click="compile()">编辑</button>
-                        <button class="rid1-content-offline">下线</button>
-                        <button class="grid1-content-delete">删除</button>
+                        <button class="grid1-content-compile" ng-click="compile($index)">编辑</button>
+                        <button class="rid1-content-offline" ng-click="swops($index)">{{swop($index)}}</button>
+                        <button class="grid1-content-delete" ng-click="deleteList($index)">删除</button>
                     </td>
                 </tr>
             </table>

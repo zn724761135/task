@@ -21,13 +21,14 @@
                     <strong>标题名称</strong>
                     <input type="text" ng-model="title" required>
                 </div>
-                <div class="select-type">
+                <div class="select-type flex">
                     <strong>说&emsp;&emsp;明</strong>
-                    <input type="text" ng-model="explain" required>
+                    <!-- <input type="text" ng-model="explain" required> -->
+                    <div id="editor" ng-model="editor"></div>
                 </div>
                 <div class="select-type">
                     <strong>跳转链接</strong>
-                    <input type="text" ng-model="skipUrl" >
+                    <input type="text" ng-model="skipUrl">
                 </div>
             </form>
             <form name="myForm">
@@ -37,6 +38,7 @@
                 <i ng-show="myForm.file.$error.maxSize">
                     {{errorFile.size / 1000000|number:1}}MB: max 2M</i>
                 <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="thumb">
+                <img class="thumb" src="{{img}}" alt="" ng-hide="hideImg">
             </form>
             <table>
                 <tr>
@@ -65,8 +67,8 @@
                 </tr>
             </table>
             <div class="bottom-button">
-                <button class="online" ng-disabled="myType.$invalid || myForm.$invalid" ng-click="online()">立即上线</button>
-                <button class="draft" ng-disabled="myType.$invalid || myForm.$invalid" ng-click="draft()">存为草稿</button>
+                <button class="online" ng-disabled="myType.$invalid" ng-click="online()">立即上线</button>
+                <button class="draft" ng-disabled="myType.$invalid" ng-click="draft()">存为草稿</button>
                 <button class="off" ng-click="off()">取消</button>
             </div>
         </div>

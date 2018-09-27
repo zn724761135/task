@@ -74,7 +74,7 @@ angular.module('myApp', ["ui.router", "oc.lazyLoad"]) //加载ui路由模块和�
                 }
             })
             .state('home.add', { //路由跳转到新增
-                url: '/list?skip', //定义新增路由的地址
+                url: '/list?skip&id', //定义新增路由的地址
                 views: { //视窗，加载新增的html模块
                     '': {
                         templateUrl: "html/add.html",
