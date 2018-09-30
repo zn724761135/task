@@ -1,12 +1,20 @@
 // list列表控制器
-angular.module("myApp", [])
-    .controller("list", function ($filter, $scope, articleConstant, $state, $http, beg) {
+angular.module("myApp", ['ui.bootstrap'])
+    .controller("list", function ($filter, $scope, articleConstant, $state, beg, $log) {
 
         $scope.typeItem = articleConstant.typeItem; //类似列表
         $scope.statusItem = articleConstant.statusItem; //状态列表
 
         let params = $state.params; //获取传参数据
+        let a = $state.params.page;
         console.log(params)
+        if ($scope.bigCurrentPage != 1) {
+            $scope.bigCurrentPage = $state.params.page;
+            $('pre').text($state.params.page)
+            console.log($("pre").text($state.params.page))
+            $('.ng-binding').text($state.params.page)
+        }
+
 
         $scope.selectedType = +$state.params.type; //类型
         $scope.selectedStatus = +$state.params.status; //状态
@@ -36,18 +44,103 @@ angular.module("myApp", [])
                 let x = response.data.data.total / 10; //定义总页数
                 console.log(x);
                 $scope.sum = Math.ceil(x);
-                let arr = new Array(); //创建数组
-                if ($scope.sum < 5) {
-                    for (let i = 1; i <= $scope.sum; i++) {
-                        arr.push(i)
-                    }
-                } else if ($scope.sum >= 5) {
-                    for (let i = 1; i <= 5; i++) {
-                        arr.push(i)
-                    }
+
+                if ($scope.sum == undefined) {
+                    $scope.btn = false; //当没有数据时隐藏分页按钮
+                } else if ($scope.sum != undefined) {
+                    $scope.btn = true;//当数据大于1页显示按钮
                 }
-                $scope.count = arr; //根据数据长度循环出分页按钮
-                console.log($scope.count)
+
+
+                // 分页按钮
+                switch ($scope.sum) { //当数据小于5页时隐藏按钮
+                    case 1:
+                        $scope.btn2 = true;
+                        $scope.btn3 = true;
+                        $scope.btn4 = true;
+                        $scope.btn5 = true;
+                        break;
+                    case 2:
+                        $scope.btn3 = true;
+                        $scope.btn4 = true;
+                        $scope.btn5 = true;
+                        break;
+                    case 3:
+                        $scope.btn4 = true;
+                        $scope.btn5 = true;
+                        break;
+                    case 4:
+                        $scope.btn5 = true;
+                        break;
+                }
+
+                if ($scope.now <= 4) {//当前页数小于等于4时显示默认按钮
+                    $scope.value1 = 1;
+                    $scope.value2 = 2;
+                    $scope.value3 = 3;
+                    $scope.value4 = 4;
+                    $scope.value5 = 5;
+                }
+
+                if ($scope.now > 4) {//当前页数大于4时单前页数显示在中间按钮，左右两边显示前后页数
+                    $scope.value1 = parseInt($scope.now) - 2;
+                    $scope.value2 = parseInt($scope.now) - 1;
+                    $scope.value3 = $scope.now;
+                    $scope.value4 = parseInt($scope.now) + 1;
+                    $scope.value5 = parseInt($scope.now) + 2;
+                }
+
+                // 当前页数为倒数第二页或最后一页时和默认按钮相反
+                if ($scope.now == parseInt($scope.sum) - 1 || $scope.now == $scope.sum) {
+                    $scope.value1 = parseInt($scope.sum) - 4;
+                    $scope.value2 = parseInt($scope.sum) - 3;
+                    $scope.value3 = parseInt($scope.sum) - 2;
+                    $scope.value4 = parseInt($scope.sum) - 1;
+                    $scope.value5 = $scope.sum;
+                }
+
+
+
+                $scope.bg = {//定义单前页数按钮样式
+                    "background": "#337ab7",
+                    "color": "#ffffff",
+                }
+
+                if ($scope.now == 1) {//当前页数为第1页改变第1个按钮样式
+                    $scope.bg1 = $scope.bg;
+                }
+                if ($scope.now == 2) {//当前页数为第2页改变第2个按钮样式
+                    $scope.bg2 = $scope.bg;
+                }
+                if ($scope.now == 3) {//当前页数为第3页改变第3个按钮样式
+                    $scope.bg3 = $scope.bg;
+                }
+                if ($scope.now == 4) {//当前页数为第4页改变第4个按钮样式
+                    $scope.bg4 = $scope.bg;
+                }
+                if ($scope.now >= 5) {//单前页数大于等于5时，改变中间按钮样式
+                    let a = $scope.now < parseInt($scope.sum) - 2
+                    $scope.bg3 = $scope.bg;
+                }
+                if ($scope.now == parseInt($scope.sum) - 1) {//当前页数为倒数第二页改变第四个按钮样式
+                    $scope.bg4 = $scope.bg;
+                    $scope.bg3 = "";
+                }
+                if ($scope.now == $scope.sum) {//当前页数为最后一页改变最后一个按钮样式
+                    $scope.bg5 = $scope.bg;
+                    $scope.bg3 = "";
+                }
+
+
+                $scope.showForward = false; //定义上一页按钮默认为隐藏
+                $scope.showBackwards = true; //定义下一页按钮默认为显示
+                if ($scope.now > "1") { //当前页数大于第一页
+                    $scope.showForward = true; //定义上一页为显示
+                }
+                if ($scope.now == $scope.sum) { //单前页数为最后一页
+                    $scope.showForward = true; //定义上一页按钮为显示
+                    $scope.showBackwards = false; //定义下一页按钮为隐藏
+                }
             })
         }
         $scope.list() //调用自身函数，自执行一次
@@ -179,18 +272,72 @@ angular.module("myApp", [])
             }
         }
 
-        $scope.deleteList = function ($index) {//点击删除按钮
-            if(confirm("删除后将下架从本地删除，确定要删除？")){//提示框
+        $scope.deleteList = function ($index) { //点击删除按钮
+            if (confirm("删除后将下架从本地删除，确定要删除？")) { //提示框
                 $scope.params = $scope.name[$index].id; //获取删除项的id
                 console.log($scope.params)
-                beg.deleteList($scope.params).then(function (response) {//调用删除请求
+                beg.deleteList($scope.params).then(function (response) { //调用删除请求
                     console.log(response)
                     $state.reload(); //删除成功刷新单前页面
                 })
-            }else{
+            } else {
                 return //点击取消不进行任何操作
             }
         }
 
+
+        $scope.data = function () { //封装按钮传参
+            $state.go($state.$current, {
+                page: page, //跳转页数
+                size: 10,
+            }, {
+                reload: true //刷新单前页面
+            })
+        }
+
+        $scope.skip1 = function () { //分页按钮
+            page = $scope.value1; //获取按钮跳转的页数
+            $scope.data(); //调用分页按钮传参
+        }
+        $scope.skip2 = function () {
+            page = $scope.value2;
+            console.log(page)
+            $scope.data();
+        }
+        $scope.skip3 = function () {
+            page = $scope.value3;
+            console.log(page)
+            $scope.data();
+        }
+        $scope.skip4 = function () {
+            page = $scope.value4;
+            console.log(page)
+            $scope.data();
+        }
+        $scope.skip5 = function () {
+            page = $scope.value5;
+            console.log(page)
+            $scope.data();
+        }
+
+
+        $scope.upDown = function () { //封装上一页下一页按钮传参
+            $state.go($state.$current, {
+                page: pega, //跳转页数
+                size: 10,
+            }, {
+                reload: true //刷新单前页面
+            })
+        }
+
+        $scope.forward = function () { //点击上一页按钮
+            pega = parseInt($scope.now) - 1; //把单前页数转换为数字-1
+            $scope.upDown(); //调用传参方法
+        }
+
+        $scope.backwards = function () { //点击下一页按钮
+            pega = parseInt($scope.now) + 1; //把单前页数转换为数字+1
+            $scope.upDown(); //调用传参方法
+        }
 
     })

@@ -77,16 +77,39 @@
             <span class="font">总共{{sum}}页</span>
         </li>
         <li>
+            <!-- <span class="font">当前为第{{now}}页</span> -->
             <span class="font">当前为第{{now}}页</span>
         </li>
         <li>
-            <button class="list-btn" ng-click="start()">首页</button>
-        </li>
-        <li ng-repeat="x in count">
-            <button class="list-btn">{{$index|indexFilter}}</button>
-        </li>
-        <li>
-            <button class="list-btn" ng-click="end()">尾页</button>
+            <ul ng-if="btn">
+                <li>
+                    <button class="list-btn" ng-click="start()">首页</button>
+                </li>
+                <li>    
+                    <button class="list-btn" ng-show="showForward" ng-click="forward()"><</button>
+                </li>
+                <li>
+                    <button class="list-btn" ng-hide="btn1" ng-style="bg1" ng-click="skip1()">{{value1}}</button>
+                </li>
+                <li>
+                    <button class="list-btn" ng-hide="btn2" ng-click="skip2()"  ng-style="bg2">{{value2}}</button>
+                </li>
+                <li>
+                    <button class="list-btn" ng-hide="btn3"  ng-click="skip3()"  ng-style="bg3">{{value3}}</button>
+                </li>
+                <li>
+                    <button class="list-btn" ng-hide="btn4" ng-click="skip4()"  ng-style="bg4">{{value4}}</button>
+                </li>
+                <li>
+                    <button class="list-btn" ng-hide="btn5" ng-click="skip5()"  ng-style="bg5">{{value5}}</button>
+                </li>
+                <li>
+                    <button class="list-btn" ng-show="showBackwards" ng-click="backwards()">></button>
+                </li>
+                <li>
+                    <button class="list-btn" ng-click="end()">尾页</button>
+                </li>
+            </ul>
         </li>
         <li>
             <span class="font">去第</span>
