@@ -15,8 +15,8 @@
 
 
 // ui路由
-angular.module('myApp', ["ui.router", "oc.lazyLoad"]) //加载ui路由模块和懒加载模块
-    .config(function ($httpProvider) {//设置请求头数据类型
+angular.module('myApp', ["ui.router", "oc.lazyLoad", "ngFileUpload"]) //加载ui路由模块和懒加载模块
+    .config(function ($httpProvider) { //设置请求头数据类型
         // Set x-www-form-urlencoded Content-Type,设置请求content-type
         $httpProvider.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
         $httpProvider.defaults.headers.patch['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
@@ -101,3 +101,33 @@ angular.module('myApp', ["ui.router", "oc.lazyLoad"]) //加载ui路由模块和�
                 }
             })
     })
+    .run(function ($rootScope, $state) { //路由拦截
+        $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+            // 获取登录和未登录状态
+            let ifLoginTrue = JSON.parse(localStorage.getItem("ifLoginTrue"));
+            console.log(ifLoginTrue)
+            if (ifLoginTrue == "false" || ifLoginTrue == null) {//状态为未登录时
+                // event.preventDefault(); // 取消默认跳转行为
+                $state.go('login');//跳转到登录页
+            }
+        });
+    })
+    
+// .run(function ($rootScope, $state) {
+//      $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+//         // if (toState.name == 'login') return; // 如果是进入登录界面则允许
+//         // 如果用户不存在
+//         let ifLoginTrue = JSON.parse(localStorage.getItem("ifLoginTrue"));
+//         console.log(ifLoginTrue)
+//         if (ifLoginTrue == "false") {
+//             console.log("没有登录")
+//             event.preventDefault(); // 取消默认跳转行为
+//             $("#my-modal-loading").modal('open'); //开启加载中loading
+
+//             $state.go("login", {
+//                 // from: fromState.name,
+//                 // w: 'notLogin'
+//             }); //跳转到登录界面
+//         }
+//     });
+// })

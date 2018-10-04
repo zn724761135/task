@@ -5,6 +5,9 @@ angular.module("myApp")
             postLogin:function(){//登录
                 return '/carrots-admin-ajax/a/login';
             },
+            postLogout:function(){//登出
+                return '/carrots-admin-ajax/a/logout';
+            },
             getList: function () { //封装获取list列表数据接口为一个方法
                 return '/carrots-admin-ajax/a/article/search';
             },

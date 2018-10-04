@@ -1,4 +1,4 @@
-angular.module('myApp', ['ngFileUpload'])
+angular.module('myApp')
     .controller('add', function ($http, $scope, Upload, articleConstant, $timeout, $state, beg, $filter) {
         var url; //定义图片url
         console.log(url)
@@ -35,7 +35,7 @@ angular.module('myApp', ['ngFileUpload'])
         var id = $state.params.id //获取编辑项的id
         console.log(params);
 
-        $scope.typeItem = articleConstant.typeItem; //类型列表
+        $scope.typeItem = articleConstant.addType; //类型列表
         $scope.industryItem = articleConstant.industryItem; //行业列表
         $scope.selectedIndustry = ~~$state.params.industry;
 

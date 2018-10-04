@@ -18,12 +18,16 @@
                 <select ng-model="selectedType" ng-options="x.num as x.type for x in typeItem"></select>
             </div>
             <div class="content-box">
-                <strong>发布时间</strong>
-                <input type="date" ng-model="starttime">
+                <strong class="date">发布时间</strong>
+                <!-- <input type="date" ng-model="starttime"> -->
+                <input type="text" id="starttime" ng-model="starttime">
+                <!-- <img  class="date" src="../img/timg.jpg" alt=""> -->
             </div>
             <div class="content-box">
-                <strong class="to"></strong>
-                <input type="date" ng-model="endtime">
+                <strong class="to date"></strong>
+                <!-- <input type="date" ng-model="endtime"> -->
+                <input type="text" id="endtime" ng-model="endtime">
+                <!-- <img  class="date" src="../img/timg.jpg" alt=""> -->
             </div>
         </div>
         <div class="bottom">

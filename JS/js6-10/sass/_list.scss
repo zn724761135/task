@@ -16,9 +16,21 @@
             flex-wrap: wrap;
 
             .content-box {
+                position: relative;
                 @include flex(space-between, center);
                 @include box(300px, 30px);
                 margin: 0 0 20px 40px;
+
+                .date {
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        right: 0;
+                        top: -0.5px;
+                        @include box(30px, 30px);
+                        background: url(../img/timg.jpg) no-repeat center/cover;
+                    }
+                }
 
                 .to {
                     // 时间起始横杆
@@ -168,7 +180,11 @@
         color: $home;
     }
 
-    .bg1,.bg2,.bg3,.bg4,.bg5{
+    .bg1,
+    .bg2,
+    .bg3,
+    .bg4,
+    .bg5 {
         background: $home;
         color: $white;
     }

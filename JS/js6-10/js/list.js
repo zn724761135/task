@@ -1,26 +1,36 @@
 // list列表控制器
-angular.module("myApp", ['ui.bootstrap'])
-    .controller("list", function ($filter, $scope, articleConstant, $state, beg, $log) {
+angular.module("myApp")
+    .controller("list", function ($filter, $scope, articleConstant, $state, beg) {
+        laydate.render({ //搜索开始时间插件
+            elem: '#starttime',
+            done: function (value) {
+                $scope.starttime = value; //获取选择的开始时间
+            }
+        });
+        laydate.render({ //搜索结束时间插件
+            elem: '#endtime',
+            done: function (value) {
+                $scope.endtime = value; //获取选择的结束时间
+            }
+        });
 
+        // 搜索后显示搜索的添加
         $scope.typeItem = articleConstant.typeItem; //类似列表
         $scope.statusItem = articleConstant.statusItem; //状态列表
-
         let params = $state.params; //获取传参数据
-        let a = $state.params.page;
         console.log(params)
-        if ($scope.bigCurrentPage != 1) {
-            $scope.bigCurrentPage = $state.params.page;
-            $('pre').text($state.params.page)
-            console.log($("pre").text($state.params.page))
-            $('.ng-binding').text($state.params.page)
-        }
-
-
         $scope.selectedType = +$state.params.type; //类型
+        if ($scope.selectedType != 0 && $scope.selectedType != 1 && $scope.selectedType != 2 && $scope.selectedType != 3) {
+            $scope.selectedType = undefined; //默认类似的值为空
+        }
         $scope.selectedStatus = +$state.params.status; //状态
-
+        if ($scope.selectedStatus != 1 && $scope.selectedStatus != 2) {
+            $scope.selectedStatus = undefined; //默认状态的值为空
+        }
         $scope.title = $state.params.title; //标题
         $scope.user = $state.params.author; //创建者
+        $scope.starttime = $filter("date")($state.params.startAt, "yyyy-MM-dd"); //开始时间
+        $scope.endtime = $filter("date")($state.params.endAt, "yyyy-MM-dd"); //结束时间
 
         //显示当前所在页数
         if ($state.params.page == undefined) {
@@ -45,12 +55,11 @@ angular.module("myApp", ['ui.bootstrap'])
                 console.log(x);
                 $scope.sum = Math.ceil(x);
 
-                if ($scope.sum == undefined) {
+                if ($scope.sum == "0") {
                     $scope.btn = false; //当没有数据时隐藏分页按钮
-                } else if ($scope.sum != undefined) {
-                    $scope.btn = true;//当数据大于1页显示按钮
+                } else if ($scope.sum != "0") {
+                    $scope.btn = true; //当数据大于1页显示按钮
                 }
-
 
                 // 分页按钮
                 switch ($scope.sum) { //当数据小于5页时隐藏按钮
@@ -74,7 +83,7 @@ angular.module("myApp", ['ui.bootstrap'])
                         break;
                 }
 
-                if ($scope.now <= 4) {//当前页数小于等于4时显示默认按钮
+                if ($scope.now <= 4) { //当前页数小于等于4时显示默认按钮
                     $scope.value1 = 1;
                     $scope.value2 = 2;
                     $scope.value3 = 3;
@@ -82,7 +91,7 @@ angular.module("myApp", ['ui.bootstrap'])
                     $scope.value5 = 5;
                 }
 
-                if ($scope.now > 4) {//当前页数大于4时单前页数显示在中间按钮，左右两边显示前后页数
+                if ($scope.now > 4) { //当前页数大于4时单前页数显示在中间按钮，左右两边显示前后页数
                     $scope.value1 = parseInt($scope.now) - 2;
                     $scope.value2 = parseInt($scope.now) - 1;
                     $scope.value3 = $scope.now;
@@ -91,7 +100,8 @@ angular.module("myApp", ['ui.bootstrap'])
                 }
 
                 // 当前页数为倒数第二页或最后一页时和默认按钮相反
-                if ($scope.now == parseInt($scope.sum) - 1 || $scope.now == $scope.sum) {
+
+                if ($scope.now > 5 && $scope.now == parseInt($scope.sum) - 1) {
                     $scope.value1 = parseInt($scope.sum) - 4;
                     $scope.value2 = parseInt($scope.sum) - 3;
                     $scope.value3 = parseInt($scope.sum) - 2;
@@ -99,37 +109,44 @@ angular.module("myApp", ['ui.bootstrap'])
                     $scope.value5 = $scope.sum;
                 }
 
+                if ($scope.now > 4 && $scope.now == $scope.sum) {
+                    $scope.value1 = parseInt($scope.sum) - 4;
+                    $scope.value2 = parseInt($scope.sum) - 3;
+                    $scope.value3 = parseInt($scope.sum) - 2;
+                    $scope.value4 = parseInt($scope.sum) - 1;
+                    $scope.value5 = $scope.sum;
+                }
 
-
-                $scope.bg = {//定义单前页数按钮样式
+                $scope.bg = { //定义单前页数按钮样式
                     "background": "#337ab7",
                     "color": "#ffffff",
                 }
 
-                if ($scope.now == 1) {//当前页数为第1页改变第1个按钮样式
+                if ($scope.now == 1) { //当前页数为第1页改变第1个按钮样式
                     $scope.bg1 = $scope.bg;
                 }
-                if ($scope.now == 2) {//当前页数为第2页改变第2个按钮样式
+                if ($scope.now == 2) { //当前页数为第2页改变第2个按钮样式
                     $scope.bg2 = $scope.bg;
                 }
-                if ($scope.now == 3) {//当前页数为第3页改变第3个按钮样式
+                if ($scope.now == 3) { //当前页数为第3页改变第3个按钮样式
                     $scope.bg3 = $scope.bg;
                 }
-                if ($scope.now == 4) {//当前页数为第4页改变第4个按钮样式
+                if ($scope.now == 4) { //当前页数为第4页改变第4个按钮样式
                     $scope.bg4 = $scope.bg;
                 }
-                if ($scope.now >= 5) {//单前页数大于等于5时，改变中间按钮样式
+                if ($scope.now >= 5) { //单前页数大于等于5时，改变中间按钮样式
                     let a = $scope.now < parseInt($scope.sum) - 2
                     $scope.bg3 = $scope.bg;
                 }
-                if ($scope.now == parseInt($scope.sum) - 1) {//当前页数为倒数第二页改变第四个按钮样式
+                if ($scope.now > 5 && $scope.now == parseInt($scope.sum) - 1) { //当前页数为倒数第二页改变第四个按钮样式
                     $scope.bg4 = $scope.bg;
                     $scope.bg3 = "";
                 }
-                if ($scope.now == $scope.sum) {//当前页数为最后一页改变最后一个按钮样式
+                if ($scope.now > 4 && $scope.now == $scope.sum) { //当前页数为最后一页改变最后一个按钮样式
                     $scope.bg5 = $scope.bg;
                     $scope.bg3 = "";
                 }
+
 
 
                 $scope.showForward = false; //定义上一页按钮默认为隐藏
@@ -186,13 +203,13 @@ angular.module("myApp", ['ui.bootstrap'])
 
             let starttime = $scope.starttime; //起始时间
             if (starttime) {
-                starttime = starttime.getTime();
+                starttime = parseInt(new Date(starttime).getTime()); // 把字符串时间转为时间戳
             } else {
                 starttime = undefined;
             }
             let endtime = $scope.endtime; //结束时间
             if (endtime) {
-                endtime = endtime.getTime();
+                endtime = parseInt(new Date(endtime).getTime()); // 把字符串时间转为时间戳
             } else {
                 endtime = undefined
             }
@@ -204,6 +221,7 @@ angular.module("myApp", ['ui.bootstrap'])
                 author: $scope.user, //创建者
                 startAt: starttime, //开始时间
                 endAt: endtime, //结束时间
+                page: 1
             }, {
                 reload: true //刷新单前页面
             })
@@ -212,8 +230,8 @@ angular.module("myApp", ['ui.bootstrap'])
         $scope.delete = function () { //点击删除按钮，清除所有条件
             $scope.title = "";
             $scope.user = "";
-            $scope.selectedType = "";
-            $scope.selectedStatus = "";
+            $scope.selectedType = undefined;
+            $scope.selectedStatus = undefined;
             $scope.starttime = "";
             $scope.endtime = "";
         }

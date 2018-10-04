@@ -24,12 +24,22 @@ body {
   flex-wrap: wrap;
 }
 .box .top-box .top .content-box {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 300px;
   height: 30px;
   margin: 0 0 20px 40px;
+}
+.box .top-box .top .content-box .date::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -0.5px;
+  width: 30px;
+  height: 30px;
+  background: url(../img/timg.jpg) no-repeat center/cover;
 }
 .box .top-box .top .content-box .to {
   width: 20px;
@@ -155,7 +165,11 @@ body {
   line-height: 20px;
   color: #337ab7;
 }
-.list-footer .bg1, .list-footer .bg2, .list-footer .bg3, .list-footer .bg4, .list-footer .bg5 {
+.list-footer .bg1,
+.list-footer .bg2,
+.list-footer .bg3,
+.list-footer .bg4,
+.list-footer .bg5 {
   background: #337ab7;
   color: #ffffff;
 }
