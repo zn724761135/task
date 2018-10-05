@@ -14,7 +14,7 @@ angular.module("myApp")
                 });
             },
             getListOne: function (id) { //获取单个数据
-                return $http.get(site.getListOne(id), id)
+                return $http.get(site.getListOne(id))
             },
             postAdd: function (params) { //新增列表
                 return $http.post(site.postAdd(), params)
@@ -26,7 +26,7 @@ angular.module("myApp")
                 return $http.put(site.putSwops(), params)
             },
             deleteList: function (id) { //删除
-                return $http.delete(site.deleteList(id), id)
+                return $http.delete(site.deleteList(id))
             }
         }
     })

@@ -46,7 +46,7 @@ angular.module('myApp', ["ui.router", "oc.lazyLoad", "ngFileUpload"]) //加载ui
                 }
             })
             .state('home', { //路由跳转主页
-                url: '/home', //定义主页路由的地址
+                url: '/home?article&articles', //定义主页路由的地址
                 views: { //视窗，加载路由主页的html模块
                     '': {
                         templateUrl: 'html/home.html',
@@ -74,7 +74,7 @@ angular.module('myApp', ["ui.router", "oc.lazyLoad", "ngFileUpload"]) //加载ui
                 }
             })
             .state('home.add', { //路由跳转到新增
-                url: '/list?skip&id', //定义新增路由的地址
+                url: '/add?skip&id', //定义新增路由的地址
                 views: { //视窗，加载新增的html模块
                     '': {
                         templateUrl: "html/add.html",
